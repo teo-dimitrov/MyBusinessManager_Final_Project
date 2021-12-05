@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/commons::head"></head>
+
+<body class="d-flex flex-column min-vh-100 bg-secondary">
+
+<header th:replace="fragments/commons::nav"></header>
+<br>
+<div th:replace="fragments/commons::reports-nav"></div>
+<br>
+<div class="container m-md-auto">
+    <table class="table table-striped table-dark rounded">
+        <thead>
+        <tr class="text-muted">
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Status</th>
+            <th scope="col" >Role</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u : ${users}" th:object="${u}">
+<!--            //todo-->
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<br>
+
+
+<br>
+<br>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
