@@ -4,7 +4,7 @@
 
 <head th:include="fragments/commons::head"></head>
 
-<body class="d-flex flex-column min-vh-100 bg-secondary">
+<body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
 <br>
@@ -21,7 +21,7 @@
             <label for="name">Name</label>
             <div>
                 <input th:field="*{name}" th:errorclass="is-invalid" type="text" class="form-control"
-                       id="name" placeholder="Name">
+                       id="name" placeholder="Name" name="name">
             </div>
             <div>
                 <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"

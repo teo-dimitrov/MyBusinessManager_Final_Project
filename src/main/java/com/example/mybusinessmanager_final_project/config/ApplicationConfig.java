@@ -1,5 +1,6 @@
 package com.example.mybusinessmanager_final_project.config;
 
+
 import com.cloudinary.Cloudinary;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -38,5 +39,6 @@ public class ApplicationConfig {
                 )
         );
     }
+
 
 }

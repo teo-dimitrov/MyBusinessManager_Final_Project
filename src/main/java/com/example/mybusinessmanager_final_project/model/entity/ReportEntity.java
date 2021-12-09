@@ -13,6 +13,7 @@ public class ReportEntity extends BaseEntity{
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
+    @Lob
     private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

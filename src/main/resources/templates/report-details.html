@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head th:include="fragments/commons::head"></head>
 
-<body class="d-flex flex-column min-vh-100 bg-secondary">
+<body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
 <br>
@@ -41,19 +41,22 @@
             </table>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
     <section class="comments">
-        <h1>Comments</h1>
+        <h2 class="text-white">Add Comment</h2>
         <div>
             <form id="commentForm" method="POST" th:action="@{/api/{reportId}/comments(reportId=${report.id})}">
                 <div class="form-group">
-                    <h3>Add a comment</h3>
-                    <label for="message">Message</label>
-                    <textarea name="message"
+                    <label class="glow-h5" for="message">Message</label>
+                    <textarea
+                              name="message"
                               id="message"
                               cols="30"
-                              rows="5"
+                              rows="3"
                               class="form-control"
-                              style="background-color: white;">
+                              style="background-color: white; width: 600px">
                     </textarea>
                     <small id="messageError" class="invalid-feedback">
                         Message is required!
@@ -61,32 +64,48 @@
                 </div>
                 <div class="form-group">
                     <input type="submit"
-                           class="btn bg-primary text-white"
+                           class="btn btn-outline-info text-white"
                            id="postComment"
                            value="Post Comment"/>
                 </div>
             </form>
         </div>
         <div>
-            <span id="commentCtnr"></span>
+            <span class="card" style="width:600px">
+                <div class="card-body" id="commentCtnr"></div>
+            </span>
         </div>
     </section>
+    <br>
+    <br>
     <section class="pictures">
         <div>
             <span id="pictureContainer"></span>
         </div>
     </section>
 </div>
+
 <div class="container mx-auto">
-    <h1>Add picture</h1>
-    <form id="pictureForm2"
-          th:action="@{/reports/{reportId}/pictures/add(reportId=${report.id})}"
-          th:method="post"
-          enctype="multipart/form-data">
-        <input type="text" name="title"/><br/>
-        <input name="picture" type="file"/><br>
-        <input type="submit" class="btn bg-dark text-white" value="Submit"/>
-    </form>
+    <br>
+    <h2 class="text-white">Add picture</h2>
+    <br>
+    <div>
+        <form id="pictureForm2"
+              th:action="@{/reports/{reportId}/pictures/add(reportId=${report.id})}"
+              th:method="post"
+              enctype="multipart/form-data">
+            <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
+            <br/>
+            <br/>
+            <input class="btn btn-outline-info text-white" name="picture" type="file">
+
+            <br>
+            <br>
+            <div class="all-classes-container">
+                <input type="submit" class="btn btn-outline-info text-white" value="Submit"/>
+            </div>
+        </form>
+    </div>
 </div>
 <br>
 <br>

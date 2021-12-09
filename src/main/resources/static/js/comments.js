@@ -12,7 +12,7 @@ const allComments = []
 
 const displayComments = (comments) => {
     commentsCtnr.innerHTML = comments.map(
-        (c)=> {
+        (c) => {
             return asComment(c)
         }
     ).join('')
@@ -56,9 +56,9 @@ async function postFormDataAsJson({url, formData}) {
     const fetchOptions = {
         method: "POST",
         headers: {
-            [csrfHeaderName] : csrfHeaderValue,
-            "Content-Type" : "application/json",
-            "Accept" :"application/json"
+            [csrfHeaderName]: csrfHeaderValue,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
         body: formDataAsJSONString
     }
@@ -75,7 +75,6 @@ async function postFormDataAsJson({url, formData}) {
 
 function asComment(c) {
     let commentHtml = `<div id="commentCntr-${c.commentId}">`
-
     commentHtml += `<h4>${c.user} (${c.created})</h4><br/>`
     commentHtml += `<p>${c.message}</p>`
     commentHtml += `</div>`
@@ -83,9 +82,7 @@ function asComment(c) {
     return commentHtml
 }
 
-fetch(`http://localhost:8080/api/${reportId}/comments`).
-then(response => response.json()).
-then(data => {
+fetch(`http://localhost:8080/api/${reportId}/comments`).then(response => response.json()).then(data => {
     for (let comment of data) {
         allComments.push(comment)
     }
