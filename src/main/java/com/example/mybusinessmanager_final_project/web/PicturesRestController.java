@@ -12,7 +12,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,16 +23,16 @@ import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
-public class PicturesController {
+@RestController
+public class PicturesRestController {
 
     private final CloudinaryService cloudinaryService;
     private final PictureRepository pictureRepository;
     private final PictureService pictureService;
     private final ModelMapper modelMapper;
 
-    public PicturesController(CloudinaryService cloudinaryService,
-                              PictureRepository pictureRepository, PictureService pictureService, ModelMapper modelMapper) {
+    public PicturesRestController(CloudinaryService cloudinaryService,
+                                  PictureRepository pictureRepository, PictureService pictureService, ModelMapper modelMapper) {
         this.cloudinaryService = cloudinaryService;
         this.pictureRepository = pictureRepository;
         this.pictureService = pictureService;
@@ -72,7 +71,7 @@ public class PicturesController {
                 pictureService.addPicture(pictureServiceModel);
 
         URI locationOfNewComment =
-                URI.create(String.format("/reports/%s/pictures/%s", reportId, newPicture.getPictureId()));
+                URI.create(String.format("%s/pictures/%s", reportId, newPicture.getPictureId()));
 
         PictureEntity pictureEntity = modelMapper.map(newPicture, PictureEntity.class);
         pictureRepository.save(pictureEntity);
