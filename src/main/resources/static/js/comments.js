@@ -3,7 +3,7 @@ const reportId = document.getElementById('reportId').value
 const csrfHeaderName = document.head.querySelector('[name="_csrf_header"]').content;
 const csrfHeaderValue = document.head.querySelector('[name="_csrf"]').content;
 
-const commentsCtnr = document.getElementById('commentCtnr')
+const commentsContainer = document.getElementById('commentContainer')
 
 const commentForm = document.getElementById('commentForm')
 commentForm.addEventListener("submit", handleCommentSubmit)
@@ -11,7 +11,7 @@ commentForm.addEventListener("submit", handleCommentSubmit)
 const allComments = []
 
 const displayComments = (comments) => {
-    commentsCtnr.innerHTML = comments.map(
+    commentsContainer.innerHTML = comments.map(
         (c) => {
             return asComment(c)
         }
@@ -28,7 +28,7 @@ async function handleCommentSubmit(event) {
     try {
         const responseData = await postFormDataAsJson({url, formData});
 
-        commentsCtnr.insertAdjacentHTML("afterbegin", asComment(responseData));
+        commentsContainer.insertAdjacentHTML("afterbegin", asComment(responseData));
         form.reset();
 
     } catch (error) {

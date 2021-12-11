@@ -12,27 +12,27 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.net.URI;
 import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
-public class PicturesRestController {
+@Controller
+public class PicturesController {
 
     private final CloudinaryService cloudinaryService;
     private final PictureRepository pictureRepository;
     private final PictureService pictureService;
     private final ModelMapper modelMapper;
 
-    public PicturesRestController(CloudinaryService cloudinaryService,
-                                  PictureRepository pictureRepository, PictureService pictureService, ModelMapper modelMapper) {
+    public PicturesController(CloudinaryService cloudinaryService,
+                              PictureRepository pictureRepository, PictureService pictureService, ModelMapper modelMapper) {
         this.cloudinaryService = cloudinaryService;
         this.pictureRepository = pictureRepository;
         this.pictureService = pictureService;
@@ -43,12 +43,11 @@ public class PicturesRestController {
         final CloudinaryImage uploaded = this.cloudinaryService.upload(file);
 
         return new PictureEntity().
-                setPublicId(uploaded.getPublicId()).
                 setTitle(title).
-                setUrl(uploaded.getUrl());
+                setUrl(uploaded.getUrl()).setPublicId(uploaded.getPublicId());
     }
 
-   @PostMapping("/reports/{reportId}/pictures/add")
+    @PostMapping("/reports/{reportId}/report-details/pictures/add")
     public String newPicture(
             @AuthenticationPrincipal UserDetails principal,
             @PathVariable Long reportId,
@@ -62,55 +61,56 @@ public class PicturesRestController {
         PictureServiceModel pictureServiceModel =
                 modelMapper.map(pictureBindingModel, PictureServiceModel.class);
         pictureServiceModel.setTitle(picture.getTitle())
-                .setUrl(picture.getUrl())
-                .setPublicId(picture.getPublicId());
-        pictureServiceModel.setCreator(principal.getUsername());
+                .setUrl(picture.getUrl()).setPublicId(picture.getPublicId());
+        pictureServiceModel.setAuthor(principal.getUsername());
         pictureServiceModel.setReportId(reportId);
 
         PictureViewModel newPicture =
                 pictureService.addPicture(pictureServiceModel);
 
-        URI locationOfNewComment =
-                URI.create(String.format("%s/pictures/%s", reportId, newPicture.getPictureId()));
 
-        PictureEntity pictureEntity = modelMapper.map(newPicture, PictureEntity.class);
-        pictureRepository.save(pictureEntity);
-
-
-        return reportId + "report-details";
+        return "redirect:/reports/{reportId}/report-details";
     }
 
     @Transactional
-    @DeleteMapping("/api/{reportId}/pictures/{picturesId}/delete")
+    @DeleteMapping("/report/{reportId}/report-details/pictures/all/delete")
     public String delete(@RequestParam("public_id") String publicId) {
         if (cloudinaryService.delete(publicId)) {
             pictureRepository.deleteAllByPublicId(publicId);
         }
-        return "redirect:api/{reportId}/pictures/all";
+        return "redirect:/reports/{reportId}/report-details";
     }
 
-    @GetMapping("/reports/{reportId}/pictures")
+    @GetMapping("/reports/{reportId}/report-details/pictures/all")
     public ResponseEntity<List<PictureViewModel>> getPictures(
             @PathVariable Long reportId,
-            Principal principal, Model model, @ModelAttribute("pictureBindingModel") PictureBindingModel pictureBindingModel
+            Principal principal, Model model,
+            @ModelAttribute("pictureServiceModel") PictureServiceModel pictureServiceModel
     ) {
         List<PictureViewModel> pictures = pictureRepository.
                 findAll().
                 stream().
                 map(this::asViewModel).
                 collect(Collectors.toList());
+
         model.addAttribute("pictures", pictures);
 
         return ResponseEntity.ok(
                 pictureService.getPictures(reportId));
     }
 
+
     private PictureViewModel asViewModel(PictureEntity picture) {
         return new PictureViewModel().
-                setPublicId(picture.getPublicId()).
                 setTitle(picture.getTitle()).
                 setUrl(picture.getUrl()).
-                setUser(picture.getAuthor().getUsername());
+                setPublicId(picture.getPublicId()).
+                setAuthor(picture.getAuthor().getUsername());
 
+    }
+
+    @ModelAttribute
+    public PictureBindingModel pictureBindingModel() {
+        return new PictureBindingModel();
     }
 }

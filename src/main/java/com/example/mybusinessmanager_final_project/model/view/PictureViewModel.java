@@ -1,15 +1,18 @@
 package com.example.mybusinessmanager_final_project.model.view;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.Instant;
 
 public class PictureViewModel {
 
     private Long pictureId;
-    private String user;
+    private String author;
+    private Long reportId;
     private Instant created;
     private String title;
-    private String publicId;
     private String url;
+    private String publicId;
     private boolean canApprove;
     private boolean canDelete;
 
@@ -22,14 +25,6 @@ public class PictureViewModel {
         return this;
     }
 
-    public String getPublicId() {
-        return publicId;
-    }
-
-    public PictureViewModel setPublicId(String publicId) {
-        this.publicId = publicId;
-        return this;
-    }
 
     public String getUrl() {
         return url;
@@ -49,20 +44,29 @@ public class PictureViewModel {
         return this;
     }
 
-    public String getUser() {
-        return user;
+    public String getAuthor() {
+        return author;
     }
 
-    public PictureViewModel setUser(String user) {
-        this.user = user;
+    public PictureViewModel setAuthor(String author) {
+        this.author = author;
         return this;
+    }
 
+    public Long getReportId() {
+        return reportId;
+    }
+
+    public PictureViewModel setReportId(Long reportId) {
+        this.reportId = reportId;
+        return this;
     }
 
     public Instant getCreated() {
         return created;
     }
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "UTC")
     public PictureViewModel setCreated(Instant created) {
         this.created = created;
         return this;
@@ -83,6 +87,15 @@ public class PictureViewModel {
 
     public PictureViewModel setCanDelete(boolean canDelete) {
         this.canDelete = canDelete;
+        return this;
+    }
+
+    public String getPublicId() {
+        return publicId;
+    }
+
+    public PictureViewModel setPublicId(String publicId) {
+        this.publicId = publicId;
         return this;
     }
 }

@@ -10,15 +10,24 @@ import javax.persistence.Table;
 @Table(name = "pictures")
 public class PictureEntity extends BaseEntity {
 
+    private String publicId;
     private String title;
     private String url;
-    private String publicId;
     private boolean approved;
     @ManyToOne
     private ReportEntity reportEntity;
     @ManyToOne
     private UserEntity author;
 
+
+    public String getPublicId() {
+        return publicId;
+    }
+
+    public PictureEntity setPublicId(String publicId) {
+        this.publicId = publicId;
+        return this;
+    }
 
     public String getTitle() {
         return title;
@@ -38,14 +47,6 @@ public class PictureEntity extends BaseEntity {
         return this;
     }
 
-    public String getPublicId() {
-        return publicId;
-    }
-
-    public PictureEntity setPublicId(String publicId) {
-        this.publicId = publicId;
-        return this;
-    }
 
     public boolean isApproved() {
         return approved;
@@ -73,4 +74,6 @@ public class PictureEntity extends BaseEntity {
         this.author = author;
         return this;
     }
+
+
 }

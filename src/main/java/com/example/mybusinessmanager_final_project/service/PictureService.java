@@ -10,6 +10,7 @@ public interface PictureService {
 
     PictureViewModel addPicture(PictureServiceModel pictureServiceModel) throws IOException;
 
-
     List<PictureViewModel> getPictures(Long reportId);
+
+    void delete(String publicId);
 }

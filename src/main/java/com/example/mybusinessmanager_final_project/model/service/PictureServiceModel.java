@@ -6,7 +6,7 @@ public class PictureServiceModel {
     private String title;
     private String url;
     private String publicId;
-    private String creator;
+    private String Author;
 
     public Long getReportId() {
         return reportId;
@@ -44,12 +44,12 @@ public class PictureServiceModel {
         return this;
     }
 
-    public String getCreator() {
-        return creator;
+    public String getAuthor() {
+        return Author;
     }
 
-    public PictureServiceModel setCreator(String creator) {
-        this.creator = creator;
+    public PictureServiceModel setAuthor(String author) {
+        Author = author;
         return this;
     }
 }

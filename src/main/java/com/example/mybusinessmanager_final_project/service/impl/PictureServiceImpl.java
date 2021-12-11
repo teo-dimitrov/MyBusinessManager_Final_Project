@@ -6,10 +6,8 @@ import com.example.mybusinessmanager_final_project.model.view.PictureViewModel;
 import com.example.mybusinessmanager_final_project.repository.PictureRepository;
 import com.example.mybusinessmanager_final_project.repository.ReportRepository;
 import com.example.mybusinessmanager_final_project.repository.UserRepository;
-import com.example.mybusinessmanager_final_project.service.CloudinaryService;
 import com.example.mybusinessmanager_final_project.service.PictureService;
 import com.example.mybusinessmanager_final_project.web.exception.ObjectNotFoundException;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -25,26 +23,29 @@ public class PictureServiceImpl implements PictureService {
     private final UserRepository userRepository;
     private final PictureRepository pictureRepository;
 
-    public PictureServiceImpl(ReportRepository reportRepository, UserRepository userRepository, PictureRepository pictureRepository, CloudinaryService cloudinaryService, ModelMapper modelMapper) {
+    public PictureServiceImpl(ReportRepository reportRepository,
+                              UserRepository userRepository,
+                              PictureRepository pictureRepository) {
         this.reportRepository = reportRepository;
         this.userRepository = userRepository;
         this.pictureRepository = pictureRepository;
     }
 
 
+    @Transactional
     @Override
     public PictureViewModel addPicture(PictureServiceModel pictureServiceModel) {
 
 
-        Objects.requireNonNull(pictureServiceModel.getCreator());
+        Objects.requireNonNull(pictureServiceModel.getAuthor());
 
         var report = reportRepository.
                 findById(pictureServiceModel.getReportId()).
                 orElseThrow(() -> new ObjectNotFoundException("report with id " + pictureServiceModel.getReportId() + " not found!"));
 
         var author = userRepository.
-                findByUsername(pictureServiceModel.getCreator()).
-                orElseThrow(() -> new ObjectNotFoundException("User with username " + pictureServiceModel.getCreator() + " not found!"));
+                findByUsername(pictureServiceModel.getAuthor()).
+                orElseThrow(() -> new ObjectNotFoundException("User with username " + pictureServiceModel.getAuthor() + " not found!"));
 
         PictureEntity newPicture = new PictureEntity();
         newPicture
@@ -71,12 +72,13 @@ public class PictureServiceImpl implements PictureService {
         pictureViewModel.
                 setTitle(pictureEntity.getTitle())
                 .setUrl(pictureEntity.getUrl())
-                .setPublicId(pictureEntity.getPublicId())
                 .setPictureId(pictureEntity.getId())
                 .setCanApprove(true)
                 .setCanDelete(true)
+                .setPublicId(pictureEntity.getPublicId())
                 .setCreated(pictureEntity.getCreated())
-                .setUser(pictureEntity.getAuthor().getUsername());
+                .setReportId(pictureEntity.getReportEntity().getId())
+                .setAuthor(pictureEntity.getAuthor().getUsername());
 
         return pictureViewModel;
     }
@@ -97,5 +99,10 @@ public class PictureServiceImpl implements PictureService {
                 stream().
                 map(this::mapAsPicture).
                 collect(Collectors.toList());
+    }
+
+    @Override
+    public void delete(String publicId) {
+        pictureRepository.deleteAllByPublicId(publicId);
     }
 }

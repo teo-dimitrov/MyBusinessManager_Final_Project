@@ -4,20 +4,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class PictureBindingModel {
 
-    private String pictureId;
+    private String id;
     private String title;
     private MultipartFile picture;
     private String report;
     private String author;
-    private String public_Id;
 
 
     public String getPictureId() {
-        return pictureId;
+        return id;
     }
 
-    public PictureBindingModel setPictureId(String pictureId) {
-        this.pictureId = pictureId;
+    public PictureBindingModel setPictureId(String id) {
+        this.id = id;
         return this;
     }
 
@@ -39,14 +38,7 @@ public class PictureBindingModel {
         return this;
     }
 
-    public String getPublic_Id() {
-        return public_Id;
-    }
 
-    public PictureBindingModel setPublic_Id(String public_Id) {
-        this.public_Id = public_Id;
-        return this;
-    }
 
     public String getTitle() {
         return title;

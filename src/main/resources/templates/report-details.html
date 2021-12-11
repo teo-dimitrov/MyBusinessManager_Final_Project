@@ -72,45 +72,51 @@
         </div>
         <div>
             <span class="card" style="width:600px">
-                <div class="card-body" id="commentCtnr"></div>
+                <div class="card-body" id="commentContainer"></div>
             </span>
         </div>
     </section>
     <br>
     <br>
-    <section class="pictures">
-        <div>
-            <span id="pictureContainer"></span>
-        </div>
-    </section>
-</div>
-
-<div class="container mx-auto">
-    <br>
-    <h2 class="text-white">Add picture</h2>
-    <br>
-    <div>
-        <form id="pictureForm2"
-              th:action="@{/reports/{reportId}/pictures/add(reportId=${report.id})}"
-              th:method="post"
-              enctype="multipart/form-data">
-            <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
-            <br/>
-            <br/>
-            <input class="btn btn-outline-info text-white" name="picture" type="file">
-
+    <div class="container mx-auto">
+        <section class="pictures">
             <br>
+            <h2 class="text-white">Add picture</h2>
             <br>
-            <div class="all-classes-container">
-                <input type="submit" class="btn btn-outline-info text-white" value="Submit"/>
+            <div>
+                <form id="pictureForm"
+
+                      th:action="@{/reports/{reportId}/report-details/pictures/add(reportId=${report.id})}"
+                      th:method="POST"
+
+
+                      enctype="multipart/form-data">
+                    <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
+                    <br/>
+                    <br/>
+                    <input class="btn btn-outline-info text-white" name="picture" type="file">
+
+                    <br>
+                    <br>
+                    <div class="all-classes-container">
+                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture" value="Post Picture"/>
+                    </div>
+                </form>
             </div>
-        </form>
+
+                <span id="pictureContainer"></span>
+
+        </section>
     </div>
+
+
 </div>
+
+
 <br>
 <br>
 <script th:src="@{/js/comments.js}"></script>
-<!--<script th:src="@{/js/pictures.js}"></script>-->
+<script th:src="@{/js/pictures.js}"></script>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>
