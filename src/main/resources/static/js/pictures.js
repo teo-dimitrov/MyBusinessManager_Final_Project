@@ -40,16 +40,20 @@ async function handlePicture(event) {
 }
 
 function viewPicture(p) {
-    let pictureHtml = `<br><div class="card" style="width:600px" id="pictureContainer-${p.picture}">
-<div class="card-body">`
-
-    pictureHtml += `<br><h4>${p.author} (${p.created})</h4><br/>`
-    pictureHtml += `<p>${p.title}</p>`
-    pictureHtml += `<a href="${p.url}"><img src="${p.url}" width="400px"></a>`
-    pictureHtml += `<br><div >
+    let pictureHtml =
+        `<br><div class="card" id="pictureContainer-${p.picture}"><div class="card-body">`
+    pictureHtml +=
+        `<br><h4>${p.author} (${p.created})</h4><br/>`
+    pictureHtml +=
+        `<p>${p.title}</p>`
+    pictureHtml +=
+        `<a href="${p.url}"><img src="${p.url}" class="img-fluid" alt="Responsive image"></a>`
+    pictureHtml +=
+        `<br><div>
 <form action="/reports/${reportId}/report-details/pictures/all/delete"
           method="delete">
       <input type="hidden" name="public_id" value="${p.publicId}"/>
+      <br>
       <input class="btn btn-outline-danger" type="submit" value="Delete"/>
  </form>
 </div></div></div><br>`
@@ -57,7 +61,8 @@ function viewPicture(p) {
     return pictureHtml
 }
 
-fetch(`http://localhost:8080/reports/${reportId}/report-details/pictures/all`).then(response => response.json()).then(data => {
+fetch(`http://localhost:8080/reports/${reportId}/report-details/pictures/all`)
+    .then(response => response.json()).then(data => {
     for (let picture of data) {
         allPictures.push(picture)
     }

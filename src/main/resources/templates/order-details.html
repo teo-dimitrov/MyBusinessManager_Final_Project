@@ -21,7 +21,24 @@
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Added on: ' + *{created}">Added on</h6>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Deadline: ' + *{deadLine}">Deadline</h6>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Description: '"></h6>
-            <p class="card-text" th:text="*{description}">Lorem...</p>
+
+
+<!--            <script>-->
+<!--                function copycontent(){-->
+<!--                    var content = document.getElementById('ta').value;-->
+<!--                    document.getElementById('target').innerText = content;-->
+<!--                }-->
+<!--            </script>-->
+            <textarea class="form-control m-md-auto"
+                      rows="10"
+                      style="background-color: white;" th:text="*{description}" readonly>Lorem...</textarea>
+<!--            <button id='btn' onclick='copycontent();'>-->
+<!--                Copy-->
+<!--            </button>-->
+<!--            <p id='target' style='white-space:pre'>-->
+
+<!--            </p>-->
+            <br>
             <table class="justify-content-end">
                 <tbody>
                 <tr>

@@ -11,7 +11,7 @@ public class ReportAddBindingModel {
 
     private Long id;
     @NotNull
-    @Size(min = 3, max = 40, message = "Name must be between 3 and 20 characters")
+    @Size(min = 3, max = 60, message = "Name must be between 3 and 60 characters")
     private String name;
     @NotBlank(message = "Description can not be empty!")
     private String description;

@@ -11,7 +11,7 @@ public class OrderAddBindingModel {
 
     private Long id;
     @NotNull
-    @Size(min = 2, max = 30, message = "name must between 2 and 30 characters!")
+    @Size(min = 2, max = 60, message = "name must between 2 and 60 characters!")
     private String name;
     private String description;
 

@@ -10,15 +10,18 @@
 <br>
 <div th:replace="fragments/commons::reports-nav"></div>
 <br>
-<div class="container m-md-auto">
-    <div class="card">
+<div class="container">
+    <div class="card m-md-auto">
         <input type="hidden" name="reportId" id="reportId" th:value="${report.id}">
         <div class="card-body" th:object="${report}">
             <h5 class="card-title" th:text="'Name: '+ *{name}">Job 1</h5>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Status: ' + *{reportStatusEnum}">Status</h6>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Type: ' + *{reportTypeEnum}">Type</h6>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Description: '"></h6>
-            <p class="card-text" th:text="*{description}">Lorem...</p>
+            <textarea class="form-control m-md-auto"
+                      rows="10"
+                      style="background-color: white;" th:text="*{description}" readonly>Lorem...</textarea>
+            <br>
             <table class="justify-content-end">
                 <tbody>
                 <tr>
@@ -51,13 +54,12 @@
                 <div class="form-group">
                     <label class="glow-h5" for="message">Message</label>
                     <textarea
-                              name="message"
-                              id="message"
-                              cols="30"
-                              rows="3"
-                              class="form-control"
-                              style="background-color: white; width: 600px">
-                    </textarea>
+                            name="message"
+                            id="message"
+                            cols="30"
+                            rows="3"
+                            class="form-control"
+                            style="background-color: white;"></textarea>
                     <small id="messageError" class="invalid-feedback">
                         Message is required!
                     </small>
@@ -71,7 +73,7 @@
             </form>
         </div>
         <div>
-            <span class="card" style="width:600px">
+            <span class="card" style="width:400px">
                 <div class="card-body" id="commentContainer"></div>
             </span>
         </div>
@@ -99,12 +101,13 @@
                     <br>
                     <br>
                     <div class="all-classes-container">
-                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture" value="Post Picture"/>
+                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture"
+                               value="Post Picture"/>
                     </div>
                 </form>
             </div>
-
-                <span id="pictureContainer"></span>
+            <br>
+            <span id="pictureContainer"></span>
 
         </section>
     </div>
