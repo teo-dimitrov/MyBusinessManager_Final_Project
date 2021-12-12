@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
     private final MBMUserServiceImpl mbmUserService;
     private final ModelMapper modelMapper;
 
+
     public UserServiceImpl(PasswordEncoder passwordEncoder,
                            UserRepository userRepository,
                            UserRoleRepository userRoleRepository,
@@ -150,6 +151,22 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
 
+    @Override
+    public void changeUserRole(String role, Long id) {
+
+        UserRoleEntity adminRole = userRoleRepository.findByRole(UserRoleEnum.ADMIN);
+        UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
+
+        UserEntity userEntity = userRepository.findByUserId(id);
+
+            if(role.equals("ADMIN")){
+                userEntity.setRoles(List.of(adminRole, userRole));
+            }else if(role.equals("USER")){
+                userEntity.setRoles(List.of(userRole));
+            }
+            userRepository.save(userEntity);
+    }
+
     @Transactional
     @Override
     public List<UserServiceModel> getAllUsers() {
@@ -178,6 +195,14 @@ public class UserServiceImpl implements UserService {
                 () -> new UsernameNotFoundException(String.format("User with name %s not found!", username)));
         return modelMapper.map(userEntity, UserDetailsView.class);
 
+    }
+
+    @Override
+    public Optional<UserViewModel> findById(Long id) {
+       return userRepository
+                .findById(id)
+                .map(userEntity -> modelMapper
+                        .map(userEntity, UserViewModel.class));
     }
 
     private UserServiceModel mapToServiceModel(UserEntity entity) {

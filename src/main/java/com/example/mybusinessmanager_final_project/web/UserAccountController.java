@@ -2,6 +2,7 @@ package com.example.mybusinessmanager_final_project.web;
 
 import com.example.mybusinessmanager_final_project.model.binding.ChangePasswordBindingModel;
 import com.example.mybusinessmanager_final_project.model.binding.ChangeUserAccountSettingsBindingModel;
+import com.example.mybusinessmanager_final_project.model.binding.UserDetailsBindingModel;
 import com.example.mybusinessmanager_final_project.model.view.UserDetailsView;
 import com.example.mybusinessmanager_final_project.model.view.UserViewModel;
 import com.example.mybusinessmanager_final_project.service.UserService;
@@ -14,10 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -124,9 +122,61 @@ public class UserAccountController {
         return "redirect:/users/user-details";
     }
 
+    @GetMapping("users/{id}/users-details")
+    public String showAccount(@PathVariable Long id, Model model,
+                              @AuthenticationPrincipal UserDetails principal) {
+
+        UserViewModel viewModel = userService
+                .findById(id)
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("user"));
+
+        model.addAttribute("user", viewModel);
+
+        return "users-details";
+    }
+
+
+    @GetMapping("/users/{id}/users-details/user-set-privilegs")
+    private String getChangePrivilegs(UserDetailsBindingModel userSettingsModel) {
+
+        return "user-set-privilegs";
+    }
+
+    @PatchMapping("/users/{id}/users-details/users-set-privilegs")
+    private String editPrivilegs(@PathVariable Long id,
+            @Valid UserDetailsBindingModel userSettingsModel,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttributes,
+            @AuthenticationPrincipal MBMUser currentUser) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("userSettingsModel", userSettingsModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userSettingsModel", bindingResult);
+
+            return "redirect:users-all";
+        }
+        UserDetailsBindingModel userSettingModel = modelMapper.map(userSettingsModel,
+                UserDetailsBindingModel.class);
+        userSettingModel
+                .setIsActive(userSettingModel.getIsActive())
+                .setRoles(userSettingModel.getRoles());
+
+        String role = userSettingModel.getRole().toString();
+        if(userSettingModel.getId() == 1){
+            return "redirect:/users/all";
+
+        }else {userService.changeUserRole(role, id);}
+
+        return "redirect:/users/all";
+    }
+
     @ModelAttribute
     public ChangePasswordBindingModel changePasswordBindingModel() {
         return new ChangePasswordBindingModel();
     }
 
+    @ModelAttribute
+    public UserDetailsBindingModel userDetailsBindingModel() {
+        return new UserDetailsBindingModel();
+    }
 }

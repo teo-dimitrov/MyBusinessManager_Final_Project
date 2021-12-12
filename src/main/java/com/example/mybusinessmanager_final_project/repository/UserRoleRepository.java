@@ -10,4 +10,5 @@ public interface UserRoleRepository extends JpaRepository<UserRoleEntity, Long> 
 
     UserRoleEntity findByRole(UserRoleEnum role);
 
+
 }

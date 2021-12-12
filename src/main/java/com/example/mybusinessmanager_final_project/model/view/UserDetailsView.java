@@ -2,12 +2,22 @@ package com.example.mybusinessmanager_final_project.model.view;
 
 public class UserDetailsView {
 
+    private Long id;
     private String username;
     private String firstName;
     private String lastName;
     private String email;
 
     public UserDetailsView() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public UserDetailsView setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getUsername() {

@@ -67,8 +67,8 @@ class UserRegistrationControllerTest {
         UserEntity newlyCreatedUser = newlyCreatedUserOpt.get();
 
         Assertions.assertEquals(TEST_USER_EMAIL, newlyCreatedUser.getEmail());
-//        Assertions.assertEquals(TEST_USERNAME, newlyCreatedUser.getUsername());
-//        Assertions.assertEquals("test", newlyCreatedUser.getFirstName());
-//        Assertions.assertEquals("testov", newlyCreatedUser.getLastName());
+        Assertions.assertEquals(TEST_USERNAME, newlyCreatedUser.getUsername());
+        Assertions.assertEquals("test", newlyCreatedUser.getFirstName());
+        Assertions.assertEquals("testov", newlyCreatedUser.getLastName());
     }
 }
