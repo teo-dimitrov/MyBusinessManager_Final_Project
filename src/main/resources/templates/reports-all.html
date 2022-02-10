@@ -41,7 +41,10 @@
         <tbody>
         <tr th:each="r : ${reports}" th:object="${r}">
             <th scope="row" th:text="*{id}"></th>
-            <td><a class="btn text-warning" th:text="*{name}" th:href="@{/reports/{id}/report-details(id=*{id})}"></a>
+            <td><div class="wrapper">
+                <a class="btn text-warning repoName" th:text="*{name}" th:href="@{/reports/{id}/report-details(id=*{id})}"></a>
+            </div>
+
             </td>
             <td th:text="*{reportTypeEnum}"></td>
             <td>

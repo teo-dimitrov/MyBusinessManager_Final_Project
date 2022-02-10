@@ -1,20 +1,25 @@
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://${MYSQL_HOST:localhost}:3306/my_business_manager_final_project?useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC"
-    username: root
-    password: ${mysql_password}
+    driverClassName: org.postgresql.Driver
+#    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME2:mbm2}?useSSL=false
+#    url: jdbc:mysql://localhost:6603/mbm_v1?useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      initialization-fail-timeout: 0
   sql:
     init:
       mode: always
   jpa:
     # Choose either MySQL 8 or MySQL 5 below
     # For MySQL 8
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
     #For MySQL 5
     #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     open-in-view: false
     properties:
       hibernate:
@@ -30,10 +35,10 @@ spring:
       max-request-size: 10MB
 
 
-  #Cloudinary Properties
+#Cloudinary Properties
 cloudinary:
   api-key: 299495348844489
-  api-secret: ${cloudinary_secret}
+  api-secret: ${CLOUDINARY_SECRET}
   cloud-name: tdimitrov
 logging:
   level:

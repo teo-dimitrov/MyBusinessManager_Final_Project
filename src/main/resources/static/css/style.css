@@ -85,3 +85,45 @@
     background-size: cover;
 }
 
+#username {
+    resize: none;
+}
+
+#name{
+    resize: none;
+}
+.picChooseBtn{
+    background-color: #343a40;
+    display: flex;
+    border-radius: 15rem;
+    color: white;
+}
+.picChooseBtnInput {
+    border-radius: 15rem;
+}
+#picTitle{
+    display: flex;
+}
+
+.wrapper {
+  display: flex;
+}
+.repoName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 7rem;
+}
+
+.orderAdded{
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 133px;
+    resize: none;
+    /*background: black;*/
+}
+
+.submitOrder{
+    display: flex;
+    margin-left: 40px;
+}

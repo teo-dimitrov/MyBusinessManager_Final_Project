@@ -32,9 +32,11 @@
         <tbody>
         <tr th:each="o : ${orders}" th:object="${o}">
             <th scope="row" th:text="*{id}"></th>
-            <td><a  class="btn text-warning" th:text="*{name}" th:href="@{/orders/{id}/order-details(id=*{id})}" th:alt="response"></a>
+            <td><a  class="btn text-warning repoName" th:text="*{name}" th:href="@{/orders/{id}/order-details(id=*{id})}" th:alt="response"></a>
             </td>
-            <td th:text="*{created}"></td>
+            <td >
+                <textarea th:text="*{created}" class="orderAdded" rows="1"></textarea>
+            </td>
             <td>
                 <div class="row justify-content-md-center">
                     <p class="text-danger"
