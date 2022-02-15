@@ -7,35 +7,25 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-<br>
-<br>
-<div class="container">
-<div class="card" >
-    <div class="card text-center">
-        <div class="card-header">
-            <h5 class="card-title">Here we can track our job...</h5>
-        </div>
+
+<main class="container">
+<section class="card">
+    <article class="text-center home">
+
+        <h5 class="card-title card-header">Here we can track our job...</h5>
+
         <div class="card-body" id="card-home">
-            <br>
-            <br>
-            <br>
             <h2 class="glow center-block m-md-auto ">Welcome to</h2>
             <h1 class="glow center-block m-md-auto text-outline-white">My Business Manager</h1>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
         </div>
+
         <div class="card-footer text-muted">
             <span>Did you finish the job?</span>
             <a href="/reports/all" class="btn btn-outline-info">Go to Reports</a>
         </div>
-    </div>
-</div>
-</div>
-<br>
-<br>
+    </article>
+</section>
+</main>
 <footer class="mt-auto" th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

@@ -25,9 +25,8 @@
 
             <th class="tr-header">
 
-            <p>ID</p>
-            <p>Name</p>
-            <p>Added On</p>
+            <p>Orders</p>
+
             </th>
 
         </thead>
@@ -35,17 +34,12 @@
         <tr th:each="o : ${orders}" th:object="${o}">
 
             <td class="td_order_container">
-                <p  th:text="*{id}"></p>
-                <a  class="btn text-warning repoName"
+                Title: <a  class="btn text-warning"
                     th:text="*{name}"
                     th:href="@{/orders/{id}/order-details(id=*{id})}"
                     th:alt="response"></a>
-                <p class="repoName" th:text="*{created}"></p>
-
-                    <br>
-
-
-                <p class="text-danger" th:text="*{deadLine}"></p>
+                Added On: <p th:text="*{instantStr}"></p>
+                Deadline: <p class="text-danger" th:text="*{deadLine}"></p>
 
 
             </td>
