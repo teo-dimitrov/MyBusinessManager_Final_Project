@@ -61,7 +61,7 @@ function viewPicture(p) {
     return pictureHtml
 }
 
-fetch(`http://localhost:8080/reports/${reportId}/report-details/pictures/all`)
+fetch(`/reports/${reportId}/report-details/pictures/all`)
     .then(response => response.json()).then(data => {
     for (let picture of data) {
         allPictures.push(picture)

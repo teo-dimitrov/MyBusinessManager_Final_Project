@@ -1,6 +1,6 @@
 
 #footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     background: #343a40;
     text-align: center;
@@ -85,3 +85,85 @@
     background-size: cover;
 }
 
+#username {
+    resize: none;
+}
+
+#name{
+    resize: none;
+}
+.picChooseBtn{
+    background-color: #343a40;
+    display: flex;
+    border-radius: 15rem;
+    color: white;
+}
+.picChooseBtnInput {
+    border-radius: 15rem;
+}
+#picTitle{
+    display: flex;
+}
+
+.wrapper {
+  display: flex;
+}
+.repoName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 7rem;
+}
+
+.orderAdded{
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 133px;
+    resize: none;
+    /*background: black;*/
+}
+
+.submitOrder{
+    display: flex;
+    margin-left: 40px;
+}
+
+.td_order_container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+.td_order_container>p:first-child {
+ align-self: center;
+}
+.td_order_container>a:first-child {
+    align-self: flex-start;
+}
+.thead{
+    /*display: flex;*/
+}
+.tr-header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*background-color: white;*/
+    /*flex-wrap: nowrap;*/
+
+
+    position: center;
+
+
+    margin-left: 0;
+}
+
+.tr-header>p {
+    /*background-color: #82e8ec;*/
+    align-content: space-around;
+
+}
+
+.table-header{
+    padding-bottom: 0;
+}

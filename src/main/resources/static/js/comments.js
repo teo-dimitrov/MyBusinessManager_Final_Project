@@ -82,7 +82,7 @@ function asComment(c) {
     return commentHtml
 }
 
-fetch(`http://localhost:8080/api/${reportId}/comments`).then(response => response.json()).then(data => {
+fetch(`/api/${reportId}/comments`).then(response => response.json()).then(data => {
     for (let comment of data) {
         allComments.push(comment)
     }

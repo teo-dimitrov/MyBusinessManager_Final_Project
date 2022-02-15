@@ -73,7 +73,7 @@
             </form>
         </div>
         <div>
-            <span class="card" style="width:400px">
+            <span class="card">
                 <div class="card-body" id="commentContainer"></div>
             </span>
         </div>
@@ -93,11 +93,15 @@
 
 
                       enctype="multipart/form-data">
-                    <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
+                    <div id="picTitle">
+                    <input  class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
+                    </div><br/>
                     <br/>
-                    <br/>
-                    <input class="btn btn-outline-info text-white" name="picture" type="file">
-
+                    <div class="picChooseBtn">
+                    <input name="picture"
+                           type="file"
+                           class="picChooseBtnInput">
+                    </div>
                     <br>
                     <br>
                     <div class="all-classes-container">

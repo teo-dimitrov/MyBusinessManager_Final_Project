@@ -20,29 +20,37 @@
     </table>
 
 
-    <table class="table table-striped table-dark rounded" >
-        <thead>
-        <tr class="text-muted">
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Added On</th>
-            <th scope="col">Deadline</th>
-        </tr>
+    <table class="table table-striped table-dark rounded table-header" >
+        <thead class="text-muted thead">
+
+            <th class="tr-header">
+
+            <p>ID</p>
+            <p>Name</p>
+            <p>Added On</p>
+            </th>
+
         </thead>
         <tbody>
         <tr th:each="o : ${orders}" th:object="${o}">
-            <th scope="row" th:text="*{id}"></th>
-            <td><a  class="btn text-warning" th:text="*{name}" th:href="@{/orders/{id}/order-details(id=*{id})}" th:alt="response"></a>
-            </td>
-            <td th:text="*{created}"></td>
-            <td>
-                <div class="row justify-content-md-center">
-                    <p class="text-danger"
 
-                       th:text="*{deadLine}"></p>
-                </div>
+            <td class="td_order_container">
+                <p  th:text="*{id}"></p>
+                <a  class="btn text-warning repoName"
+                    th:text="*{name}"
+                    th:href="@{/orders/{id}/order-details(id=*{id})}"
+                    th:alt="response"></a>
+                <p class="repoName" th:text="*{created}"></p>
+
+                    <br>
+
+
+                <p class="text-danger" th:text="*{deadLine}"></p>
+
+
             </td>
         </tr>
+
         </tbody>
     </table>
 

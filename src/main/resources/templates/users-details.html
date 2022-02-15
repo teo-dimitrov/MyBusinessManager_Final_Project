@@ -58,17 +58,18 @@
                     <th scope="row"></th>
                     <td th:text="'Is Active: ' + *{isActive()}"></td>
                     <td>
-                        <div>
-                            <a class="btn btn-outline-info row justify-content-md-center"
-                               th:href="@{/users/{id}/users-details/user-set-privilegs(id=*{id})}">
-                                Change Settings</a>
-                        </div>
+
                     </td>
                 </tr>
                 <tr>
                 <tr>
                     <th scope="row"></th>
                     <td>
+                        <div>
+                            <a class="btn btn-outline-info row justify-content-md-center"
+                               th:href="@{/users/{id}/users-details/user-set-privilegs(id=*{id})}">
+                                Change Settings</a>
+                        </div>
                     </td>
                     <td>
                     </td>
