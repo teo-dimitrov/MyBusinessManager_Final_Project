@@ -8,23 +8,36 @@
 
 <header th:replace="fragments/commons::nav"></header>
 
-<main class="container">
-<section class="card">
-    <article class="text-center home">
-
-        <h5 class="card-title card-header">Here we can track our job...</h5>
-
-        <div class="card-body" id="card-home">
-            <h2 class="glow center-block m-md-auto ">Welcome to</h2>
-            <h1 class="glow center-block m-md-auto text-outline-white">My Business Manager</h1>
+<main>
+    <section class="section__home">
+        <h5>Here we can track our job...</h5>
+        <div class="divider"></div>
+        <div class="section__main">
+        <h2>Welcome to</h2>
+        <h1>My Business Manager</h1>
         </div>
-
-        <div class="card-footer text-muted">
+        <div class="divider"></div>
+        <div class="section__home_footer">
             <span>Did you finish the job?</span>
             <a href="/reports/all" class="btn btn-outline-info">Go to Reports</a>
         </div>
-    </article>
-</section>
+    </section>
+<!--    <section class="card">-->
+<!--        <article class="text-center home">-->
+
+<!--            <h5 class="card-title card-header">Here we can track our job...</h5>-->
+
+<!--            <div class="card-body" id="card-home">-->
+<!--                <h2 class="glow center-block m-md-auto ">Welcome to</h2>-->
+<!--                <h1 class="glow center-block m-md-auto text-outline-white">My Business Manager</h1>-->
+<!--            </div>-->
+
+<!--            <div class="card-footer text-muted">-->
+<!--                <span>Did you finish the job?</span>-->
+<!--                <a href="/reports/all" class="btn btn-outline-info">Go to Reports</a>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--    </section>-->
 </main>
 <footer class="mt-auto" th:replace="fragments/commons::footer"></footer>
 </body>
