@@ -14,13 +14,6 @@ body {
     /*background-color: #2196d9;*/
 }
 
-#username {
-    resize: none;
-}
-
-#name{
-    resize: none;
-}
 .picChooseBtn{
     background-color: #343a40;
     display: flex;

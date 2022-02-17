@@ -14,58 +14,59 @@
     <div class="card">
         <br>
         <form
-          th:action="@{/reports/add}"
-          th:method="POST"
-          th:object="${reportAddBindingModel}">
-        <div class="form-group col-auto">
-            <label for="name">Name</label>
-            <div>
-                <textarea th:field="*{name}" th:errorclass="is-invalid"
-                          type="text" class="form-control"
-                          id="name" placeholder="Name" name="name" rows="1"></textarea>
+                th:action="@{/reports/add}"
+                th:method="POST"
+                th:object="${reportAddBindingModel}">
+            <div class="form-group col-auto">
+                <label for="name">Name</label>
+                <div>
+                    <input type="text" autocomplete="off"
+                           th:field="*{name}" th:errorclass="is-invalid"
+                           type="text" class="form-control"
+                           id="name" placeholder="Name" name="name" rows="1"/>
+                </div>
+                <div>
+                    <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
+                           class="form-text bg-danger rounded text-white">error</small>
+                </div>
             </div>
-            <div>
-                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
-                       class="form-text bg-danger rounded text-white">error</small>
+            <div class="form-group col-auto">
+                <label for="reportStatusEnum">select Status</label>
+                <select class="form-control" id="reportStatusEnum" name="reportStatusEnum">
+                    <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum).values()}"
+                            th:value="${r}"
+                            th:text="${r}"
+                            th:selected="${r} == *{reportStatusEnum}">Status
+                    </option>
+                </select>
             </div>
-        </div>
-        <div class="form-group col-auto">
-            <label for="reportStatusEnum">select Status</label>
-            <select class="form-control" id="reportStatusEnum" name="reportStatusEnum">
-                <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum).values()}"
-                        th:value="${r}"
-                        th:text="${r}"
-                        th:selected="${r} == *{reportStatusEnum}">Status
-                </option>
-            </select>
-        </div>
-        <div class="form-group col-auto">
-            <label for="reportTypeEnum">select Type</label>
-            <select class="form-control" id="reportTypeEnum" name="reportTypeEnum">
-                <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum).values()}"
-                        th:value="${r}"
-                        th:text="${r}"
-                        th:selected="${r} == *{reportTypeEnum}">Type
-                </option>
-            </select>
-        </div>
-        <div class="form-group col-auto">
-            <div>
-                <label for="description">Report Description</label>
-                <textarea
-                        th:field="*{description}"
-                        th:errorclass="is-invalid"
-                        class="form-control" id="description" rows="5" placeholder="Description"></textarea>
+            <div class="form-group col-auto">
+                <label for="reportTypeEnum">select Type</label>
+                <select class="form-control" id="reportTypeEnum" name="reportTypeEnum">
+                    <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum).values()}"
+                            th:value="${r}"
+                            th:text="${r}"
+                            th:selected="${r} == *{reportTypeEnum}">Type
+                    </option>
+                </select>
             </div>
-            <div>
-                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
-                       class="form-text bg-danger rounded text-white">error</small>
+            <div class="form-group col-auto">
+                <div>
+                    <label for="description">Report Description</label>
+                    <textarea
+                            th:field="*{description}"
+                            th:errorclass="is-invalid"
+                            class="form-control" id="description" rows="5" placeholder="Description"></textarea>
+                </div>
+                <div>
+                    <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
+                           class="form-text bg-danger rounded text-white">error</small>
+                </div>
             </div>
-        </div>
-        <div class="submitOrder">
-            <button type="submit" class="btn btn-secondary">Submit</button>
-        </div>
-    </form>
+            <div class="submitOrder">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </form>
         <br>
     </div>
     <br>
