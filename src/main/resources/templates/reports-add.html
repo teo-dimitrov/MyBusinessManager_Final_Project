@@ -20,10 +20,10 @@
             <div class="form-group col-auto">
                 <label for="name">Name</label>
                 <div>
-                    <input type="text" autocomplete="off"
+                    <input autocomplete="off"
                            th:field="*{name}" th:errorclass="is-invalid"
                            type="text" class="form-control"
-                           id="name" placeholder="Name" name="name" rows="1"/>
+                           id="name" placeholder="Name" name="name"/>
                 </div>
                 <div>
                     <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
