@@ -12,7 +12,7 @@ public class ChangeUserAccountSettingsBindingModel {
     @Size(min = 3, max = 20, message = "Last Name must between 3 and 20 characters")
     private String lastName;
     @NotNull
-    @Size(min = 3, max = 20, message = "Email must between 3 and 20 characters")
+    @Size(min = 3, max = 60, message = "Email must between 3 and 60 characters")
     private String email;
 
 

@@ -22,8 +22,8 @@
                 <label for="name">Name</label>
                 <div>
                     <input  type="text"  autocomplete="off"  th:field="*{name}"
-                           th:errorclass="is-invalid" type="text" class="form-control"
-                              id="name" placeholder="Name" rows="1"/>
+                           th:errorclass="is-invalid" class="form-control"
+                              id="name" placeholder="Name"/>
                 </div>
                 <div>
                     <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"

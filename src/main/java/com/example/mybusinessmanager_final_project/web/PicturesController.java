@@ -73,7 +73,7 @@ public class PicturesController {
     }
 
     @Transactional
-    @DeleteMapping("/report/{reportId}/report-details/pictures/all/delete")
+    @DeleteMapping("/reports/{reportId}/report-details/pictures/delete")
     public String delete(@RequestParam("public_id") String publicId) {
         if (cloudinaryService.delete(publicId)) {
             pictureRepository.deleteAllByPublicId(publicId);

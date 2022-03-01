@@ -6,11 +6,11 @@ import javax.validation.constraints.Size;
 public class ChangePasswordBindingModel {
 
     @NotBlank
-    @Size(min = 2, max = 200)
+    @Size(min = 4, max = 40)
     private String newPassword;
 
     @NotBlank
-    @Size(min = 2, max = 20)
+    @Size(min = 4, max = 40)
     private String confirmPassword;
 
     private boolean notMatch = false;

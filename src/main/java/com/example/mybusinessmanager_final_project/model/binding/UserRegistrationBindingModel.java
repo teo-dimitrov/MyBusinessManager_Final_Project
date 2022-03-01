@@ -19,13 +19,13 @@ public class UserRegistrationBindingModel {
     @Size(min = 3, max = 20, message = "Last Name must between 3 and 20 characters")
     private String lastName;
     @NotNull
-    @Size(min = 3, max = 20, message = "Email must between 3 and 20 characters")
+    @Size(min = 3, max = 60, message = "Email must between 3 and 60 characters")
     private String email;
     @NotNull
-    @Size(min = 3, max = 20, message = "Password must between 3 and 20 characters")
+    @Size(min = 4, max = 40, message = "Password must between 3 and 40 characters")
     private String password;
     @NotNull
-    @Size(min = 3, max = 20, message = "Confirm Password must between 3 and 20 characters")
+    @Size(min = 4, max = 40, message = "Confirm Password must between 3 and 40 characters")
     private String confirmPassword;
 
     public UserRegistrationBindingModel() {

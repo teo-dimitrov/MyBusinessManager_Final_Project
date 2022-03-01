@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class ReportEditBindingModel {
     private Long id;
     @NotNull
-    @Size(min = 3, max = 40, message = "Name must be between 3 and 20 characters")
+    @Size(min = 3, max = 40, message = "Name must be between 3 and 40 characters")
     private String name;
     @NotNull
     @NotBlank(message = "Description can not be empty!")

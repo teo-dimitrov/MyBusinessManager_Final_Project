@@ -22,31 +22,21 @@
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Deadline: ' + *{deadLine}">Deadline</h6>
             <h6 class="card-subtitle mb-2 text-muted" th:text="'Description: '"></h6>
 
-
-<!--            <script>-->
-<!--                function copycontent(){-->
-<!--                    var content = document.getElementById('ta').value;-->
-<!--                    document.getElementById('target').innerText = content;-->
-<!--                }-->
-<!--            </script>-->
             <textarea class="form-control m-md-auto"
-                      rows="10"
+                      rows="5"
                       style="background-color: white;" th:text="*{description}" readonly>Lorem...</textarea>
-<!--            <button id='btn' onclick='copycontent();'>-->
-<!--                Copy-->
-<!--            </button>-->
-<!--            <p id='target' style='white-space:pre'>-->
 
-<!--            </p>-->
             <br>
             <table class="justify-content-end">
                 <tbody>
                 <tr>
                     <td>
                         <th:block th:if="*{isOwner}">
-                            <form>
-                                <a class="btn btn-success" th:href="@{/orders/{id}/edit(id=*{id})}">Edit</a>
-                            </form>
+
+                                <form>
+                                    <a class="btn btn-success" th:href="@{/orders/{id}/edit(id=*{id})}">Edit</a>
+                                </form>
+
                         </th:block>
                     </td>
                     <td>
@@ -61,13 +51,8 @@
             </table>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
 </div>
-<br>
-<br>
-<br>
+
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>
