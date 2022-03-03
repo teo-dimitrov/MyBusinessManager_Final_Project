@@ -40,7 +40,7 @@ public class CommentViewModel {
     return this;
   }
 
-  @JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "UTC")
+  @JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "Europe/Sofia")
   public Instant getCreated() {
     return created;
   }
