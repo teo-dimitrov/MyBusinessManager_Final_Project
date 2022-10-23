@@ -1,6 +1,7 @@
 package com.example.mybusinessmanager_final_project.service.impl;
 
 import com.example.mybusinessmanager_final_project.model.binding.ReportAddBindingModel;
+import com.example.mybusinessmanager_final_project.model.entity.BaseEntity;
 import com.example.mybusinessmanager_final_project.model.entity.ReportEntity;
 import com.example.mybusinessmanager_final_project.model.entity.UserEntity;
 import com.example.mybusinessmanager_final_project.model.entity.UserRoleEntity;
@@ -18,6 +19,8 @@ import com.example.mybusinessmanager_final_project.web.exception.ObjectNotFoundE
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,12 +61,15 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public List<ReportSummaryView> getAllReports() {
-        return reportRepository.findAll().stream()
+
+
+        return reportRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
                 .map(this::map).collect(Collectors.toList());
     }
 
     @Override
     public ReportDetailsView findById(Long id, String currentUser) {
+
         return this.reportRepository
                 .findById(id).map(r -> mapDetailsView(currentUser, r)).get();
     }
@@ -106,7 +112,8 @@ public class ReportServiceImpl implements ReportService {
                 .setName(reportModel.getName())
                 .setDescription(reportModel.getDescription())
                 .setReportStatusEnum(reportModel.getReportStatusEnum())
-                .setReportTypeEnum(reportModel.getReportTypeEnum());
+                .setReportTypeEnum(reportModel.getReportTypeEnum())
+                .setModified(Instant.now());
 
         reportRepository.save(reportEntity);
 

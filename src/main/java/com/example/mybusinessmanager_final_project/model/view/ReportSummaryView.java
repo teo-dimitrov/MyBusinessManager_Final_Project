@@ -20,6 +20,16 @@ public class ReportSummaryView {
     private String instantModifiedStr;
 
     private String authorId;
+    private boolean isModified;
+
+    public boolean isModified() {
+        return isModified;
+    }
+
+    public ReportSummaryView setModified(boolean modified) {
+        isModified = modified;
+        return this;
+    }
 
     public String getAuthorId() {
         return authorId;
@@ -40,6 +50,7 @@ public class ReportSummaryView {
         return this;
     }
     public String getInstantModifiedStr() {
+
         instantModifiedStr = modified.truncatedTo(ChronoUnit.SECONDS).toString().replaceAll("[TZ]", " ");
         return instantModifiedStr;
     }
