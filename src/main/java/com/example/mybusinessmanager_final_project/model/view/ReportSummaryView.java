@@ -20,16 +20,7 @@ public class ReportSummaryView {
     private String instantModifiedStr;
 
     private String authorId;
-    private boolean isModified;
 
-    public boolean isModified() {
-        return isModified;
-    }
-
-    public ReportSummaryView setModified(boolean modified) {
-        isModified = modified;
-        return this;
-    }
 
     public String getAuthorId() {
         return authorId;
