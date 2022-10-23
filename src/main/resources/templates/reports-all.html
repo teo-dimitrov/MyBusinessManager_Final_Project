@@ -4,6 +4,7 @@
 
 <head th:include="fragments/commons::head">
 
+
 </head>
 
 <body class="d-flex flex-column" id="body">
@@ -12,6 +13,37 @@
 <br>
 <div th:replace="fragments/commons::reports-nav"></div>
 <br>
+<section class="container-reports">
+    <section class="report" th:each="r : ${reports}" th:object="${r}">
+
+        <div class="report-body">
+
+            <img class="report-img"
+                 src="../images/Deks_Logo_BLACK2.jpg">
+
+            <h3 th:text="*{name}">Title</h3>
+
+            <div class="wrapper-date">
+                <p class="p-text">Added On:</p>
+                <p class="date-time" th:text="*{instantCreatedStr}"></p></div>
+<!--            <div class="wrapper-date">-->
+<!--                <p class="p-text">Edited On:</p>-->
+<!--                <p class="date-time" th:text="*{instantModifiedStr}"></p>-->
+<!--            </div>-->
+            <div class="wrapper-date">
+                <p class="p-text">Added from user with ID:</p>
+            <p class="date-time" th:text="*{authorId}"></p>
+            </div>
+
+            <p id="status" th:class="${r.reportStatusEnum.name() == 'UNCHECKED'} ? 'text-danger' : 'text-success'"
+               th:text="'Status: ' + *{reportStatusEnum}"></p>
+
+            <a class="link" th:href="@{/reports/{id}/report-details(id=*{id})}">Go to
+                Details</a>
+
+        </div>
+    </section>
+</section>
 
 <div class="container">
     <div class="input-group-append justify-content-md-center">
@@ -29,29 +61,34 @@
     </table>
 
 
-    <table class="table table-striped table-dark rounded">
-        <th class="tr-header">
+<!--    <table class="table table-striped table-dark rounded">-->
+<!--        <th class="tr-header">-->
 
-            <p>Reports</p>
+<!--            <p>Reports</p>-->
 
-        </th>
-        <tbody>
-        <tr th:each="r : ${reports}" th:object="${r}">
-            <td>
-                <div class="wrapper">
-                    <a class="btn text-warning all--view--Name"
-                       th:text="*{name}" th:href="@{/reports/{id}/report-details(id=*{id})}"></a>
-                </div>
-                <p th:text="*{reportTypeEnum}"></p>
-                <p th:class="${r.reportStatusEnum.name() == 'UNCHECKED'} ? 'text-danger' : 'text-success'"
-                             th:text="*{reportStatusEnum}"></p>
+<!--        </th>-->
+<!--        <tbody>-->
+<!--        <tr th:each="r : ${reports}" th:object="${r}">-->
+<!--            <td>-->
+<!--                <div class="wrapper">-->
+<!--                    <a class="btn text-warning all&#45;&#45;view&#45;&#45;Name"-->
+<!--                       th:text="*{name}" th:href="@{/reports/{id}/report-details(id=*{id})}"></a>-->
+<!--                </div>-->
+<!--                <p th:text="*{reportTypeEnum}"></p>-->
+<!--                <p th:class="${r.reportStatusEnum.name() == 'UNCHECKED'} ? 'text-danger' : 'text-success'"-->
+<!--                   th:text="*{reportStatusEnum}"></p>-->
 
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<!--            </td>-->
+
+
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
 
 </div>
+
+
 <br>
 <br>
 <br>

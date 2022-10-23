@@ -1,6 +1,5 @@
 package com.example.mybusinessmanager_final_project.web;
 
-import com.example.mybusinessmanager_final_project.model.view.ReportSummaryView;
 import com.example.mybusinessmanager_final_project.model.view.ReportViewModel;
 import com.example.mybusinessmanager_final_project.repository.ReportRepository;
 import org.modelmapper.ModelMapper;

@@ -17,6 +17,16 @@ public class ReportDetailsView {
     private boolean canDelete;
     private boolean isOwner;
     private String authorFullName;
+    private String authorId;
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public ReportDetailsView setAuthorId(String authorId) {
+        this.authorId = authorId;
+        return this;
+    }
 
     public ReportDetailsView() {
     }

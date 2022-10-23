@@ -1,0 +1,65 @@
+.container-reports{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.report {
+    background-color: aliceblue;
+    padding: 1rem 1rem;
+    margin: 1rem 1rem;
+    border-radius: 4px;
+
+    width: 300px;
+}
+
+.report-body {
+    background-color: #e7eaea;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 1.2rem;
+    border-radius: 5px;
+
+
+}
+
+.report-img {
+    width: 200px;
+    align-self: center;
+    padding: 0.5rem 0.5rem;
+    border-radius: 10px;
+}
+
+.report-body h3{
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
+#status{
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
+.link{
+    text-decoration: none;
+    color: #f6be3a;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.5rem;
+
+}
+.link:hover{
+    text-decoration: none;
+    color: #e79a00;
+}
+.wrapper-date{
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.date-time{
+    font-weight: bold;
+    font-size: 0.8rem;
+
+}
+.p-text{
+    font-size: 0.8rem;
+}
