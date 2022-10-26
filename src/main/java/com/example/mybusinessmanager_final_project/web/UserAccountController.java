@@ -34,7 +34,7 @@ public class UserAccountController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("users/user-details")
+    @GetMapping("users/profile")
     public String showAccount(Model model,
                               @AuthenticationPrincipal UserDetails principal) {
 
@@ -45,15 +45,15 @@ public class UserAccountController {
 
         model.addAttribute("user", viewModel);
 
-        return "user-details";
+        return "profile";
     }
 
-    @GetMapping("users/user-details/changePassword")
+    @GetMapping("users/profile/changePassword")
     private String getChanePassword() {
         return "changePassword";
     }
 
-    @PostMapping("users/user-details/changePassword")
+    @PostMapping("users/profile/changePassword")
     public String changePassword(ChangePasswordBindingModel changePasswordBindingModel, BindingResult bindingResult,
                                  RedirectAttributes redirectAttributes, @AuthenticationPrincipal User user) {
 
@@ -69,7 +69,7 @@ public class UserAccountController {
 
         userService.changePassword(changePasswordBindingModel.getNewPassword(), user.getUsername());
 
-        return "redirect:/users/user-details";
+        return "redirect:/users/profile";
     }
 
     @GetMapping("users/all")
@@ -80,7 +80,7 @@ public class UserAccountController {
         return "users-all";
     }
 
-    @GetMapping("/users/user-details/user-settings")
+    @GetMapping("/users/profile/user-settings")
     private String getChangeSettings(Model model,
                                      ChangeUserAccountSettingsBindingModel userSettingsModel,
                                      @AuthenticationPrincipal MBMUser currentUser) {
@@ -97,7 +97,7 @@ public class UserAccountController {
         return "user-settings";
     }
 
-    @PatchMapping("/users/user-details/user-settings")
+    @PatchMapping("/users/profile/user-settings")
     private String editAccount(
             @Valid ChangeUserAccountSettingsBindingModel userSettingsModel,
             BindingResult bindingResult,
@@ -119,7 +119,7 @@ public class UserAccountController {
 
         userService.editAccount(userSettingModel);
 
-        return "redirect:/users/user-details";
+        return "redirect:/users/profile";
     }
 
     @GetMapping("users/{id}/users-details")

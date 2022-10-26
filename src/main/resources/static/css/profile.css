@@ -1,0 +1,111 @@
+.container-profile{
+    padding: 1rem 1rem;
+    margin: 2rem 2rem;
+    display: flex;
+    background-color: antiquewhite;
+    min-width: 380px;
+    max-width: 1500px;
+    align-self: center;
+}
+.aside {
+    min-width: 1rem;
+    border: solid;
+    border-radius: 5px;
+    box-shadow: 2px 5px 4px 5px #888888;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: #1896f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: baseline;
+    flex-wrap: wrap;
+}
+.section-main{
+    background-color: lightgray;
+    max-width: 920px;
+    min-width: 350px;
+}
+
+.user-data-field{
+
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.3rem;
+    margin: 0.5rem;
+    background-color: aliceblue;
+    border-radius: 2px;
+
+}
+
+.btn-user-data-field{
+    text-decoration: none;
+    color: #343a40;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: aliceblue;
+    border-radius: 2px;
+
+}
+.btn-user-data-field:hover{
+    color: #687179;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: #f6982f;
+    border-radius: 2px;
+
+}
+h4{
+    padding: 0.5rem 0.5rem;
+}
+.container-extra-job{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.65rem;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.status{
+    border-radius: 50px;
+    background-color: #e10404;
+    width: 0.5rem;
+    padding: 0.5rem 0.5rem;
+}
+.status:hover{
+    border-radius: 50px;
+    background-color: #3be104;
+    width: 0.5rem;
+    padding: 0.5rem 0.5rem;
+}
+
+.section-add-extra-job{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.65rem;
+    align-content: center;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 1.5rem 1.5rem;
+}
+.section-edit-extra-job{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.65rem;
+    align-content: center;
+    justify-content: space-around;
+    align-items: flex-end;
+
+}
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+}
