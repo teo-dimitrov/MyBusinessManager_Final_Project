@@ -10,6 +10,7 @@ public class ReportAddServiceModel {
     private String description;
     private ReportTypeEnum reportTypeEnum;
     private ReportStatusEnum reportStatusEnum;
+    private String creator;
 
     public Long getId() {
         return id;
@@ -53,6 +54,15 @@ public class ReportAddServiceModel {
 
     public ReportAddServiceModel setReportStatusEnum(ReportStatusEnum reportStatusEnum) {
         this.reportStatusEnum = reportStatusEnum;
+        return this;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public ReportAddServiceModel setCreator(String creator) {
+        this.creator = creator;
         return this;
     }
 }

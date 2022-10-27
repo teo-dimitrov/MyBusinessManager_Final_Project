@@ -2,6 +2,7 @@ package com.example.mybusinessmanager_final_project.model.view;
 
 import com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum;
 import com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -51,6 +52,7 @@ public class ReportSummaryView {
         return this;
     }
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "Europe/Sofia")
     public Instant getCreated() {
         return created;
     }
@@ -60,6 +62,7 @@ public class ReportSummaryView {
         return this;
     }
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "Europe/Sofia")
     public Instant getModified() {
         return modified;
     }
