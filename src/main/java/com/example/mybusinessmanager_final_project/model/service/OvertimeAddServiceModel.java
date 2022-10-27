@@ -13,6 +13,7 @@ public class OvertimeAddServiceModel {
     private LocalTime timeFrom;
     private LocalTime timeTo;
     private OvertimeStatusEnum status;
+    private String creator;
 
     public Long getId() {
         return id;
@@ -65,6 +66,15 @@ public class OvertimeAddServiceModel {
 
     public OvertimeAddServiceModel setStatus(OvertimeStatusEnum status) {
         this.status = status;
+        return this;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public OvertimeAddServiceModel setCreator(String creator) {
+        this.creator = creator;
         return this;
     }
 }

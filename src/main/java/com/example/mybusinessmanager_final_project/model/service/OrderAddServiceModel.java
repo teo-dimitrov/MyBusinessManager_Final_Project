@@ -9,6 +9,7 @@ public class OrderAddServiceModel {
     private String name;
     private String description;
     private LocalDateTime deadLine;
+    private String Creator;
 
     public Long getId() {
         return id;
@@ -43,6 +44,15 @@ public class OrderAddServiceModel {
 
     public OrderAddServiceModel setDeadLine(LocalDateTime deadLine) {
         this.deadLine = deadLine;
+        return this;
+    }
+
+    public String getCreator() {
+        return Creator;
+    }
+
+    public OrderAddServiceModel setCreator(String creator) {
+        Creator = creator;
         return this;
     }
 }

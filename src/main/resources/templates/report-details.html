@@ -50,7 +50,7 @@
     <section class="comments">
         <h2 class="text-white">Add Comment</h2>
         <div>
-            <form id="commentForm" method="POST" th:action="@{/api/{reportId}/comments(reportId=${report.id})}">
+            <form id="commentForm" method="POST" th:action="@{/api/{reportId}/profile(reportId=${report.id})}">
                 <div class="form-group">
                     <label class="glow-h5" for="message">Message</label>
                     <textarea
