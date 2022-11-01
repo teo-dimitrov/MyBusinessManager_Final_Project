@@ -8,27 +8,39 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "overtime")
-public class OverTimeEntity extends BaseEntity{
+public class OvertimeEntity extends BaseEntity{
 
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private LocalDate date;
     @Column(nullable = false)
-    private LocalTime timeFrom;
+    private String timeFrom;
     @Column(nullable = false)
-    private LocalTime timeTo;
+    private String timeTo;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private OvertimeStatusEnum status;
     @ManyToOne
     private UserEntity author;
 
+    @Column
+    private String authorUsername;
+
+    public String getAuthorUsername() {
+        return authorUsername;
+    }
+
+    public OvertimeEntity setAuthorUsername(String authorUsername) {
+        this.authorUsername = authorUsername;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
-    public OverTimeEntity setName(String name) {
+    public OvertimeEntity setName(String name) {
         this.name = name;
         return this;
     }
@@ -37,25 +49,25 @@ public class OverTimeEntity extends BaseEntity{
         return date;
     }
 
-    public OverTimeEntity setDate(LocalDate date) {
+    public OvertimeEntity setDate(LocalDate date) {
         this.date = date;
         return this;
     }
 
-    public LocalTime getTimeFrom() {
+    public String getTimeFrom() {
         return timeFrom;
     }
 
-    public OverTimeEntity setTimeFrom(LocalTime timeFrom) {
+    public OvertimeEntity setTimeFrom(String timeFrom) {
         this.timeFrom = timeFrom;
         return this;
     }
 
-    public LocalTime getTimeTo() {
+    public String getTimeTo() {
         return timeTo;
     }
 
-    public OverTimeEntity setTimeTo(LocalTime timeTo) {
+    public OvertimeEntity setTimeTo(String timeTo) {
         this.timeTo = timeTo;
         return this;
     }
@@ -64,7 +76,7 @@ public class OverTimeEntity extends BaseEntity{
         return status;
     }
 
-    public OverTimeEntity setStatus(OvertimeStatusEnum status) {
+    public OvertimeEntity setStatus(OvertimeStatusEnum status) {
         this.status = status;
         return this;
     }
@@ -73,7 +85,7 @@ public class OverTimeEntity extends BaseEntity{
         return author;
     }
 
-    public OverTimeEntity setAuthor(UserEntity author) {
+    public OvertimeEntity setAuthor(UserEntity author) {
         this.author = author;
         return this;
     }

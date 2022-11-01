@@ -21,8 +21,8 @@ public class UserEntity extends BaseEntity {
     private boolean isActive;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<UserRoleEntity> roles = new ArrayList<>();
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<OverTimeEntity> overtime = new ArrayList<>();
+//    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private List<OvertimeEntity> overtime = new ArrayList<>();
 
     public String getUsername() {
         return username;
@@ -86,13 +86,13 @@ public class UserEntity extends BaseEntity {
         this.roles = roles;
         return this;
     }
-
-    public List<OverTimeEntity> getOvertime() {
-        return overtime;
-    }
-
-    public UserEntity setOvertime(List<OverTimeEntity> overtime) {
-        this.overtime = overtime;
-        return this;
-    }
+//
+//    public List<OvertimeEntity> getOvertime() {
+//        return overtime;
+//    }
+//
+//    public UserEntity setOvertime(List<OvertimeEntity> overtime) {
+//        this.overtime = overtime;
+//        return this;
+//    }
 }

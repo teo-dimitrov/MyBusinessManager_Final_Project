@@ -4,7 +4,7 @@ import com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeSt
 
 import java.time.LocalDate;
 
-public class OvertimeViewModel {
+public class OvertimeDetailsView {
 
     private Long id;
     private String name;
@@ -13,35 +13,37 @@ public class OvertimeViewModel {
     private String timeTo;
     private String duration;
     private OvertimeStatusEnum overtimeStatusEnum;
-    private String authorUsername;
+    private boolean canDelete;
+    private boolean isOwner;
+//    private String authorUsername;
     private String creator;
 
     public String getCreator() {
         return creator;
     }
 
-    public OvertimeViewModel setCreator(String creator) {
+    public OvertimeDetailsView setCreator(String creator) {
         this.creator = creator;
         return this;
     }
 
-    public OvertimeViewModel() {
-    }
+//    public String getAuthorUsername() {
+//        return authorUsername;
+//    }
+//
+//    public OvertimeDetailsView setAuthorUsername(String authorUsername) {
+//        this.authorUsername = authorUsername;
+//        return this;
+//    }
 
-    public String getAuthorUsername() {
-        return authorUsername;
-    }
-
-    public OvertimeViewModel setAuthorUsername(String authorUsername) {
-        this.authorUsername = authorUsername;
-        return this;
+    public OvertimeDetailsView() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public OvertimeViewModel setId(Long id) {
+    public OvertimeDetailsView setId(Long id) {
         this.id = id;
         return this;
     }
@@ -50,7 +52,7 @@ public class OvertimeViewModel {
         return name;
     }
 
-    public OvertimeViewModel setName(String name) {
+    public OvertimeDetailsView setName(String name) {
         this.name = name;
         return this;
     }
@@ -59,7 +61,7 @@ public class OvertimeViewModel {
         return date;
     }
 
-    public OvertimeViewModel setDate(LocalDate date) {
+    public OvertimeDetailsView setDate(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -68,7 +70,7 @@ public class OvertimeViewModel {
         return timeFrom;
     }
 
-    public OvertimeViewModel setTimeFrom(String timeFrom) {
+    public OvertimeDetailsView setTimeFrom(String timeFrom) {
         this.timeFrom = timeFrom;
         return this;
     }
@@ -77,7 +79,7 @@ public class OvertimeViewModel {
         return timeTo;
     }
 
-    public OvertimeViewModel setTimeTo(String timeTo) {
+    public OvertimeDetailsView setTimeTo(String timeTo) {
         this.timeTo = timeTo;
         return this;
     }
@@ -86,7 +88,7 @@ public class OvertimeViewModel {
         return duration;
     }
 
-    public OvertimeViewModel setDuration(String duration) {
+    public OvertimeDetailsView setDuration(String duration) {
         this.duration = duration;
         return this;
     }
@@ -95,8 +97,26 @@ public class OvertimeViewModel {
         return overtimeStatusEnum;
     }
 
-    public OvertimeViewModel setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
+    public OvertimeDetailsView setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
         this.overtimeStatusEnum = overtimeStatusEnum;
+        return this;
+    }
+
+    public boolean isCanDelete() {
+        return canDelete;
+    }
+
+    public OvertimeDetailsView setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
+        return this;
+    }
+
+    public boolean isOwner() {
+        return isOwner;
+    }
+
+    public OvertimeDetailsView setOwner(boolean owner) {
+        isOwner = owner;
         return this;
     }
 }

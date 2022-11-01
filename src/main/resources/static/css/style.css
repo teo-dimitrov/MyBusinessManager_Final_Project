@@ -71,3 +71,54 @@ body {
 .logo-nav{
     height: 2.0rem;
 }
+.net{
+    color: #ef1414;
+    font-weight: bold;
+    border: solid 0.2rem;
+}
+.work{
+    color: #000000;
+    font-weight: bold;
+
+}
+.section__main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    align-items: center;
+    align-self: center;
+}
+.systems-div{
+    display: flex;
+}
+
+.systems{
+    color: #000000;
+    text-decoration: underline;
+    line-height: 3rem;
+    font-size: 2.2rem;
+    border-top-left-radius: 30px 10px;
+    box-shadow: #3f3f40 0.2rem 0.3rem;
+    align-self: center;
+    align-content: flex-start;
+   background-color: #75cfea;
+;
+
+}
+
+.section-main-root{
+    display: flex;
+    flex-direction: column;
+}
+.main-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section-network{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

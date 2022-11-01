@@ -1,26 +1,29 @@
-package com.example.mybusinessmanager_final_project.model.service;
+package com.example.mybusinessmanager_final_project.model.binding;
 
 import com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-
-public class OvertimeAddServiceModel {
+public class OvertimeEditBindingModel {
 
     private Long id;
+    @NotBlank(message = "this field is required")
     private String name;
-    private LocalDate date;
+    @NotNull LocalDate date;
+    @NotNull(message = "this field is required")
     private String timeFrom;
+    @NotNull(message = "this field is required")
     private String timeTo;
+    @NotNull
     private OvertimeStatusEnum overtimeStatusEnum;
-    private String creator;
-
 
     public Long getId() {
         return id;
     }
 
-    public OvertimeAddServiceModel setId(Long id) {
+    public OvertimeEditBindingModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -29,7 +32,7 @@ public class OvertimeAddServiceModel {
         return name;
     }
 
-    public OvertimeAddServiceModel setName(String name) {
+    public OvertimeEditBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -38,7 +41,7 @@ public class OvertimeAddServiceModel {
         return date;
     }
 
-    public OvertimeAddServiceModel setDate(LocalDate date) {
+    public OvertimeEditBindingModel setDate(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -47,7 +50,7 @@ public class OvertimeAddServiceModel {
         return timeFrom;
     }
 
-    public OvertimeAddServiceModel setTimeFrom(String timeFrom) {
+    public OvertimeEditBindingModel setTimeFrom(String timeFrom) {
         this.timeFrom = timeFrom;
         return this;
     }
@@ -56,7 +59,7 @@ public class OvertimeAddServiceModel {
         return timeTo;
     }
 
-    public OvertimeAddServiceModel setTimeTo(String timeTo) {
+    public OvertimeEditBindingModel setTimeTo(String timeTo) {
         this.timeTo = timeTo;
         return this;
     }
@@ -65,17 +68,8 @@ public class OvertimeAddServiceModel {
         return overtimeStatusEnum;
     }
 
-    public OvertimeAddServiceModel setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
+    public OvertimeEditBindingModel setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
         this.overtimeStatusEnum = overtimeStatusEnum;
-        return this;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-    public OvertimeAddServiceModel setCreator(String creator) {
-        this.creator = creator;
         return this;
     }
 }

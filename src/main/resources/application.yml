@@ -26,6 +26,10 @@ spring:
         format_sql: false
     defer-datasource-initialization: false
   mvc:
+    format:
+      date: yyyy-MM-dd
+      time: HH:mm
+      date-time: yyyy-MM-dd HH:mm
     hiddenmethod:
       filter:
         enabled: true

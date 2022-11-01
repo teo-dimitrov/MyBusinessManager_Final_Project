@@ -4,9 +4,7 @@ import com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeSt
 
 import java.time.LocalDate;
 
-
-public class OvertimeAddServiceModel {
-
+public class OvertimeEditServiceModel {
     private Long id;
     private String name;
     private LocalDate date;
@@ -15,12 +13,11 @@ public class OvertimeAddServiceModel {
     private OvertimeStatusEnum overtimeStatusEnum;
     private String creator;
 
-
     public Long getId() {
         return id;
     }
 
-    public OvertimeAddServiceModel setId(Long id) {
+    public OvertimeEditServiceModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -29,7 +26,7 @@ public class OvertimeAddServiceModel {
         return name;
     }
 
-    public OvertimeAddServiceModel setName(String name) {
+    public OvertimeEditServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -38,7 +35,7 @@ public class OvertimeAddServiceModel {
         return date;
     }
 
-    public OvertimeAddServiceModel setDate(LocalDate date) {
+    public OvertimeEditServiceModel setDate(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -47,7 +44,7 @@ public class OvertimeAddServiceModel {
         return timeFrom;
     }
 
-    public OvertimeAddServiceModel setTimeFrom(String timeFrom) {
+    public OvertimeEditServiceModel setTimeFrom(String timeFrom) {
         this.timeFrom = timeFrom;
         return this;
     }
@@ -56,7 +53,7 @@ public class OvertimeAddServiceModel {
         return timeTo;
     }
 
-    public OvertimeAddServiceModel setTimeTo(String timeTo) {
+    public OvertimeEditServiceModel setTimeTo(String timeTo) {
         this.timeTo = timeTo;
         return this;
     }
@@ -65,7 +62,7 @@ public class OvertimeAddServiceModel {
         return overtimeStatusEnum;
     }
 
-    public OvertimeAddServiceModel setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
+    public OvertimeEditServiceModel setOvertimeStatusEnum(OvertimeStatusEnum overtimeStatusEnum) {
         this.overtimeStatusEnum = overtimeStatusEnum;
         return this;
     }
@@ -74,7 +71,7 @@ public class OvertimeAddServiceModel {
         return creator;
     }
 
-    public OvertimeAddServiceModel setCreator(String creator) {
+    public OvertimeEditServiceModel setCreator(String creator) {
         this.creator = creator;
         return this;
     }

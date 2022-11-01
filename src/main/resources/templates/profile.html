@@ -12,45 +12,63 @@
 
     <section class="section-main">
 
-        <h4>Извънреден труд</h4>
+        <h4><a href="/overtime"> Add Overtime</a></h4>
+        <h4><a href="/overtimes"> All Overtime</a></h4>
 
-        <form  class="section-add-extra-job" id="overtimeForm"
-               th:method="POST"
-
-               th:action="@{/api/users/profile}">
-
-
-            <div class="input-field">
-                <label for="date">Date</label>
-                <input type="date" id="date">
-            </div>
-
-            <div class="input-field">
-                <label for="name">Name</label>
-                <input type="text" id="name">
-            </div>
-
-            <div class="input-field">
-                <label for="timeFrom">From</label>
-                <input type="time" id="timeFrom">
-            </div>
-
-            <div class="input-field">
-                <label for="timeTo">To</label>
-                <input type="time" id="timeTo">
-            </div>
-
-            <div class="input-field">
-                <select>
-                    <option>PAID</option>
-                    <option>NOT_PAID</option>
-                </select>
-            </div>
-
-            <button type="submit">Add</button>
+<!--        <form  class="section-add-extra-job" id="overtimeForm"-->
+<!--               th:action="@{/users/profile/overtime}"-->
+<!--               th:method="POST"-->
+<!--               th:object="${overtimeAddBindingModel}"-->
+<!--              >-->
 
 
-        </form>
+<!--            <div class="input-field">-->
+<!--                <label for="date">Date</label>-->
+<!--                <input type="date" id="date"-->
+<!--                       autocomplete="off"-->
+<!--                       th:field="*{date}"-->
+<!--                       >-->
+<!--            </div>-->
+
+<!--            <div class="input-field">-->
+<!--                <label for="name">Name</label>-->
+<!--                <input type="text" id="name"-->
+<!--                       autocomplete="off"-->
+<!--                       th:field="*{name}"-->
+<!--                       placeholder="Customer...">-->
+<!--            </div>-->
+
+<!--            <div class="input-field">-->
+<!--                <label for="timeFrom">From</label>-->
+<!--                <input type="time" id="timeFrom"-->
+<!--                       autocomplete="off"-->
+<!--                       th:field="*{timeFrom}"-->
+<!--                       >-->
+<!--            </div>-->
+
+<!--            <div class="input-field">-->
+<!--                <label for="timeTo">To</label>-->
+<!--                <input type="time" id="timeTo"-->
+<!--                       autocomplete="off"-->
+<!--                       th:field="*{timeTo}"-->
+<!--                       >-->
+<!--            </div>-->
+
+<!--            <div class="input-field">-->
+<!--                <label for="overtimeTypeEnum">select Type</label>-->
+<!--                <select class="form-control" id="overtimeTypeEnum" name="overtimeTypeEnum">-->
+<!--&lt;!&ndash;                    <option th:each="o : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum).values()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                            th:value="${o}"&ndash;&gt;-->
+<!--&lt;!&ndash;                            th:text="${o}"&ndash;&gt;-->
+<!--&lt;!&ndash;                            th:selected="${o} == *{status}">Type&ndash;&gt;-->
+<!--&lt;!&ndash;                    </option>&ndash;&gt;-->
+<!--                </select>-->
+<!--            </div>-->
+
+<!--            <button type="submit" id="postOvertime">Add</button>-->
+
+
+<!--        </form>-->
 
 <!--        -->
 <!--        <section class="section-edit-extra-job">-->
@@ -121,6 +139,7 @@
 
 </section>
 
+<script th:src="@{/js/overtimes.js}"></script>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

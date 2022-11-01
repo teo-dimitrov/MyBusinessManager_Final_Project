@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/commons::head"></head>
+
+<body class="d-flex flex-column" id="body">
+
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="container-profile">
+
+    <section class="section-main">
+
+        <h4><a href="/overtime">Go to Add Overtime</a></h4>
+
+
+        <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">
+            <span th:text="*{date}" class="input-field" >27-09-2022</span>
+            <span th:text="*{name}">Speedy - Велико Търново</span>
+            <span th:text="*{timeFrom}">8 часа</span>
+            <span th:text="*{timeTo}">8 часа</span>
+            <div class="status" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?
+            'status-paid' : 'status-not-paid'"></div>
+
+                <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
+                    <input type="submit" class="edit-btn" value="Edit"/>
+                </form>
+            <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
+                    <input type="submit" class="delete-btn" value="Delete"/>
+                </form>
+            <span th:text="*{authorId}">8 часа</span>
+<!--            <span th:text="*{authorUsername}">8 часа</span>-->
+        </section>
+    </section>
+        <aside class="aside" th:object="${user}">
+
+            <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
+            <div class="user-data-field" th:text="'First Name: ' + *{firstName}">First Name: Test</div>
+            <div class="user-data-field" th:text="'Last Name: ' + *{lastName}">Last Name: Test</div>
+            <div class="user-data-field" th:text="'Email: ' + *{email}">Email: Test</div>
+            <a href="/users/profile/changePassword" class="btn-user-data-field">Change Password</a>
+            <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
+
+        </aside>
+
+</section>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

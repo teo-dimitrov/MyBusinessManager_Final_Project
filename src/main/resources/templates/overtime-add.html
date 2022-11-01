@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/commons::head"></head>
+
+<body class="d-flex flex-column" id="body">
+
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="container-profile">
+
+    <section class="section-main">
+
+        <h4><a href="/overtimes" class="h4-link">Go to All Overtime</a></h4>
+
+        <form class="section-add-extra-job" id="overtimeForm"
+              th:action="@{/overtime}"
+              th:method="POST"
+              th:object="${overtimeAddBindingModel}"
+        >
+
+
+            <div class="input-field-container">
+                <label for="date">Date</label>
+                <input type="date" id="date"
+                       autocomplete="off"
+                       th:field="*{date}"
+                       th:errorclass="is-invalid"
+                       class="input-field if-color"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('date')}" th:errors="*{date}" id="dateError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </div>
+
+            <div class="input-field-container">
+                <label for="name">Name</label>
+                <input type="text" id="name"
+                       autocomplete="off"
+                       th:field="*{name}"
+                       th:errorclass="is-invalid"
+                       placeholder="Name..."
+                       class="input-field if-color"
+                       required>
+            </div>
+
+            <div>
+                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </div>
+
+            <div class="input-field-container">
+                <label for="timeFrom">From</label>
+                <input type="time" id="timeFrom"
+                       class="input-field if-color"
+                       autocomplete="off"
+                       th:field="*{timeFrom}"
+                       th:errorclass="is-invalid"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('timeFrom')}" th:errors="*{timeFrom}" id="timeFromError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </div>
+
+            <div class="input-field-container">
+                <label for="timeTo">To</label>
+                <input type="time" id="timeTo"
+                       autocomplete="off"
+                       th:field="*{timeTo}"
+                       th:errorclass="is-invalid"
+                       class="input-field if-color"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('timeTo')}" th:errors="*{timeTo}" id="timeToError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </div>
+
+
+            <div class="input-field-container">
+
+                <label for="overtimeStatusEnum">select Type</label>
+                <select class="select-field if-color" id="overtimeStatusEnum" name="overtimeStatusEnum">
+                    <option th:each="o : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum).values()}"
+                            th:value="${o}"
+                            th:text="${o}"
+                            th:selected="${o} == *{overtimeStatusEnum}">Type
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" id="postOvertime" class="add-btn">Add</button>
+
+
+        </form>
+
+
+        <!--                <section class="section-edit-extra-job">-->
+
+        <!--                    <div class="input-field">-->
+        <!--                        <label for="date">Дата</label>-->
+        <!--                        <input type="date" id="date">-->
+        <!--                    </div>-->
+
+        <!--                    <div class="input-field">-->
+        <!--                        <label for="text">Обект</label>-->
+        <!--                        <input type="text" id="text">-->
+        <!--                    </div>-->
+
+        <!--                    <div class="input-field">-->
+        <!--                        <label for="date-from">От</label>-->
+        <!--                        <input type="time" id="date-from">-->
+        <!--                    </div>-->
+
+        <!--                    <div class="input-field">-->
+        <!--                        <label for="date-to">До</label>-->
+        <!--                        <input type="time" id="date-to">-->
+        <!--                    </div>-->
+
+        <!--                    <div class="input-field">-->
+        <!--                        <select>-->
+        <!--                            <option>Платено</option>-->
+        <!--                            <option>Не Платено</option>-->
+        <!--                        </select>-->
+        <!--                    </div>-->
+
+        <!--                    <button>Промени</button>-->
+
+
+        <!--                </section>-->
+
+        <!--                <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">-->
+        <!--                    <span>27-09-2022</span>-->
+        <!--                    <span>Speedy - Велико Търново</span>-->
+        <!--                    <span>8 часа</span>-->
+        <!--                    <div class="status"></div>-->
+        <!--                    <button>Промени</button>-->
+        <!--                    <button>Изтий</button>-->
+        <!--                </section>-->
+
+        <!--        <section class="container-extra-job">-->
+        <!--            <span>27-09-2022</span>-->
+        <!--            <span>Speedy - Велико Търново</span>-->
+        <!--            <span>8 часа</span>-->
+        <!--            <div class="status"></div>-->
+        <!--            <button>Промени</button>-->
+        <!--            <button>Изтий</button>-->
+        <!--        </section>-->
+
+
+    </section>
+    <aside class="aside" th:object="${user}">
+
+        <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
+        <div class="user-data-field" th:text="'First Name: ' + *{firstName}">First Name: Test</div>
+        <div class="user-data-field" th:text="'Last Name: ' + *{lastName}">Last Name: Test</div>
+        <div class="user-data-field" th:text="'Email: ' + *{email}">Email: Test</div>
+        <a href="/users/profile/changePassword" class="btn-user-data-field">Change Password</a>
+        <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
+
+    </aside>
+
+</section>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>
