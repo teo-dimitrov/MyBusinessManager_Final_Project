@@ -199,7 +199,7 @@ public class OvertimeServiceImpl implements OvertimeService {
 
         overtimeDetailsView.setCanDelete(isOwner(currentUser, overTimeEntity.getId()));
         overtimeDetailsView.setOwner(isOwner(currentUser, overTimeEntity.getId()));
-//        overtimeDetailsView.setAuthorUsername(overTimeEntity.getAuthorUsername());
+
 
         return overtimeDetailsView;
     }

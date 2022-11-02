@@ -12,7 +12,13 @@
 
     <section class="section-main">
 
-        <h4><a href="/overtimes" class="h4-link">Go to All Overtime</a></h4>
+        <section class="overtime-header-nav">
+            <h4><span class="h4-currentPage">Add Overtime</span></h4>
+            <section class="overtime-nav">
+                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
+                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
+            </section>
+        </section>
 
         <form class="section-add-extra-job" id="overtimeForm"
               th:action="@{/overtime}"

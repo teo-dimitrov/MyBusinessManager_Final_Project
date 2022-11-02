@@ -1,0 +1,34 @@
+.btn-overtime-nav{
+    padding: 0.3rem 0.7rem;
+    margin: 0.5rem 0.3rem;
+    background-color: #687179;
+    font-weight: bold;
+    color: #e7eaea;
+    border: solid 0.1rem;
+    border-bottom-right-radius: 30px 10px;
+    border-bottom-left-radius: 30px 30px;
+
+}
+.btn-overtime-nav:hover{
+    text-decoration: none;
+    background-color: #888888;
+    color: #ffffff;
+}
+
+.btn-overtime-nav-active{
+    background-color: #888888;
+    color: #f38700;
+}
+
+.overtime-header-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.overtime-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}

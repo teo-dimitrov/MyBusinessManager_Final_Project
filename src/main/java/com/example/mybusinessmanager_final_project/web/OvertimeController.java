@@ -10,6 +10,7 @@ import com.example.mybusinessmanager_final_project.model.service.OvertimeAddServ
 import com.example.mybusinessmanager_final_project.model.service.OvertimeEditServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.ReportEditServiceModel;
 import com.example.mybusinessmanager_final_project.model.view.OvertimeDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.OvertimeSummaryView;
 import com.example.mybusinessmanager_final_project.model.view.ReportDetailsView;
 import com.example.mybusinessmanager_final_project.model.view.UserViewModel;
 import com.example.mybusinessmanager_final_project.service.OvertimeService;
@@ -69,7 +70,8 @@ public class OvertimeController {
 
         model
                 .addAttribute("overtimes", overtimeService.getAllOvertimes())
-                .addAttribute("user", viewModel);
+                .addAttribute("user", viewModel)
+               ;
 
         return "overtime-all";
     }

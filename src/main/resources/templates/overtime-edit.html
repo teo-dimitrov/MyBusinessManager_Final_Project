@@ -12,37 +12,88 @@
 
     <section class="section-main">
 
-        <h4><a href="/overtime"> Add Overtime</a></h4>
-        <h4><a href="/overtimes"> All Overtime</a></h4>
 
-        <form class="section-edit-extra-job"
+        <section class="overtime-header-nav">
+            <h4><span class="h4-currentPage">Edit Overtime</span></h4>
+            <section class="overtime-nav">
+                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
+                <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
+                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
+            </section>
+        </section>
+
+        <form class="section-add-extra-job"
 
                  th:object="${overtimeModel}"
                  th:action="@{/overtimes/{id}/edit(id=*{id})}"
                  th:method="PATCH">
 
-            <div class="input-field">
-                <label for="date">Дата</label>
-                <input type="date" id="date" th:field="*{date}">
+            <div class="input-field-container">
+                <label for="date">Date</label>
+                <input type="date" id="date"
+                       autocomplete="off"
+                       th:field="*{date}"
+                       th:errorclass="is-invalid"
+                       class="input-field if-color"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('date')}" th:errors="*{date}" id="dateError"
+                       class="form-text bg-danger rounded text-white">error</small>
             </div>
 
-            <div class="input-field" >
-                <label for="name">Обект</label>
-                <input type="text" id="name" th:field="*{name}">
+            <div class="input-field-container">
+                <label for="name">Name</label>
+                <input type="text" id="name"
+                       autocomplete="off"
+                       th:field="*{name}"
+                       th:errorclass="is-invalid"
+                       placeholder="Name..."
+                       class="input-field if-color"
+                       required>
             </div>
 
-            <div class="input-field">
-                <label for="timeFrom">От</label>
-                <input type="time" id="timeFrom" th:field="*{timeFrom}">
+            <div>
+                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
+                       class="form-text bg-danger rounded text-white">error</small>
             </div>
 
-            <div class="input-field">
-                <label for="timeTo">До</label>
-                <input type="time" id="timeTo" th:field="*{timeTo}">
+            <div class="input-field-container">
+                <label for="timeFrom">From</label>
+                <input type="time" id="timeFrom"
+                       class="input-field if-color"
+                       autocomplete="off"
+                       th:field="*{timeFrom}"
+                       th:errorclass="is-invalid"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('timeFrom')}" th:errors="*{timeFrom}" id="timeFromError"
+                       class="form-text bg-danger rounded text-white">error</small>
             </div>
 
-            <div class="input-field">
-                <select class="select-field" id="overtimeStatusEnum" name="overtimeStatusEnum">
+            <div class="input-field-container">
+                <label for="timeTo">To</label>
+                <input type="time" id="timeTo"
+                       autocomplete="off"
+                       th:field="*{timeTo}"
+                       th:errorclass="is-invalid"
+                       class="input-field if-color"
+                       required
+                >
+            </div>
+            <div>
+                <small th:if="${#fields.hasErrors('timeTo')}" th:errors="*{timeTo}" id="timeToError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </div>
+
+
+            <div class="input-field-container">
+
+                <label for="overtimeStatusEnum">select Type</label>
+                <select class="select-field if-color" id="overtimeStatusEnum" name="overtimeStatusEnum">
                     <option th:each="o : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum).values()}"
                             th:value="${o}"
                             th:text="${o}"
@@ -51,8 +102,7 @@
                 </select>
             </div>
 
-            <button type="submit" id="postOvertime">Submit</button>
-
+            <button type="submit" id="postOvertime" class="add-btn">Submit</button>
 
         </form>
         <br>

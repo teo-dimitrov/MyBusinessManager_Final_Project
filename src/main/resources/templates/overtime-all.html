@@ -12,15 +12,21 @@
 
     <section class="section-main">
 
-        <h4><a href="/overtime">Go to Add Overtime</a></h4>
-
+        <section class="overtime-header-nav">
+            <h4><span class="h4-currentPage">All Overtime</span></h4>
+            <section class="overtime-nav">
+                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
+                <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
+            </section>
+        </section>
 
         <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">
-            <span th:text="*{date}" class="input-field" >27-09-2022</span>
-            <span th:text="*{name}">Speedy - Велико Търново</span>
-            <span th:text="*{timeFrom}">8 часа</span>
-            <span th:text="*{timeTo}">8 часа</span>
-            <div class="status" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?
+            <div><span class="all-overtime-field">Added From: Teodor Dimitrov</span></div>
+            <span th:text="'Date: ' + *{date}" class="all-overtime-field">27-09-2022</span>
+            <span th:text="'Name: ' + *{name}">Speedy - Велико Търново</span>
+            <span th:text="'From: ' + *{timeFrom}" class="all-overtime-field">8 часа</span>
+            <span th:text="'To: ' + *{timeTo}" class="all-overtime-field">8 часа</span>
+            <div class="status all-overtime-field" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?
             'status-paid' : 'status-not-paid'"></div>
 
                 <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
@@ -29,7 +35,7 @@
             <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
                     <input type="submit" class="delete-btn" value="Delete"/>
                 </form>
-            <span th:text="*{authorId}">8 часа</span>
+            <span th:text="*{authorId}" class="all-overtime-field">8 часа</span>
 <!--            <span th:text="*{authorUsername}">8 часа</span>-->
         </section>
     </section>

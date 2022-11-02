@@ -12,120 +12,18 @@
 
     <section class="section-main">
 
-        <h4><a href="/overtime"> Add Overtime</a></h4>
-        <h4><a href="/overtimes"> All Overtime</a></h4>
+        <section class="overtime-header-nav">
+            <h4><span class="h4-currentPage">My Profile</span></h4>
+            <section class="overtime-nav">
+                    <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
+                    <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
+            </section>
 
-<!--        <form  class="section-add-extra-job" id="overtimeForm"-->
-<!--               th:action="@{/users/profile/overtime}"-->
-<!--               th:method="POST"-->
-<!--               th:object="${overtimeAddBindingModel}"-->
-<!--              >-->
-
-
-<!--            <div class="input-field">-->
-<!--                <label for="date">Date</label>-->
-<!--                <input type="date" id="date"-->
-<!--                       autocomplete="off"-->
-<!--                       th:field="*{date}"-->
-<!--                       >-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="name">Name</label>-->
-<!--                <input type="text" id="name"-->
-<!--                       autocomplete="off"-->
-<!--                       th:field="*{name}"-->
-<!--                       placeholder="Customer...">-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="timeFrom">From</label>-->
-<!--                <input type="time" id="timeFrom"-->
-<!--                       autocomplete="off"-->
-<!--                       th:field="*{timeFrom}"-->
-<!--                       >-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="timeTo">To</label>-->
-<!--                <input type="time" id="timeTo"-->
-<!--                       autocomplete="off"-->
-<!--                       th:field="*{timeTo}"-->
-<!--                       >-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="overtimeTypeEnum">select Type</label>-->
-<!--                <select class="form-control" id="overtimeTypeEnum" name="overtimeTypeEnum">-->
-<!--&lt;!&ndash;                    <option th:each="o : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum).values()}"&ndash;&gt;-->
-<!--&lt;!&ndash;                            th:value="${o}"&ndash;&gt;-->
-<!--&lt;!&ndash;                            th:text="${o}"&ndash;&gt;-->
-<!--&lt;!&ndash;                            th:selected="${o} == *{status}">Type&ndash;&gt;-->
-<!--&lt;!&ndash;                    </option>&ndash;&gt;-->
-<!--                </select>-->
-<!--            </div>-->
-
-<!--            <button type="submit" id="postOvertime">Add</button>-->
-
-
-<!--        </form>-->
-
-<!--        -->
-<!--        <section class="section-edit-extra-job">-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="date">Дата</label>-->
-<!--                <input type="date" id="date">-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="text">Обект</label>-->
-<!--                <input type="text" id="text">-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="date-from">От</label>-->
-<!--                <input type="time" id="date-from">-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <label for="date-to">До</label>-->
-<!--                <input type="time" id="date-to">-->
-<!--            </div>-->
-
-<!--            <div class="input-field">-->
-<!--                <select>-->
-<!--                    <option>Платено</option>-->
-<!--                    <option>Не Платено</option>-->
-<!--                </select>-->
-<!--            </div>-->
-
-<!--            <button>Промени</button>-->
-
-
-<!--        </section>-->
-
-<!--        <section class="container-extra-job">-->
-<!--            <span>27-09-2022</span>-->
-<!--            <span>Speedy - Велико Търново</span>-->
-<!--            <span>8 часа</span>-->
-<!--            <div class="status"></div>-->
-<!--            <button>Промени</button>-->
-<!--            <button>Изтий</button>-->
-<!--        </section>-->
-
-<!--        <section class="container-extra-job">-->
-<!--            <span>27-09-2022</span>-->
-<!--            <span>Speedy - Велико Търново</span>-->
-<!--            <span>8 часа</span>-->
-<!--            <div class="status"></div>-->
-<!--            <button>Промени</button>-->
-<!--            <button>Изтий</button>-->
-<!--        </section>-->
-
+        </section>
 
 
     </section>
+
     <aside class="aside" th:object="${user}">
 
         <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
