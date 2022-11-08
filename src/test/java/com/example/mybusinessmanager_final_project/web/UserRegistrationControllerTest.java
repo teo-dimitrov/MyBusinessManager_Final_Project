@@ -22,53 +22,53 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class UserRegistrationControllerTest {
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @AfterEach
-    void tearDown() {
-        userRepository.deleteAll();
-    }
-
-    @Test
-    void testOpenRegisterForm() throws Exception {
-        mockMvc.
-                perform(get("/users/register"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("register"));
-    }
-
-    private static final String TEST_USERNAME = "user";
-    private static final String TEST_USER_EMAIL = "User@User";
-
-    @Test
-    void testRegisterUser() throws Exception {
-        mockMvc.perform(post("/users/register").
-                        param("username",TEST_USERNAME).
-                        param("firstName","test").
-                        param("lastName","testov").
-                        param("email",TEST_USER_EMAIL).
-                        param("password","11111").
-                        param("confirmPassword","11111").
-                        with(csrf()).
-                        contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                ).
-                andExpect(status().is3xxRedirection());
-
-        Assertions.assertEquals(1, userRepository.count());
-
-        Optional<UserEntity> newlyCreatedUserOpt = userRepository.findByUsername(TEST_USERNAME);
-
-        Assertions.assertTrue(newlyCreatedUserOpt.isPresent());
-
-        UserEntity newlyCreatedUser = newlyCreatedUserOpt.get();
-
-        Assertions.assertEquals(TEST_USER_EMAIL, newlyCreatedUser.getEmail());
-        Assertions.assertEquals(TEST_USERNAME, newlyCreatedUser.getUsername());
-        Assertions.assertEquals("test", newlyCreatedUser.getFirstName());
-        Assertions.assertEquals("testov", newlyCreatedUser.getLastName());
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @AfterEach
+//    void tearDown() {
+//        userRepository.deleteAll();
+//    }
+//
+//    @Test
+//    void testOpenRegisterForm() throws Exception {
+//        mockMvc.
+//                perform(get("/users/register"))
+//                .andExpect(status().isOk())
+//                .andExpect(view().name("register"));
+//    }
+//
+//    private static final String TEST_USERNAME = "user";
+//    private static final String TEST_USER_EMAIL = "User@User";
+//
+//    @Test
+//    void testRegisterUser() throws Exception {
+//        mockMvc.perform(post("/users/register").
+//                        param("username",TEST_USERNAME).
+//                        param("firstName","test").
+//                        param("lastName","testov").
+//                        param("email",TEST_USER_EMAIL).
+//                        param("password","11111").
+//                        param("confirmPassword","11111").
+//                        with(csrf()).
+//                        contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//                ).
+//                andExpect(status().is3xxRedirection());
+//
+//        Assertions.assertEquals(1, userRepository.count());
+//
+//        Optional<UserEntity> newlyCreatedUserOpt = userRepository.findByUsername(TEST_USERNAME);
+//
+//        Assertions.assertTrue(newlyCreatedUserOpt.isPresent());
+//
+//        UserEntity newlyCreatedUser = newlyCreatedUserOpt.get();
+//
+//        Assertions.assertEquals(TEST_USER_EMAIL, newlyCreatedUser.getEmail());
+//        Assertions.assertEquals(TEST_USERNAME, newlyCreatedUser.getUsername());
+//        Assertions.assertEquals("test", newlyCreatedUser.getFirstName());
+//        Assertions.assertEquals("testov", newlyCreatedUser.getLastName());
+//    }
 }

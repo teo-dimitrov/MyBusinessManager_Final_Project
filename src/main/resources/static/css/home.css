@@ -1,10 +1,17 @@
 main{
-    min-height: 82vh;
+    /*min-height: 70vh;*/
+}
+.home-nav-header{
+    display: flex;
+    justify-content: space-around;
+}.home-nav-footer{
+    display: flex;
+    justify-content: center;
 }
 .section__home{
     background-color: white;
     padding: 10px 10px 10px 10px;
-    margin: 2rem 2rem 0 2rem;
+    margin: 2rem 2rem 2rem 2rem;
     border-radius: 5px;
 
     text-align: center;
@@ -29,7 +36,7 @@ h2{
 }
 
 h1{
-    font-size: 2.5rem;
+    font-size: 4.5rem;
 }
 /*.container{*/
 /*    padding-top: 20px;*/

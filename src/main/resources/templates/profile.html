@@ -7,23 +7,26 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-
+<div th:replace="fragments/commons::profile"></div>
 <section class="container-profile">
+
 
     <section class="section-main">
 
         <section class="overtime-header-nav">
             <h4><span class="h4-currentPage">My Profile</span></h4>
-            <section class="overtime-nav">
-                    <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
-                    <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
-            </section>
+<!--            <section class="overtime-nav">-->
+<!--                    <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>-->
+<!--                    <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>-->
+<!--            </section>-->
+
 
         </section>
 
 
-    </section>
 
+
+    </section>
     <aside class="aside" th:object="${user}">
 
         <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
@@ -34,6 +37,7 @@
         <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
 
     </aside>
+
 
 </section>
 

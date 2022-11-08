@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -60,6 +61,7 @@ public class UserServiceImpl implements UserService {
 
             UserRoleEntity adminRole = userRoleRepository.findByRole(UserRoleEnum.ADMIN);
             UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
+            UserRoleEntity managerRole = userRoleRepository.findByRole(UserRoleEnum.MANAGER);
 
             UserEntity admin = new UserEntity();
             admin
@@ -68,10 +70,11 @@ public class UserServiceImpl implements UserService {
                     .setFirstName("Admin")
                     .setLastName("Adminov")
                     .setEmail("admin@adminov")
-                    .setActive(true).setCreated(Instant.now());
+                    .setActive(true)
+                    .setCreated(Instant.now());
 
 
-            admin.setRoles(List.of(adminRole, userRole));
+            admin.setRoles(List.of(adminRole, userRole, managerRole));
             userRepository.save(admin);
 
             UserEntity pesho = new UserEntity();
@@ -90,14 +93,28 @@ public class UserServiceImpl implements UserService {
 
     private void initializeRoles() {
 
-        if (userRoleRepository.count() == 0) {
+        long count = userRoleRepository.count();
+
+        if (count == 0) {
             UserRoleEntity adminRole = new UserRoleEntity();
             adminRole.setRole(UserRoleEnum.ADMIN);
 
             UserRoleEntity userRole = new UserRoleEntity();
             userRole.setRole(UserRoleEnum.USER);
 
-            userRoleRepository.saveAll(List.of(adminRole, userRole));
+            UserRoleEntity managerRole = new UserRoleEntity();
+            managerRole.setRole(UserRoleEnum.MANAGER);
+
+            userRoleRepository.saveAll(List.of(adminRole, userRole, managerRole));
+        }
+        if(count == 2){
+
+            UserRoleEntity managerRole = new UserRoleEntity();
+            managerRole.setRole(UserRoleEnum.MANAGER);
+
+
+            userRoleRepository.save(managerRole);
+
         }
     }
 
@@ -109,12 +126,12 @@ public class UserServiceImpl implements UserService {
         UserEntity newUser = new UserEntity();
 
         newUser.
-                setUsername(userRegistrationServiceModel.getUsername()).
-                setFirstName(userRegistrationServiceModel.getFirstName()).
-                setLastName(userRegistrationServiceModel.getLastName()).
-                setEmail(userRegistrationServiceModel.getEmail()).
+                setUsername(userRegistrationServiceModel.getUsername().toLowerCase(Locale.ROOT).trim()).
+                setFirstName(userRegistrationServiceModel.getFirstName().trim()).
+                setLastName(userRegistrationServiceModel.getLastName().trim()).
+                setEmail(userRegistrationServiceModel.getEmail().trim()).
                 setActive(true).
-                setPassword(passwordEncoder.encode(userRegistrationServiceModel.getPassword())).
+                setPassword(passwordEncoder.encode(userRegistrationServiceModel.getPassword().trim())).
                 setRoles(List.of(userRole));
 
         newUser = userRepository.save(newUser);
@@ -147,7 +164,7 @@ public class UserServiceImpl implements UserService {
     public void changePassword(String newPassword, String username) {
         UserEntity userEntity = userRepository.findByUsername(username).orElseThrow(
                 () -> new UsernameNotFoundException(String.format("User with name %s not found!", username)));
-        userEntity.setPassword(passwordEncoder.encode(newPassword));
+        userEntity.setPassword(passwordEncoder.encode(newPassword.trim()));
         userRepository.save(userEntity);
     }
 
@@ -156,13 +173,16 @@ public class UserServiceImpl implements UserService {
 
         UserRoleEntity adminRole = userRoleRepository.findByRole(UserRoleEnum.ADMIN);
         UserRoleEntity userRole = userRoleRepository.findByRole(UserRoleEnum.USER);
+        UserRoleEntity managerRole = userRoleRepository.findByRole(UserRoleEnum.MANAGER);
 
         UserEntity userEntity = userRepository.findByUserId(id);
 
             if(role.equals("ADMIN")){
-                userEntity.setRoles(List.of(adminRole, userRole));
+                userEntity.setRoles(List.of(adminRole, userRole, managerRole));
             }else if(role.equals("USER")){
                 userEntity.setRoles(List.of(userRole));
+            }else if(role.equals("MANAGER")){
+                userEntity.setRoles(List.of(userRole, managerRole));
             }
             userRepository.save(userEntity);
     }
@@ -181,9 +201,9 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new ObjectNotFoundException("User with " + userSettingsModel.getUsername() + " not found!"));
 
         userEntity
-                .setFirstName(userSettingsModel.getFirstName())
-                .setLastName(userSettingsModel.getLastName())
-                .setEmail(userSettingsModel.getEmail());
+                .setFirstName(userSettingsModel.getFirstName().trim())
+                .setLastName(userSettingsModel.getLastName().trim())
+                .setEmail(userSettingsModel.getEmail().trim());
 
         userRepository.save(userEntity);
 

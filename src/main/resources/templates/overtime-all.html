@@ -6,50 +6,86 @@
 
 <body class="d-flex flex-column" id="body">
 
-<header th:replace="fragments/commons::nav"></header>
+<header th:replace="fragments/commons::nav" th:class="active"></header>
 
-<section class="container-profile">
+<section class="container-body">
+    <div th:replace="fragments/commons::profile"></div>
+    <section class="container-profile">
 
-    <section class="section-main">
 
-        <section class="overtime-header-nav">
-            <h4><span class="h4-currentPage">All Overtime</span></h4>
-            <section class="overtime-nav">
-                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
-                <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
+        <section class="section-main-overtime">
+
+            <section class="overtime-header-nav">
+                <h4><span class="h4-currentPage">All Overtime</span></h4>
+            </section>
+
+            <!--        <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">-->
+            <!--            <div><span class="all-overtime-field">Added From: Teodor Dimitrov</span></div>-->
+            <!--            <span th:text="'Date: ' + *{date}" class="all-overtime-field">27-09-2022</span>-->
+            <!--            <span th:text="'Name: ' + *{name}">Speedy - Велико Търново</span>-->
+            <!--            <span th:text="'From: ' + *{timeFrom}" class="all-overtime-field">8 часа</span>-->
+            <!--            <span th:text="'To: ' + *{timeTo}" class="all-overtime-field">8 часа</span>-->
+            <!--            <div class="status all-overtime-field" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?-->
+            <!--            'status-paid' : 'status-not-paid'"></div>-->
+
+            <!--                <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">-->
+            <!--                    <input type="submit" class="edit-btn" value="Edit"/>-->
+            <!--                </form>-->
+            <!--            <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">-->
+            <!--                    <input type="submit" class="delete-btn" value="Delete"/>-->
+            <!--                </form>-->
+            <!--            <span th:text="'author id: ' + *{authorId}" class="all-overtime-field">8 часа</span>-->
+            <!--        </section>-->
+
+
+            <section class="section-features">
+
+
+                <div class="section-feature-box">
+                    <div class="section-feature-box feature-box" th:each="o : ${overtimes}" th:object="${o}">
+
+                        <span th:text="'author id: ' + *{authorId}" class="all-overtime-field">8 часа</span>
+                        <span class="section-overtime-name">
+                        <label for="section-overtime-name">Name:</label>
+                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
+                        </span>
+
+                        <span class="section-overtime-date">
+                            <label for="section-overtime-date">Date:</label>
+                            <h3 id="section-overtime-date"
+                                th:class="${o.overtimeStatusEnum.name() == 'NOT_PAID'} ?
+                                  'overtime-date text-danger' : 'overtime-date text-success'"
+                                th:text="*{date}"></h3>
+                        </span>
+
+                        <span class="section-time-from-to">
+                        <p th:text="'From: ' + *{timeFrom}">8 часа</p>
+                        <p th:text="'To: ' + *{timeTo}">8 часа</p>
+                        </span>
+                        <SPAN class="section-edit-del-buttons">
+                            <th:block th:if="*{isOwner}">
+                                <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
+                                    <input type="submit" class="btn btn--animated btn--green" value="Edit"/>
+                                </form>
+                             </th:block>
+
+                            <th:block th:if="*{canDelete}">
+                                <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
+                                  <input type="submit" class="btn btn--animated btn--red" value="Delete"/>
+                                </form>
+                            </th:block>
+                        </SPAN>
+                    </div>
+                    <!--                        <p class="feature-box__text">-->
+                    <!--                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.-->
+                    <!--                        </p>-->
+
+                </div>
             </section>
         </section>
 
-        <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">
-            <div><span class="all-overtime-field">Added From: Teodor Dimitrov</span></div>
-            <span th:text="'Date: ' + *{date}" class="all-overtime-field">27-09-2022</span>
-            <span th:text="'Name: ' + *{name}">Speedy - Велико Търново</span>
-            <span th:text="'From: ' + *{timeFrom}" class="all-overtime-field">8 часа</span>
-            <span th:text="'To: ' + *{timeTo}" class="all-overtime-field">8 часа</span>
-            <div class="status all-overtime-field" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?
-            'status-paid' : 'status-not-paid'"></div>
 
-                <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
-                    <input type="submit" class="edit-btn" value="Edit"/>
-                </form>
-            <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
-                    <input type="submit" class="delete-btn" value="Delete"/>
-                </form>
-            <span th:text="*{authorId}" class="all-overtime-field">8 часа</span>
-<!--            <span th:text="*{authorUsername}">8 часа</span>-->
-        </section>
     </section>
-        <aside class="aside" th:object="${user}">
-
-            <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
-            <div class="user-data-field" th:text="'First Name: ' + *{firstName}">First Name: Test</div>
-            <div class="user-data-field" th:text="'Last Name: ' + *{lastName}">Last Name: Test</div>
-            <div class="user-data-field" th:text="'Email: ' + *{email}">Email: Test</div>
-            <a href="/users/profile/changePassword" class="btn-user-data-field">Change Password</a>
-            <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
-
-        </aside>
-
 </section>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

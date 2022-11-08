@@ -1,8 +1,13 @@
+@import url("style-sub.css");
 @import url("home.css");
 @import url("footer.css");
 @import url("orders.css");
 @import url("components.css");
 @import url("error-pages.css");
+@import url("reports.css");
+@import url("profile.css");
+@import url("overtime.css");
+@import url("navbar.css");
 @import url("overtime-nav.css");
 
 
@@ -15,6 +20,18 @@ body {
     /*background-color: #f6d4ab;*/
     /*background-color: #5bbaea;*/
     /*background-color: #2196d9;*/
+}
+
+.container-body{
+    /*height: 80vh;*/
+    min-height: 60vh;
+    align-self: center;
+}
+@media only screen and (min-width: 1200px) {
+ .container-body{
+     max-width: 60vw;
+ }
+
 }
 
 .picChooseBtn{
@@ -70,7 +87,7 @@ body {
     margin-top: 40px;
 }
 .logo-nav{
-    height: 2.0rem;
+    height: 3.0rem;
 }
 .net{
     color: #ef1414;
@@ -98,12 +115,17 @@ body {
     color: #000000;
     text-decoration: underline;
     line-height: 3rem;
-    font-size: 2.2rem;
+    ;
     border-top-left-radius: 30px 10px;
     box-shadow: #3f3f40 0.2rem 0.3rem;
     align-self: center;
     align-content: flex-start;
-   background-color: #75cfea;
+
+    background-color: #1897fa;
+    font-size: 4rem;
+    outline-width: thin;
+    padding: 1rem 3rem;
+    font-family: 'Font Awesome 5 Free', serif;
 ;
 
 }
@@ -122,4 +144,12 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    font-size: 1rem;
+}
+.btn{
+    line-height: 0.5rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }

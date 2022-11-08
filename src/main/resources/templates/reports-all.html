@@ -10,7 +10,7 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-<br>
+<section class="container-body-reports">
 <div th:replace="fragments/commons::reports-nav"></div>
 <br>
 <section class="container-reports">
@@ -88,11 +88,7 @@
 
 
 </div>
-
-
-<br>
-<br>
-<br>
+</section>
 <footer th:replace="fragments/commons::footer"></footer>
 <script th:src="@{/js/reports-search.js}"></script>
 </body>

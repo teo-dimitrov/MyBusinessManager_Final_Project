@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @ExtendWith(MockitoExtension.class)
 class MBMUserServiceImplTest {
     private UserEntity testUser;
-    private UserRoleEntity adminRole, userRole;
+    private UserRoleEntity adminRole, userRole, managerRole;
 
     private MBMUserServiceImpl serviceToTest;
 
@@ -40,11 +40,14 @@ class MBMUserServiceImplTest {
         userRole = new UserRoleEntity();
         userRole.setRole(UserRoleEnum.USER);
 
+        managerRole = new UserRoleEntity();
+        managerRole.setRole(UserRoleEnum.USER);
+
         testUser = new UserEntity();
         testUser.setUsername("user1");
         testUser.setEmail("user@1.com");
         testUser.setPassword("11111");
-        testUser.setRoles(List.of(adminRole, userRole));
+        testUser.setRoles(List.of(adminRole, userRole, managerRole));
     }
 
     @Test

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:include="fragments/commons::head"></head>
 
@@ -28,17 +29,44 @@
                     <td>
                         <th:block th:if="*{isOwner}">
                             <form>
-                                <a class="btn btn-success" th:href="@{/reports/{id}/edit(id=*{id})}">Edit</a>
+                                <a class="btn btn--green" th:href="@{/reports/{id}/edit(id=*{id})}">Edit</a>
                             </form>
                         </th:block>
                     </td>
                     <td>
                         <th:block th:if="*{canDelete}">
                             <form th:action="@{/reports/{id}(id=*{id})}" th:method="delete">
-                                <input type="submit" class="btn btn-danger" value="Delete"/>
+                                <input type="submit" class="btn btn--red" value="Delete"/>
                             </form>
                         </th:block>
                     </td>
+<!--                    <td>-->
+<!--                        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+<!--                            Launch demo modal-->
+<!--                        </button>-->
+
+<!--                        &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                            <div class="modal-dialog" role="document">-->
+<!--                                <div class="modal-content">-->
+<!--                                    <div class="modal-header">-->
+<!--                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                            <span aria-hidden="true">times</span>-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="modal-body">-->
+<!--                                        ...-->
+<!--                                    </div>-->
+<!--                                    <div class="modal-footer">-->
+<!--                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                                        <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </td>-->
                 </tr>
                 </tbody>
             </table>
@@ -50,7 +78,7 @@
     <section class="comments">
         <h2 class="text-white">Add Comment</h2>
         <div>
-            <form id="commentForm" method="POST" th:action="@{/api/{reportId}/profile(reportId=${report.id})}">
+            <form id="commentForm" method="POST" th:action="@{/api/{reportId}/comments(reportId=${report.id})}">
                 <div class="form-group">
                     <label class="glow-h5" for="message">Message</label>
                     <textarea

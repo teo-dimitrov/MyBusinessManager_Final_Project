@@ -17,6 +17,26 @@ public class OvertimeSummaryView {
     private Instant modified;
     private String authorId;
     private String creator;
+    private boolean canDelete;
+    private boolean isOwner;
+
+    public boolean isCanDelete() {
+        return canDelete;
+    }
+
+    public OvertimeSummaryView setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
+        return this;
+    }
+
+    public boolean isOwner() {
+        return isOwner;
+    }
+
+    public OvertimeSummaryView setOwner(boolean owner) {
+        isOwner = owner;
+        return this;
+    }
 
     public String getCreator() {
         return creator;

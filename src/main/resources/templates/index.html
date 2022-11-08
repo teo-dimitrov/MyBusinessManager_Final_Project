@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org" xmlns:background-image="http://java.sun.com/JSP/Page">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:background-image="http://java.sun.com/JSP/Page">
 
 <head th:include="fragments/commons::head"></head>
 
@@ -10,7 +11,12 @@
 
 <main>
     <section class="section__home">
-        <h5>Welcome to our community.</h5>
+<!--        <h5>Welcome to our community.</h5>-->
+
+        <span class="home-nav-header" sec:authorize="isAuthenticated()">
+            <a class="btn btn-outline-info" th:href="@{/orders/add}">Add Order</a>
+            <a class="btn btn-outline-info" th:href="@{/reports/add}">Add Report</a>
+        </span>
         <div class="divider"></div>
         <section class="section__main">
             <section class="main-header">
@@ -27,8 +33,18 @@
 
         <div class="divider"></div>
         <div class="section__home_footer">
-            <span>Check our work</span>
-            <a href="/gallery" class="btn btn-outline-info">Gallery</a>
+<!--            <span>Check our work</span>-->
+            <span class="home-nav-footer" sec:authorize="!isAuthenticated()">
+                <a href="/users/login" class="btn btn-outline-info">Login</a>
+            </span>
+
+            <form class="home-nav-footer"
+                  th:action="@{/users/logout}"
+                  th:method="post"
+                  sec:authorize="isAuthenticated()"
+            >
+                <input class="btn btn-outline-info" type="submit" value="Logout">
+            </form>
         </div>
     </section>
     <!--    <section class="card">-->

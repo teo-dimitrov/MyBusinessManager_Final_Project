@@ -19,10 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -44,7 +41,7 @@ public class OvertimeServiceImpl implements OvertimeService {
         if (overtimeRepository.count() == 0) {
             OvertimeEntity overtime1 = new OvertimeEntity();
             overtime1.
-                    setAuthorUsername("admin").
+//                    setAuthorUsername("admin").
                     setName("overtime 1").
                     setDate(LocalDate.now()).
                     setTimeFrom("09:00").
@@ -54,7 +51,7 @@ public class OvertimeServiceImpl implements OvertimeService {
 
             OvertimeEntity overtime2 = new OvertimeEntity();
             overtime2.
-                    setAuthorUsername("member").
+//                    setAuthorUsername("member").
                     setName("overtime 2").
                     setDate(LocalDate.now()).
                     setTimeFrom("09:00").
@@ -107,6 +104,20 @@ public class OvertimeServiceImpl implements OvertimeService {
         return overtimeRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getCreated).reversed())
                 .map(this::map).collect(Collectors.toList());
     }
+    @Override
+    public List<OvertimeSummaryView> getAllNotPaidOvertimes() {
+        List<OvertimeSummaryView> allOvertimes = overtimeRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getCreated).reversed())
+                .map(this::map).collect(Collectors.toList());
+
+        List<OvertimeSummaryView> allNotPaidOvertimes = new ArrayList<>();
+
+        for (OvertimeSummaryView overtime : allOvertimes) {
+            if(overtime.getOvertimeStatusEnum().name().equals("NOT_PAID")){
+                allNotPaidOvertimes.add(overtime);
+            }
+        }
+        return allNotPaidOvertimes;
+    }
 
     @Override
     public List<OvertimeSummaryView> getMyOvertimes(Long userId) {
@@ -115,12 +126,16 @@ public class OvertimeServiceImpl implements OvertimeService {
                 .map(this::map).collect(Collectors.toList());
     }
 
+
+
     @Override
     public OvertimeAddServiceModel addOvertime(OvertimeAddBindingModel overtimeAddBindingModel, String creator) {
         UserEntity userEntity = userRepository.findByUsername(creator).orElseThrow();
         OvertimeAddServiceModel overtimeAddServiceModel = modelMapper.map(overtimeAddBindingModel, OvertimeAddServiceModel.class);
         OvertimeEntity newOvertime = modelMapper.map(overtimeAddServiceModel, OvertimeEntity.class);
-        newOvertime.setAuthor(userEntity).setAuthorUsername(userEntity.getUsername());
+        newOvertime.setAuthor(userEntity)
+//                .setAuthorUsername(userEntity.getUsername())
+        ;
 
         OvertimeEntity savedOvertime = overtimeRepository.save(newOvertime);
 
@@ -131,6 +146,28 @@ public class OvertimeServiceImpl implements OvertimeService {
     public OvertimeDetailsView findById(Long id, String currentUser) {
         return this.overtimeRepository
                 .findById(id).map(r -> mapDetailsView(currentUser, r)).get();
+    }
+
+    @Override
+    public List<OvertimeSummaryView> findAllMyByStatus(String status, Long userId) {
+        List<OvertimeSummaryView> allMyOvertimes = overtimeRepository.findAll().stream().filter(u -> Objects.equals(u.getAuthor().getId(), userId))
+                .sorted(Comparator.comparing(BaseEntity::getModified).reversed())
+                .map(this::map).collect(Collectors.toList());
+
+        List<OvertimeSummaryView> myPaidOvertimes = new ArrayList<>();
+        for (OvertimeSummaryView allMyOvertime : allMyOvertimes) {
+            if(allMyOvertime.getOvertimeStatusEnum().name().equals(status)){
+                myPaidOvertimes.add(allMyOvertime);
+            }
+        }
+        // TODO: 8.11.2022 г.
+        return myPaidOvertimes;
+    }
+
+    @Override
+    public OvertimeSummaryView getAll(Long id, String currentUser) {
+        return this.overtimeRepository
+                .findById(id).map(r -> mapSummaryDetailsView(currentUser, r)).get();
     }
 
 
@@ -196,12 +233,20 @@ public class OvertimeServiceImpl implements OvertimeService {
     private OvertimeDetailsView mapDetailsView(String currentUser, OvertimeEntity overTimeEntity) {
 
         OvertimeDetailsView overtimeDetailsView = this.modelMapper.map(overTimeEntity, OvertimeDetailsView.class);
-
         overtimeDetailsView.setCanDelete(isOwner(currentUser, overTimeEntity.getId()));
         overtimeDetailsView.setOwner(isOwner(currentUser, overTimeEntity.getId()));
 
 
         return overtimeDetailsView;
+    }
+    private OvertimeSummaryView mapSummaryDetailsView(String currentUser, OvertimeEntity overTimeEntity) {
+
+        OvertimeSummaryView overtimeSummaryView = this.modelMapper.map(overTimeEntity, OvertimeSummaryView.class);
+        overtimeSummaryView.setCanDelete(isOwner(currentUser, overTimeEntity.getId()));
+        overtimeSummaryView.setOwner(isOwner(currentUser, overTimeEntity.getId()));
+
+
+        return overtimeSummaryView;
     }
     private OvertimeSummaryView map(OvertimeEntity overtimeEntity) {
         return this.modelMapper.map(overtimeEntity, OvertimeSummaryView.class);

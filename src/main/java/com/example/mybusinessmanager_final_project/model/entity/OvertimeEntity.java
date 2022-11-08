@@ -24,17 +24,17 @@ public class OvertimeEntity extends BaseEntity{
     @ManyToOne
     private UserEntity author;
 
-    @Column
-    private String authorUsername;
-
-    public String getAuthorUsername() {
-        return authorUsername;
-    }
-
-    public OvertimeEntity setAuthorUsername(String authorUsername) {
-        this.authorUsername = authorUsername;
-        return this;
-    }
+//    @Column
+//    private String authorUsername;
+//
+//    public String getAuthorUsername() {
+//        return authorUsername;
+//    }
+//
+//    public OvertimeEntity setAuthorUsername(String authorUsername) {
+//        this.authorUsername = authorUsername;
+//        return this;
+//    }
 
     public String getName() {
         return name;

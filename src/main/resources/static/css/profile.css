@@ -1,11 +1,34 @@
+.profile-btn{
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 1rem 0.5rem;
+    padding: 0 1rem;
+    border: none;
+    cursor: pointer
+}
+.profile-btn:hover{
+    text-decoration: none;
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2)
+
+}
 .container-profile{
-    padding: 1rem 1rem;
-    margin: 2rem 2rem;
+    padding: 1rem 1rem 6rem 1rem;
+    margin: 2rem 2rem 8rem 2rem;
     display: flex;
+    flex-direction: row;
     background-color: antiquewhite;
-    min-width: 380px;
-    max-width: 1500px;
     align-self: center;
+    justify-content: center;
 }
 .aside {
     min-width: 1rem;
@@ -26,13 +49,12 @@
 }
 .section-main{
     background-color: lightgray;
-    max-width: 920px;
-    min-width: 350px;
+
 }
 
 .user-data-field{
 
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     font-weight: bold;
     padding: 0.3rem;
     margin: 0.5rem;
@@ -44,7 +66,7 @@
 .btn-user-data-field{
     text-decoration: none;
     color: #343a40;
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
     margin: 0.5rem;
@@ -55,11 +77,25 @@
 .btn-user-data-field:hover{
     color: #687179;
     text-decoration: none;
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
     margin: 0.5rem;
     background-color: #9ec7f6;
     border-radius: 2px;
 
+}
+.main-form{
+    font-size: 1rem;
+}
+.login{
+    min-width: 250px;
+    max-height: 40vh;
+    font-size: 2rem;
+    padding: 2.3rem 0.3rem;
+    margin: 3rem 1rem;
+}
+.login-text{
+    font-size: 1.4rem;
+    font-weight: bold;
 }

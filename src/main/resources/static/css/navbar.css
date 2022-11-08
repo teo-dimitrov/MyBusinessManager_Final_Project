@@ -1,0 +1,16 @@
+.navbar{
+    font-size: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.navbar-nav{
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*!*padding-left: 0;*!*/
+    /*!*margin-bottom: 0;*!*/
+    /*!*list-style: none;*!*/
+    /*align-items: center;*/
+
+    align-items: center;
+}

@@ -19,6 +19,8 @@
     flex-direction: column;
     padding: 1.2rem 1.2rem;
     border-radius: 5px;
+    font-size: 3rem;
+
 
 
 }
@@ -31,17 +33,17 @@
 }
 
 .report-body h3{
-    font-size: 1.2rem;
-    padding: 0 0.5rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
 }
 #status{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0 0.5rem;
 }
 .link{
     text-decoration: none;
     color: #f6be3a;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0.5rem 0.5rem;
 
 }
@@ -57,9 +59,24 @@
 }
 .date-time{
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
 
 }
 .p-text{
-    font-size: 0.8rem;
+    font-size: 1.2rem;
+}
+.container-body-reports{
+    /*height: 80vh;*/
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    align-self: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    margin: 1rem 1rem;
+}
+@media only screen and (min-width: 1200px) {
+    .container-body-reports {
+        max-width: 70vw;
+    }
 }

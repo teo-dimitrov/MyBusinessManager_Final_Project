@@ -2,23 +2,16 @@ package com.example.mybusinessmanager_final_project.web;
 
 import com.example.mybusinessmanager_final_project.model.binding.OvertimeAddBindingModel;
 import com.example.mybusinessmanager_final_project.model.binding.OvertimeEditBindingModel;
-import com.example.mybusinessmanager_final_project.model.binding.ReportEditBindingModel;
 import com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeStatusEnum;
-import com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum;
-import com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum;
 import com.example.mybusinessmanager_final_project.model.service.OvertimeAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OvertimeEditServiceModel;
-import com.example.mybusinessmanager_final_project.model.service.ReportEditServiceModel;
 import com.example.mybusinessmanager_final_project.model.view.OvertimeDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.OvertimeSummaryView;
-import com.example.mybusinessmanager_final_project.model.view.ReportDetailsView;
 import com.example.mybusinessmanager_final_project.model.view.UserViewModel;
 import com.example.mybusinessmanager_final_project.service.OvertimeService;
 import com.example.mybusinessmanager_final_project.service.UserService;
 import com.example.mybusinessmanager_final_project.service.impl.MBMUser;
 import com.example.mybusinessmanager_final_project.web.exception.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -29,8 +22,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.time.LocalTime;
-import java.util.Date;
 
 @Controller
 public class OvertimeController {
@@ -69,11 +60,41 @@ public class OvertimeController {
                         new ObjectNotFoundException("user"));
 
         model
-                .addAttribute("overtimes", overtimeService.getAllOvertimes())
+                .addAttribute("overtimes", overtimeService.getAllNotPaidOvertimes())
                 .addAttribute("user", viewModel)
                ;
 
         return "overtime-all";
+    }
+    @GetMapping("/my-overtime" )
+    public String myOvertimes(Model model, @AuthenticationPrincipal UserDetails principal){
+
+        UserViewModel viewModel = userService
+                .findByUsername(principal.getUsername())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("user"));
+
+        model
+                .addAttribute("overtimes", overtimeService.findAllMyByStatus( "NOT_PAID", viewModel.getId()))
+                .addAttribute("user", viewModel)
+        ;
+
+        return "overtime-my";
+    }
+    @GetMapping("/overtime-archive" )
+    public String myOvertimeArchive(Model model, @AuthenticationPrincipal UserDetails principal){
+
+        UserViewModel viewModel = userService
+                .findByUsername(principal.getUsername())
+                .orElseThrow(() ->
+                        new ObjectNotFoundException("user"));
+
+        model
+                .addAttribute("overtimes", overtimeService.findAllMyByStatus("PAID", viewModel.getId()))
+                .addAttribute("user", viewModel)
+        ;
+
+        return "overtime-archive";
     }
 
     @PostMapping("/overtime")
@@ -97,15 +118,15 @@ public class OvertimeController {
         }
         OvertimeAddServiceModel savedOvertimeAddServiceModel = overtimeService.addOvertime(overtimeAddBindingModel, user.getUserIdentifier());
 
-        return "redirect:overtimes";
+        return "redirect:my-overtime";
     }
     @DeleteMapping("/overtimes/{id}")
-    public String deleteReport(@PathVariable Long id,
+    public String deleteOvertime(@PathVariable Long id,
                                Principal principal) {
 
         overtimeService.deleteOvertime(id);
 
-        return "redirect:/overtimes";
+        return "redirect:/my-overtime";
     }
 
     @GetMapping("/overtimes/{id}/edit")
@@ -143,7 +164,7 @@ public class OvertimeController {
 
         overtimeService.editOvertime(serviceModel);
 
-        return "redirect:/overtimes";
+        return "redirect:/my-overtime";
     }
 
     @GetMapping("/overtimes/{id}/error")

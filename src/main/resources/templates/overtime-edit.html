@@ -7,7 +7,7 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-
+<div th:replace="fragments/commons::profile"></div>
 <section class="container-profile">
 
     <section class="section-main">
@@ -15,11 +15,11 @@
 
         <section class="overtime-header-nav">
             <h4><span class="h4-currentPage">Edit Overtime</span></h4>
-            <section class="overtime-nav">
-                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
-                <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>
-                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
-            </section>
+<!--            <section class="overtime-nav">-->
+<!--                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>-->
+<!--                <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>-->
+<!--                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>-->
+<!--            </section>-->
         </section>
 
         <form class="section-add-extra-job"
@@ -102,7 +102,7 @@
                 </select>
             </div>
 
-            <button type="submit" id="postOvertime" class="add-btn">Submit</button>
+            <button type="submit" id="postOvertime" class="btn btn--green">Submit</button>
 
         </form>
         <br>

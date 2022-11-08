@@ -7,17 +7,19 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
+<section class="container-body">
 
+<div th:replace="fragments/commons::profile"></div>
 <section class="container-profile">
 
     <section class="section-main">
 
         <section class="overtime-header-nav">
             <h4><span class="h4-currentPage">Add Overtime</span></h4>
-            <section class="overtime-nav">
-                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>
-                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>
-            </section>
+<!--            <section class="overtime-nav">-->
+<!--                <a type="button" class="btn-overtime-nav" href="/users/profile">My Profile</a>-->
+<!--                <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>-->
+<!--            </section>-->
         </section>
 
         <form class="section-add-extra-job" id="overtimeForm"
@@ -101,77 +103,14 @@
                 </select>
             </div>
 
-            <button type="submit" id="postOvertime" class="add-btn">Add</button>
+            <button type="submit" id="postOvertime" class="btn btn--green">Add</button>
 
 
         </form>
 
-
-        <!--                <section class="section-edit-extra-job">-->
-
-        <!--                    <div class="input-field">-->
-        <!--                        <label for="date">Дата</label>-->
-        <!--                        <input type="date" id="date">-->
-        <!--                    </div>-->
-
-        <!--                    <div class="input-field">-->
-        <!--                        <label for="text">Обект</label>-->
-        <!--                        <input type="text" id="text">-->
-        <!--                    </div>-->
-
-        <!--                    <div class="input-field">-->
-        <!--                        <label for="date-from">От</label>-->
-        <!--                        <input type="time" id="date-from">-->
-        <!--                    </div>-->
-
-        <!--                    <div class="input-field">-->
-        <!--                        <label for="date-to">До</label>-->
-        <!--                        <input type="time" id="date-to">-->
-        <!--                    </div>-->
-
-        <!--                    <div class="input-field">-->
-        <!--                        <select>-->
-        <!--                            <option>Платено</option>-->
-        <!--                            <option>Не Платено</option>-->
-        <!--                        </select>-->
-        <!--                    </div>-->
-
-        <!--                    <button>Промени</button>-->
-
-
-        <!--                </section>-->
-
-        <!--                <section class="container-extra-job" th:each="o : ${overtimes}" th:object="${o}">-->
-        <!--                    <span>27-09-2022</span>-->
-        <!--                    <span>Speedy - Велико Търново</span>-->
-        <!--                    <span>8 часа</span>-->
-        <!--                    <div class="status"></div>-->
-        <!--                    <button>Промени</button>-->
-        <!--                    <button>Изтий</button>-->
-        <!--                </section>-->
-
-        <!--        <section class="container-extra-job">-->
-        <!--            <span>27-09-2022</span>-->
-        <!--            <span>Speedy - Велико Търново</span>-->
-        <!--            <span>8 часа</span>-->
-        <!--            <div class="status"></div>-->
-        <!--            <button>Промени</button>-->
-        <!--            <button>Изтий</button>-->
-        <!--        </section>-->
-
-
     </section>
-    <aside class="aside" th:object="${user}">
 
-        <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
-        <div class="user-data-field" th:text="'First Name: ' + *{firstName}">First Name: Test</div>
-        <div class="user-data-field" th:text="'Last Name: ' + *{lastName}">Last Name: Test</div>
-        <div class="user-data-field" th:text="'Email: ' + *{email}">Email: Test</div>
-        <a href="/users/profile/changePassword" class="btn-user-data-field">Change Password</a>
-        <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
-
-    </aside>
-
+</section>
 </section>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

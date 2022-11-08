@@ -6,8 +6,31 @@
     font-weight: bold;
     border: 1px solid #3f3f40;
     border-bottom-right-radius: 30px 10px;
+    font-size: 2rem;
 
 }
+.section-main-overtime{
+    padding-bottom: 2rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+
+}
+/*.section-feature{*/
+/*    width: 80%;*/
+/*}*/
+.section-feature-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+/*.feature-box{*/
+/*    padding: 2rem 1rem;*/
+/*    margin: 2rem 1rem;*/
+/*}*/
 
 /*.h4-link:hover {*/
 /*    color: #fab979;*/
@@ -22,29 +45,31 @@
     flex-wrap: wrap;
     font-size: 0.65rem;
     align-content: center;
-    justify-content: space-evenly;
-    align-items: center;
     background-color: #e7eaea;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .status-not-paid {
     border-radius: 50px;
     background-color: #e10404;
-    width: 0.5rem;
-    padding: 0.5rem 0.5rem;
+    width: 2rem;
+    padding: 2rem 2rem;
+    margin: 2rem 2rem;
 }
 
 .status-paid {
     border-radius: 50px;
     background-color: #3be104;
-    width: 0.5rem;
-    padding: 0.5rem 0.5rem;
+    width: 2rem;
+    padding: 2rem 2rem;
+    margin: 2rem 2rem;
 }
 
 .section-add-extra-job {
     display: flex;
     flex-direction: row;
-    font-size: 0.65rem;
+    font-size: 1.4rem;
     align-content: center;
     justify-content: space-around;
     align-items: flex-end;
@@ -54,7 +79,7 @@
 .section-edit-extra-job {
     display: flex;
     flex-direction: row;
-    font-size: 0.65rem;
+    font-size: 1.4rem;
     align-content: center;
     justify-content: space-around;
     align-items: flex-end;
@@ -69,14 +94,14 @@
 
 .input-field {
     border-radius: 3px;
-    height: 1.4rem;
+    height: 2rem;
     background-color: #fcba79;
     color: #3f3f40;
 }
 
 .select-field {
     border-radius: 3px;
-    height: 1.4rem;
+    height: 2rem;
     background-color: #fcba79;
     color: #3f3f40;
 }
@@ -88,7 +113,7 @@
 .add-btn {
     padding: 0.2rem 0.4rem;
     border-radius: 5px;
-    height: 1.4rem;
+    height: 2rem;
     background-color: #fd5656;
     font-weight: bold;
     color: #fdffff;
@@ -101,6 +126,48 @@
     background-color: #e7eaea;
 }
 
+.section-edit-del-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.section-time-from-to{
+    padding: 0 1rem;
+    margin:  0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.section-time-from-to p{
+    padding: 0 1rem;
+    margin:  0 1rem;
+}
+
+.section-overtime-name{
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.section-overtime-date{
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.overtime-date{
+    padding: 0 0.5rem;
+    margin: 0 0.5rem;
+    background-color: #f7fafc;
+    border-radius: 5px;
+}
 @media only screen and (max-width: 600px) {
     .container-profile{
         flex-direction: column;
@@ -109,8 +176,8 @@
     .section-main{
         margin: 1rem 1rem;
         flex-wrap: wrap;
-        min-width: 300px;
-        max-width: 500px;
+
+
     }
 
     .aside{
@@ -134,6 +201,29 @@
     }
     .section-add-extra-job{
         flex-wrap: wrap;
+        flex-direction: column;
+        font-size: 1.4rem;
+    }
+    .add-btn{
+        padding: 1.2rem 1.4rem;
+        border-radius: 20px;
+        height: 5rem;
+        background-color: #fd5656;
+        font-weight: bold;
+        color: #fdffff;
+        margin-bottom: -21.8rem;
+        margin-top: 2rem;
+    }
+    .section-feature-box{
+        display: flex;
+        flex-direction: column;
+         align-items: stretch;
+         width: auto;
+        margin: 2.5rem 1rem;
+
+        /* align-content: stretch; */
+        /* flex-wrap: wrap; */
+        /* justify-content: center; */
     }
 
 }

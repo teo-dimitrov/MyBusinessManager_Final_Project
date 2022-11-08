@@ -31,6 +31,8 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 antMatchers("/", "/users/login").permitAll().
                 antMatchers("/statistics").hasRole(UserRoleEnum.ADMIN.name()).
                 antMatchers("/users/register").hasRole(UserRoleEnum.ADMIN.name()).
+                antMatchers("/overtimes").hasRole(UserRoleEnum.ADMIN.name()).
+                antMatchers("/overtimes").hasRole(UserRoleEnum.MANAGER.name()).
                 antMatchers("/**").authenticated().
                 and().
                 formLogin().

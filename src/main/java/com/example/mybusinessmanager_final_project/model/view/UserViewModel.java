@@ -12,16 +12,6 @@ public class UserViewModel {
     private boolean isActive;
     private String roles;
     private UserRoleEnum userRoleEnum;
-    private String userFullName;
-
-    public String getUserFullName() {
-        return userFullName;
-    }
-
-    public UserViewModel setUserFullName(String userFullName) {
-        this.userFullName = userFullName;
-        return this;
-    }
 
     public UserViewModel() {
     }
