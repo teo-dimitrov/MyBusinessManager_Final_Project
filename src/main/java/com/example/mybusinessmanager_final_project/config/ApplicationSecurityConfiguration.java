@@ -29,9 +29,12 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 authorizeRequests().
                 requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                 antMatchers("/", "/users/login").permitAll().
-                antMatchers("/statistics").hasRole(UserRoleEnum.ADMIN.name()).
-                antMatchers("/users/register").hasRole(UserRoleEnum.ADMIN.name()).
+                antMatchers("/users/profile").hasRole(UserRoleEnum.USER.name()).
+                antMatchers("/users/profile/user-settings").hasRole(UserRoleEnum.USER.name()).
+                antMatchers("/statistics").hasRole(UserRoleEnum.MANAGER.name()).
+                antMatchers("/users/register").hasRole(UserRoleEnum.MANAGER.name()).
                 antMatchers("/overtimes").hasRole(UserRoleEnum.ADMIN.name()).
+                antMatchers("/users/**").hasRole(UserRoleEnum.ADMIN.name()).
                 antMatchers("/overtimes").hasRole(UserRoleEnum.MANAGER.name()).
                 antMatchers("/**").authenticated().
                 and().

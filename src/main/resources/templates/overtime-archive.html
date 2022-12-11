@@ -9,32 +9,20 @@
 <header th:replace="fragments/commons::nav" th:class="active"></header>
 
 <section class="container-body">
+
     <div th:replace="fragments/commons::profile"></div>
+
     <section class="container-profile">
-
-
         <section class="section-main-overtime">
 
             <section class="overtime-header-nav">
                 <h4><span class="h4-currentPage">My Archive Overtime</span></h4>
-
             </section>
-
 
             <section class="section-features">
 
-
                 <div class="section-feature-box">
                     <div class="section-feature-box feature-box" th:each="o : ${overtimes}" th:object="${o}">
-                        <!--                        <i class="feature-box__icon icon-basic-compass"></i>-->
-                        <!--                    <div class="status" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?-->
-                        <!--            'status-paid' : 'status-not-paid'">-->
-
-                        <!--                    </div>-->
-                        <span class="section-overtime-name">
-                        <label for="section-overtime-name">Name:</label>
-                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
-                        </span>
 
                         <span class="section-overtime-date">
                             <label for="section-overtime-date">Date:</label>
@@ -42,26 +30,31 @@
                                 th:class="${o.overtimeStatusEnum.name() == 'NOT_PAID'} ?
                                   'overtime-date text-danger' : 'overtime-date text-success'"
                                 th:text="*{date}"></h3>
-                    </span>
-                        <span class="section-time-from-to">
-                        <p th:text="'From: ' + *{timeFrom}">8 часа</p>
-                        <p th:text="'To: ' + *{timeTo}">8 часа</p>
                         </span>
-                        <SPAN class="section-edit-del-buttons">
-                        <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
-                            <input type="submit" class="btn btn--animated btn--green" value="Edit"/>
-                        </form>
-                        <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
-                            <input type="submit" class="btn btn--animated btn--red" value="Delete"/>
-                        </form>
-                    </SPAN>
-                    </div>
 
+                        <span class="section-overtime-name">
+                            <label for="section-overtime-name">Name:</label>
+                            <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
+                        </span>
+
+                        <span class="section-time-from-to">
+                            <p th:text="'From: ' + *{timeFrom}">8 часа</p>
+                            <p th:text="'To: ' + *{timeTo}">8 часа</p>
+                        </span>
+
+                        <SPAN class="section-edit-del-buttons">
+                            <form th:action="@{/overtimes/{id}/edit(id=*{id})}" th:method="get">
+                                <input type="submit" class="btn btn--animated btn--green" value="Edit"/>
+                            </form>
+
+                            <form th:action="@{/overtimes/{id}(id=*{id})}" th:method="delete">
+                                <input type="submit" class="btn btn--animated btn--red" value="Delete"/>
+                            </form>
+                        </SPAN>
+                    </div>
                 </div>
             </section>
         </section>
-
-
     </section>
 </section>
 <footer th:replace="fragments/commons::footer"></footer>

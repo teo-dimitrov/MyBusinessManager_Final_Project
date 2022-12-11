@@ -26,15 +26,6 @@
 
             <div class="section-feature-box">
                 <div class="section-feature-box feature-box" th:each="o : ${overtimes}" th:object="${o}">
-                    <!--                        <i class="feature-box__icon icon-basic-compass"></i>-->
-<!--                    <div class="status" th:class="${o.overtimeStatusEnum.name() == 'PAID'} ?-->
-<!--            'status-paid' : 'status-not-paid'">-->
-
-<!--                    </div>-->
-                    <span class="section-overtime-name">
-                        <label for="section-overtime-name">Name:</label>
-                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
-                        </span>
 
                     <span class="section-overtime-date">
                             <label for="section-overtime-date">Date:</label>
@@ -43,6 +34,12 @@
                                   'overtime-date text-danger' : 'overtime-date text-success'"
                                 th:text="*{date}"></h3>
                     </span>
+
+                    <span class="section-overtime-name">
+                        <label for="section-overtime-name">Name:</label>
+                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
+                    </span>
+
                     <span class="section-time-from-to">
                         <p th:text="'From: ' + *{timeFrom}">8 часа</p>
                         <p th:text="'To: ' + *{timeTo}">8 часа</p>

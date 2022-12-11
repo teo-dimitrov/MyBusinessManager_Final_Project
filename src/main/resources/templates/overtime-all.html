@@ -44,11 +44,7 @@
                 <div class="section-feature-box">
                     <div class="section-feature-box feature-box" th:each="o : ${overtimes}" th:object="${o}">
 
-                        <span th:text="'author id: ' + *{authorId}" class="all-overtime-field">8 часа</span>
-                        <span class="section-overtime-name">
-                        <label for="section-overtime-name">Name:</label>
-                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
-                        </span>
+                        <span th:text="*{authorFullName}" class="all-overtime-field">8 часа</span>
 
                         <span class="section-overtime-date">
                             <label for="section-overtime-date">Date:</label>
@@ -56,6 +52,11 @@
                                 th:class="${o.overtimeStatusEnum.name() == 'NOT_PAID'} ?
                                   'overtime-date text-danger' : 'overtime-date text-success'"
                                 th:text="*{date}"></h3>
+                        </span>
+
+                        <span class="section-overtime-name">
+                        <label for="section-overtime-name">Name:</label>
+                        <h2 id="section-overtime-name" th:text="*{name}">Speedy - Велико Търново</h2>
                         </span>
 
                         <span class="section-time-from-to">

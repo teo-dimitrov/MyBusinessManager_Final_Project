@@ -19,6 +19,18 @@ public class OvertimeSummaryView {
     private String creator;
     private boolean canDelete;
     private boolean isOwner;
+    private String authorFullName;
+
+
+    public String getAuthorFullName() {
+        return authorFullName;
+    }
+
+    public OvertimeSummaryView setAuthorFullName(String authorFullName) {
+        this.authorFullName = authorFullName;
+        return this;
+    }
+
 
     public boolean isCanDelete() {
         return canDelete;

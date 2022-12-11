@@ -7,12 +7,10 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-<br>
-<div th:replace="fragments/commons::reports-nav"></div>
-<br>
+
 <div class="container m-md-auto">
+    <div th:replace="fragments/commons::reports-nav"></div>
     <div class="card">
-        <br>
         <form
                 th:action="@{/reports/add}"
                 th:method="POST"

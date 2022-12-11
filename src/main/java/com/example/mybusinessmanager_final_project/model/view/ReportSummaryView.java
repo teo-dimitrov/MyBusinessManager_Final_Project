@@ -21,7 +21,16 @@ public class ReportSummaryView {
     private String instantModifiedStr;
 
     private String authorId;
+    private String authorFullName;
 
+    public String getAuthorFullName() {
+        return authorFullName;
+    }
+
+    public ReportSummaryView setAuthorFullName(String authorFullName) {
+        this.authorFullName = authorFullName;
+        return this;
+    }
 
     public String getAuthorId() {
         return authorId;

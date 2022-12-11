@@ -7,6 +7,7 @@ import com.example.mybusinessmanager_final_project.model.entity.UserEntity;
 import com.example.mybusinessmanager_final_project.model.entity.UserRoleEntity;
 import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEnum;
 import com.example.mybusinessmanager_final_project.model.service.OrderAddServiceModel;
+import com.example.mybusinessmanager_final_project.model.service.OrderEditServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.ReportAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.view.OrderDetailsView;
 import com.example.mybusinessmanager_final_project.model.view.OrderViewModel;
@@ -15,9 +16,11 @@ import com.example.mybusinessmanager_final_project.model.view.ReportSummaryView;
 import com.example.mybusinessmanager_final_project.repository.OrderRepository;
 import com.example.mybusinessmanager_final_project.repository.UserRepository;
 import com.example.mybusinessmanager_final_project.service.OrderService;
+import com.example.mybusinessmanager_final_project.web.exception.ObjectNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -75,6 +78,21 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
+    }
+
+    @Override
+    public void editOrder(OrderEditServiceModel orderModel) {
+        OrderEntity orderEntity = orderRepository
+                .findById(orderModel.getId())
+                .orElseThrow(() -> new ObjectNotFoundException("Order with id " + orderModel.getId() + " not found!"));
+
+        orderEntity
+                .setName(orderModel.getName())
+                .setDescription(orderModel.getDescription())
+                .setDeadLine(orderModel.getDeadLine())
+                .setModified(Instant.now());
+
+        orderRepository.save(orderEntity);
     }
 
     private ReportSummaryView map(ReportEntity reportEntity) {

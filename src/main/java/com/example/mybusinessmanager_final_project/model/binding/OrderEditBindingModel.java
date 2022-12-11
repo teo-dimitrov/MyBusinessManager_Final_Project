@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-public class OrderAddBindingModel {
+public class OrderEditBindingModel {
 
     private Long id;
     @NotNull
@@ -22,7 +22,7 @@ public class OrderAddBindingModel {
         return id;
     }
 
-    public OrderAddBindingModel setId(Long id) {
+    public OrderEditBindingModel setId(Long id) {
         this.id = id;
         return this;
     }
@@ -31,7 +31,7 @@ public class OrderAddBindingModel {
         return name;
     }
 
-    public OrderAddBindingModel setName(String name) {
+    public OrderEditBindingModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -40,7 +40,7 @@ public class OrderAddBindingModel {
         return description;
     }
 
-    public OrderAddBindingModel setDescription(String description) {
+    public OrderEditBindingModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -49,7 +49,7 @@ public class OrderAddBindingModel {
         return deadLine;
     }
 
-    public OrderAddBindingModel setDeadLine(LocalDateTime deadLine) {
+    public OrderEditBindingModel setDeadLine(LocalDateTime deadLine) {
         this.deadLine = deadLine;
         return this;
     }

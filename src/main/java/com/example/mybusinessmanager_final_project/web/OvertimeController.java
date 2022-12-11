@@ -126,7 +126,7 @@ public class OvertimeController {
 
         overtimeService.deleteOvertime(id);
 
-        return "redirect:/my-overtime";
+        return "redirect:/overtime-archive";
     }
 
     @GetMapping("/overtimes/{id}/edit")

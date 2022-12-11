@@ -1,5 +1,6 @@
 package com.example.mybusinessmanager_final_project.config;
 
+import com.example.mybusinessmanager_final_project.service.OvertimeService;
 import com.example.mybusinessmanager_final_project.service.ReportService;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionOperations;
@@ -7,9 +8,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class OwnerSecurityExpressionRoot extends SecurityExpressionRoot implements
-        MethodSecurityExpressionOperations{
+        MethodSecurityExpressionOperations {
 
     private ReportService reportService;
+    private OvertimeService overtimeService;
     private Object filterObject;
     private Object returnObject;
 
@@ -24,14 +26,18 @@ public class OwnerSecurityExpressionRoot extends SecurityExpressionRoot implemen
         }
         return false;
     }
+
+
     public void setReportService(ReportService reportService) {
         this.reportService = reportService;
     }
 
+    public void setOvertimeService(OvertimeService overtimeService){ this.overtimeService = overtimeService; }
+
     public String currentUserName() {
         Authentication auth = getAuthentication();
         if (auth.getPrincipal() instanceof UserDetails) {
-            return ((UserDetails)auth.getPrincipal()).getUsername();
+            return ((UserDetails) auth.getPrincipal()).getUsername();
         }
         return null;
     }

@@ -11,10 +11,13 @@ import org.springframework.security.core.Authentication;
 public class MBMMethodSecurityExpressionHandler extends DefaultMethodSecurityExpressionHandler {
 
     private final ReportService reportService;
+    private final OvertimeService overtimeService;
 
-    public MBMMethodSecurityExpressionHandler(ReportService reportService) {
+    public MBMMethodSecurityExpressionHandler(ReportService reportService, OvertimeService overtimeService) {
         this.reportService = reportService;
+        this.overtimeService = overtimeService;
     }
+
 
     @Override
     protected MethodSecurityExpressionOperations createSecurityExpressionRoot(
@@ -22,6 +25,7 @@ public class MBMMethodSecurityExpressionHandler extends DefaultMethodSecurityExp
         OwnerSecurityExpressionRoot root = new OwnerSecurityExpressionRoot(authentication);
 
         root.setReportService(reportService);
+        root.setOvertimeService(overtimeService);
         root.setPermissionEvaluator(getPermissionEvaluator());
         root.setTrustResolver(new AuthenticationTrustResolverImpl());
         root.setRoleHierarchy(getRoleHierarchy());

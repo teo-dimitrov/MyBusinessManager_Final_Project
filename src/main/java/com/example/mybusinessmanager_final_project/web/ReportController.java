@@ -33,8 +33,15 @@ public class ReportController {
     @GetMapping("/reports/all")
     public String allReports(Model model) {
         model.addAttribute("reports",
-                reportService.getAllReports());
+                reportService.getAllReportsByStatus("UNCHECKED"));
         return "reports-all";
+    }
+
+    @GetMapping("/reports/archive")
+    public String archiveReports(Model model) {
+        model.addAttribute("reports",
+                reportService.getAllReportsByStatus("CHECKED"));
+        return "reports-archive";
     }
 
     @GetMapping("/reports/{id}/report-details")

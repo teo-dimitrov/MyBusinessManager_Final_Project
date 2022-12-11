@@ -106,13 +106,20 @@ public class OvertimeServiceImpl implements OvertimeService {
     }
     @Override
     public List<OvertimeSummaryView> getAllNotPaidOvertimes() {
+
+
         List<OvertimeSummaryView> allOvertimes = overtimeRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getCreated).reversed())
                 .map(this::map).collect(Collectors.toList());
 
         List<OvertimeSummaryView> allNotPaidOvertimes = new ArrayList<>();
 
         for (OvertimeSummaryView overtime : allOvertimes) {
+            UserEntity userEntity;
+
             if(overtime.getOvertimeStatusEnum().name().equals("NOT_PAID")){
+                long authorId = Long.parseLong(overtime.getAuthorId());
+                userEntity = userRepository.findByUserId(authorId);
+                overtime.setAuthorFullName(userEntity.getFirstName() + " " + userEntity.getLastName());
                 allNotPaidOvertimes.add(overtime);
             }
         }

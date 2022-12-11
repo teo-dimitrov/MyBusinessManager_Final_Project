@@ -12,6 +12,8 @@ public interface ReportService {
     void initializeReports();
 
     List<ReportSummaryView> getAllReports();
+    List<ReportSummaryView> getAllReportsByStatus(String status);
+
 
     ReportDetailsView findById(Long id, String currentUser);
 

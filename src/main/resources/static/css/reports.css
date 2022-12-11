@@ -24,6 +24,17 @@
 
 
 }
+.reports-nav{
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.reports-nav div{
+    display: flex;
+    align-content: center;
+    padding: 0.5rem 1rem;
+}
 
 .report-img {
     width: 200px;
@@ -78,5 +89,9 @@
 @media only screen and (min-width: 1200px) {
     .container-body-reports {
         max-width: 70vw;
+    }
+}@media only screen and (max-width: 600px) {
+    #searchInput{
+        display: none;
     }
 }

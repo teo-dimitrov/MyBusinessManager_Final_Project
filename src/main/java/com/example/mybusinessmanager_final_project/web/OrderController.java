@@ -1,10 +1,14 @@
 package com.example.mybusinessmanager_final_project.web;
 
 import com.example.mybusinessmanager_final_project.model.binding.OrderAddBindingModel;
+import com.example.mybusinessmanager_final_project.model.binding.OrderEditBindingModel;
 import com.example.mybusinessmanager_final_project.model.binding.ReportEditBindingModel;
 import com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum;
 import com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum;
 import com.example.mybusinessmanager_final_project.model.service.OrderAddServiceModel;
+import com.example.mybusinessmanager_final_project.model.service.OrderEditServiceModel;
+import com.example.mybusinessmanager_final_project.model.service.ReportEditServiceModel;
+import com.example.mybusinessmanager_final_project.model.view.OrderDetailsView;
 import com.example.mybusinessmanager_final_project.model.view.ReportDetailsView;
 import com.example.mybusinessmanager_final_project.service.OrderService;
 import com.example.mybusinessmanager_final_project.service.impl.MBMUser;
@@ -13,10 +17,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -82,8 +83,47 @@ public class OrderController {
     public String editReport(@PathVariable Long id, Model model,
                              @AuthenticationPrincipal MBMUser currentUser) {
 
-        // TODO: 11.12.2021 г.  
+        OrderDetailsView orderDetailsView = orderService.findById(id, currentUser.getUserIdentifier());
+        OrderEditBindingModel orderEditBindingModel = modelMapper.map(
+                orderDetailsView,
+                OrderEditBindingModel.class
+        );
+        model.addAttribute("type", ReportTypeEnum.values());
+        model.addAttribute("status", ReportStatusEnum.values());
+        model.addAttribute("orderModel", orderEditBindingModel);
 
-        return "redirect:/orders/{id}/order-details";
+        return "order-edit";
+
+    }
+
+    @GetMapping("/orders/{id}/edit/error")
+    public String editOrderErrors(@PathVariable Long id, Model model) {
+
+
+        return "order-edit";
+    }
+
+    @PatchMapping("/orders/{id}/edit")
+    public String editOrder(
+            @PathVariable Long id,
+            @Valid OrderEditBindingModel orderModel,
+            BindingResult bindingResult,
+            RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+
+            redirectAttributes.addFlashAttribute("reportModel", orderModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.orderModel", bindingResult);
+
+            return "redirect:/orders/" + id + "/edit/error";
+        }
+
+        OrderEditServiceModel serviceModel = modelMapper.map(orderModel,
+                OrderEditServiceModel.class);
+        serviceModel.setId(id);
+
+        orderService.editOrder(serviceModel);
+
+        return "redirect:/orders/" + id + "/order-details";
     }
 }

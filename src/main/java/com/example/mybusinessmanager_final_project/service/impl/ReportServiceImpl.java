@@ -20,6 +20,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +66,28 @@ public class ReportServiceImpl implements ReportService {
 
         return reportRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
                 .map(this::map).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ReportSummaryView> getAllReportsByStatus(String status) {
+        List<ReportSummaryView> allReports = reportRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
+                .map(this::map).collect(Collectors.toList());
+
+        List<ReportSummaryView> allReportsByStatus = new ArrayList<>();
+        for (ReportSummaryView report : allReports) {
+            UserEntity userEntity;
+            if(report.getReportStatusEnum().name().equals(status)){
+                long authorId = Long.parseLong(report.getAuthorId());
+                userEntity = userRepository.findByUserId(authorId);
+
+                report.setAuthorFullName(userEntity.getFirstName() + " " + userEntity.getLastName());
+                allReportsByStatus.add(report);
+            }
+
+        }
+
+
+        return allReportsByStatus;
     }
 
     @Override
