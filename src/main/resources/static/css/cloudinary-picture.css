@@ -1,0 +1,20 @@
+
+.card-body-cloudinary{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0.5rem 0.8rem;
+    margin-left: 1.5rem;
+    margin-top: 2.5rem;
+    border-radius: 5px;
+    background-color: #43484f;
+}
+
+.img-cloudinary{
+    background-color: #3be104;
+    border-radius: 30px;
+    border-image-width: 300px;
+    max-width: 60%;
+    max-height: 60%;
+}
+
