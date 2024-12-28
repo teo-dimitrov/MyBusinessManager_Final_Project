@@ -1,7 +1,7 @@
 package com.example.mybusinessmanager_final_project.config;
 
 import com.example.mybusinessmanager_final_project.service.OvertimeService;
-import com.example.mybusinessmanager_final_project.service.ReportService;
+import com.example.mybusinessmanager_final_project.service.reports.ReportService;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionOperations;
 import org.springframework.security.core.Authentication;

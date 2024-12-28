@@ -2,7 +2,7 @@ package com.example.mybusinessmanager_final_project.config;
 
 
 import com.example.mybusinessmanager_final_project.service.OvertimeService;
-import com.example.mybusinessmanager_final_project.service.ReportService;
+import com.example.mybusinessmanager_final_project.service.reports.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

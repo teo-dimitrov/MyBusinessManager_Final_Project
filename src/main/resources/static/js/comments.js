@@ -73,11 +73,19 @@ async function postFormDataAsJson({url, formData}) {
     return response.json();
 }
 
+
 function asComment(c) {
-    let commentHtml = `<div id="commentCntr-${c.commentId}">`
-    commentHtml += `<h4>${c.user} (${c.created})</h4><br/>`
-    commentHtml += `<textarea rows="3" class="form-control m-md-auto" readonly>${c.message}</textarea>`
-    commentHtml += `</div>`
+    let commentHtml = `<section class="comment-container-author-text" id="commentCntr-${c.commentId}">`
+    commentHtml += `<h4>${c.user} (${c.created})</h4>`
+    commentHtml += `<textarea class="comment-container-textarea" rows="4" readonly>${c.message}</textarea>`
+//     commentHtml += `
+// <!--<form action="comments/${c.commentId}" method="DELETE">-->
+// <button class="profile-btn btn--green btn--dark" onclick="deleteComment(${c.commentId})">Edit</button>
+//
+// <!--</form>-->
+// `
+//     commentHtml += `<button class="profile-btn btn--red btn--dark" value="Delete">Delete</button>`
+    commentHtml += `</section>`
 
     return commentHtml
 }
@@ -88,3 +96,10 @@ fetch(`/api/${reportId}/comments`).then(response => response.json()).then(data =
     }
     displayComments(allComments)
 })
+
+function deleteComment(id) {
+    fetch(`comments/` + id, {
+        method: 'DELETE'
+    })
+}
+

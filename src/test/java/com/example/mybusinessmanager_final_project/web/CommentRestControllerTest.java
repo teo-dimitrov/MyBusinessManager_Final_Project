@@ -1,34 +1,13 @@
 package com.example.mybusinessmanager_final_project.web;
 
-import com.example.mybusinessmanager_final_project.model.binding.NewCommentBindingModel;
-import com.example.mybusinessmanager_final_project.model.entity.CommentEntity;
-import com.example.mybusinessmanager_final_project.model.entity.ReportEntity;
-import com.example.mybusinessmanager_final_project.model.entity.UserEntity;
-import com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum;
-import com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum;
-import com.example.mybusinessmanager_final_project.repository.ReportRepository;
-import com.example.mybusinessmanager_final_project.repository.UserRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.hamcrest.text.MatchesPattern;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.web.servlet.MockMvc;
-
-import java.time.Instant;
-import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WithMockUser("admin")
 @SpringBootTest

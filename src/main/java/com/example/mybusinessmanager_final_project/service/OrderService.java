@@ -3,8 +3,8 @@ package com.example.mybusinessmanager_final_project.service;
 import com.example.mybusinessmanager_final_project.model.binding.OrderAddBindingModel;
 import com.example.mybusinessmanager_final_project.model.service.OrderAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OrderEditServiceModel;
-import com.example.mybusinessmanager_final_project.model.view.OrderDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.OrderViewModel;
+import com.example.mybusinessmanager_final_project.model.view.orders.OrderDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.orders.OrderViewModel;
 
 import java.util.List;
 

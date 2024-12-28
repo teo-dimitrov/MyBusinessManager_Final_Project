@@ -1,18 +1,13 @@
 package com.example.mybusinessmanager_final_project.service.impl;
 
 import com.example.mybusinessmanager_final_project.model.binding.OrderAddBindingModel;
-import com.example.mybusinessmanager_final_project.model.entity.OrderEntity;
-import com.example.mybusinessmanager_final_project.model.entity.ReportEntity;
-import com.example.mybusinessmanager_final_project.model.entity.UserEntity;
-import com.example.mybusinessmanager_final_project.model.entity.UserRoleEntity;
+import com.example.mybusinessmanager_final_project.model.entity.*;
 import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEnum;
 import com.example.mybusinessmanager_final_project.model.service.OrderAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OrderEditServiceModel;
-import com.example.mybusinessmanager_final_project.model.service.ReportAddServiceModel;
-import com.example.mybusinessmanager_final_project.model.view.OrderDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.OrderViewModel;
-import com.example.mybusinessmanager_final_project.model.view.ReportDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.ReportSummaryView;
+import com.example.mybusinessmanager_final_project.model.view.orders.OrderDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.orders.OrderViewModel;
+import com.example.mybusinessmanager_final_project.model.view.reports.ReportSummaryView;
 import com.example.mybusinessmanager_final_project.repository.OrderRepository;
 import com.example.mybusinessmanager_final_project.repository.UserRepository;
 import com.example.mybusinessmanager_final_project.service.OrderService;
@@ -21,6 +16,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderViewModel> getAllOrders() {
-        return orderRepository.findAll().stream()
+        return orderRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
                 .map(this::map).collect(Collectors.toList());
     }
 

@@ -11,9 +11,7 @@ public abstract class BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-
     private Instant created;
-
     private Instant modified;
 
     public Long getId() {

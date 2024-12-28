@@ -14,7 +14,7 @@ public class OrderEditBindingModel {
     @Size(min = 2, max = 40, message = "name must between 2 and 40 characters!")
     private String name;
     private String description;
-    @FutureOrPresent
+    @FutureOrPresent(message = "date must be in future!")
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime deadLine;
 

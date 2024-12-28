@@ -1,0 +1,182 @@
+.report-details-section-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    background-color: #e3e3e3;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    font-size: 1.5rem;
+}
+
+.report-details-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    background-color: #e3e3e3;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+}
+
+.report-details-section h3 {
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px dashed rgba(16, 16, 16, 0.95);
+    border-right: 1px dashed rgba(16, 16, 16, 0.95);
+}
+
+.report-details-section h4 {
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.report-details-textarea {
+    margin: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
+    color: rgba(16, 16, 16, 0.95);
+    background-color: #e2e3e3;
+    font-size: 1.7rem;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: dashed 1px #000000;
+
+    &:hover {
+        background-color: #eeebb7;
+    }
+}
+
+.comments-section {
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-comment-section {
+    margin: 1rem 0 1rem 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+
+.add-comment-section h2 {
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 0;
+    background-color: #66a4c4;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 1px solid #0b1b3a;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.add-comment-section h2 p {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+}
+
+.add-comment-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    background-color: #e3e3e3;
+    font-size: 1.5rem;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.add-comment-form__textarea {
+    font-size: 2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    resize: none;
+    text-wrap: stable;
+}
+
+#postComment {
+    margin: 2rem 0 0 0;
+    background-color: #66a4c4;
+    border-radius: 5rem 20rem 20rem 5rem;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+
+    &:hover {
+        background-color: #1d9b1f;
+    }
+}
+
+.comments-section__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-comment-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem 1rem 0rem;
+    font-size: 2rem;
+    background-color: #e3e3e3;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.comment-container-author-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+    margin: 0.5rem 1rem 1rem 1rem;
+    border-bottom: 1px solid #000000;
+
+}
+
+.comment-container-author-text h4 {
+    font-size: 1.5rem;
+    color: #020c0c;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 1rem 1rem 0 1rem;
+    background-color: #66a4c4;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 1px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+}
+
+.comment-container-textarea {
+    margin: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
+    color: rgba(16, 16, 16, 0.95);
+    background-color: #e2e3e3;
+    font-size: 1.7rem;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: none;
+
+    &:hover {
+        background-color: #eeebb7;
+    }
+}

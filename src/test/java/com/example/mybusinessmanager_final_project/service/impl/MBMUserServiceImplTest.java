@@ -4,6 +4,7 @@ import com.example.mybusinessmanager_final_project.model.entity.UserEntity;
 import com.example.mybusinessmanager_final_project.model.entity.UserRoleEntity;
 import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEnum;
 import com.example.mybusinessmanager_final_project.repository.UserRepository;
+import com.example.mybusinessmanager_final_project.service.impl.user.MBMUserServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

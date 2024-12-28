@@ -1,7 +1,7 @@
 package com.example.mybusinessmanager_final_project.init;
 
 import com.example.mybusinessmanager_final_project.service.OvertimeService;
-import com.example.mybusinessmanager_final_project.service.ReportService;
+import com.example.mybusinessmanager_final_project.service.reports.ReportService;
 import com.example.mybusinessmanager_final_project.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

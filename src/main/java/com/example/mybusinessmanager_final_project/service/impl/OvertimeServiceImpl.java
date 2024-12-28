@@ -6,9 +6,9 @@ import com.example.mybusinessmanager_final_project.model.entity.enums.OvertimeSt
 import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEnum;
 import com.example.mybusinessmanager_final_project.model.service.OvertimeAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OvertimeEditServiceModel;
-import com.example.mybusinessmanager_final_project.model.view.OvertimeDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.OvertimeSummaryView;
-import com.example.mybusinessmanager_final_project.model.view.OvertimeViewModel;
+import com.example.mybusinessmanager_final_project.model.view.overtime.OvertimeDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.overtime.OvertimeSummaryView;
+import com.example.mybusinessmanager_final_project.model.view.overtime.OvertimeViewModel;
 import com.example.mybusinessmanager_final_project.repository.OvertimeRepository;
 import com.example.mybusinessmanager_final_project.repository.UserRepository;
 import com.example.mybusinessmanager_final_project.service.OvertimeService;

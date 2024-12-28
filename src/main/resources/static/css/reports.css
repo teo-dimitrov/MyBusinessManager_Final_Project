@@ -1,3 +1,5 @@
+@import url('report-details.css');
+
 .container-reports{
     display: flex;
     flex-direction: row;
@@ -86,10 +88,14 @@
     padding: 1rem 1rem;
     margin: 1rem 1rem;
 }
+
+
+
 @media only screen and (min-width: 1200px) {
     .container-body-reports {
         max-width: 70vw;
     }
+
 }@media only screen and (max-width: 600px) {
     #searchInput{
         display: none;

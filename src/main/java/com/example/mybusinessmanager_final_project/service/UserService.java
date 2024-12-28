@@ -1,11 +1,10 @@
 package com.example.mybusinessmanager_final_project.service;
 
 import com.example.mybusinessmanager_final_project.model.binding.ChangeUserAccountSettingsBindingModel;
-import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEnum;
 import com.example.mybusinessmanager_final_project.model.service.UserRegistrationServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.UserServiceModel;
-import com.example.mybusinessmanager_final_project.model.view.UserDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.UserViewModel;
+import com.example.mybusinessmanager_final_project.model.view.user.UserDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.user.UserViewModel;
 
 import java.util.List;
 import java.util.Optional;

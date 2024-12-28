@@ -4,8 +4,8 @@ import com.example.mybusinessmanager_final_project.model.binding.OvertimeAddBind
 import com.example.mybusinessmanager_final_project.model.service.OvertimeAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OvertimeEditServiceModel;
 
-import com.example.mybusinessmanager_final_project.model.view.OvertimeDetailsView;
-import com.example.mybusinessmanager_final_project.model.view.OvertimeSummaryView;
+import com.example.mybusinessmanager_final_project.model.view.overtime.OvertimeDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.overtime.OvertimeSummaryView;
 
 import java.util.List;
 
