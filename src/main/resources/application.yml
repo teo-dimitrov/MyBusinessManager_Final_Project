@@ -2,7 +2,7 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
 #    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME2:mbm3}?useSSL=false
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME:mbm3}?useSSL=false
 #    url: jdbc:mysql://localhost:6603/mbm_v1?useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
