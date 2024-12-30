@@ -32,45 +32,16 @@ async function handlePicture(event) {
 }
 
 function viewPicture(p) {
-    let pictureHtml =
-        `
-<br>
-
-<div class="card" id="pictureContainer-${p.picture}">
-    <div class="card-body">
-                `
-            pictureHtml +=
-                `
-        <br>
-        <h4>${p.author} (${p.created})</h4>
-        <br/>
-                `
-            pictureHtml +=
-                `
+    let pictureHtml = `
+<section class="view-picture-section" id="pictureContainer-${p.picture}">
+    <section class="img-section">
+        <h2>${p.author} (${p.created})</h2>
         <p>${p.title}</p>
-                `
-            pictureHtml +=
-                `
-        <a href="${p.url}"><img src="${p.url}" class="img-cloudinary" alt="Responsive image"></a> 
-        
-<!--       class="img-fluid"-->
-                `
-            pictureHtml +=
-                `
-        <br>
-<!--/*            <div>-->
-<!--                <form action="/reports/${reportId}/report-details/pictures/all/delete"-->
-<!--                      method="delete">-->
-<!--                  <input type="hidden" name="public_id" value="${p.publicId}"/>-->
-<!--                  <br>-->
-<!--                  <input class="btn btn-outline-danger" type="submit" value="Delete"/>-->
-<!--                </form>-->
-<!--            </div>*/-->
-    </div>
-</div>
-<br>
-           `
-
+        <section class="section-a">
+            <a href="${p.url}"><img src="${p.url}" class="img-cloudinary" alt="Responsive image"></a>
+        </section>
+    </section>
+</section>`
     return pictureHtml
 }
 

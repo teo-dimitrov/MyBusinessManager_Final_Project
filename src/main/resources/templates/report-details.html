@@ -22,7 +22,7 @@
             <h3 class="report-details-type" th:text="'Тип: ' + *{reportTypeEnum}">Type</h3>
             <h4 class="report-details-description" th:text="'Описание: '"></h4>
             <textarea class="report-details-textarea"
-                      rows="15"
+                      rows="12"
                       th:text="*{description}"
                       readonly
             >Lorem...</textarea>
@@ -31,9 +31,9 @@
                 <tr>
                     <td>
                         <th:block th:if="*{isOwner}">
-                            <form>
-                                <a class="btn btn--green btn--dark" th:href="@{/reports/{id}/edit(id=*{id})}">Edit</a>
-                            </form>
+
+                            <a class="btn btn--green btn--dark btn-link" th:href="@{/reports/{id}/edit(id=*{id})}">Редактирай</a>
+
                         </th:block>
                     </td>
                     <td>
@@ -71,7 +71,6 @@
                             </div>
                         </div>
                     </td>
-                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -79,29 +78,26 @@
     </section>
     <section class="comments-section">
         <section class="add-comment-section">
-            <h2 class="text-white"><p>Добави Коментар...</p></h2>
+            <h2 class="text-white">Добави Коментар</h2>
             <form class="add-comment-form" id="commentForm" method="POST"
                   th:action="@{/api/{reportId}/comments(reportId=${report.id})}">
-                <!--                <div class="form-group">-->
                 <textarea
                         name="message"
                         id="message"
                         cols="30"
-                        rows="9"
+                        rows="6"
                         class="form-control add-comment-form__textarea"
                         style="background-color: white;"
                         placeholder="Напиши коментар..."
-
-                ></textarea><!---->
+                ></textarea>
                 <small id="messageError" class="invalid-feedback">
-                    Message is required!
+                    Моля въведете текст
                 </small>
-                <!--                </div>-->
                 <div class="form-group">
                     <input type="submit"
                            class="btn btn-outline-info text-white"
                            id="postComment"
-                           value="Add comment"/>
+                           value="Добави"/>
                 </div>
             </form>
         </section>
@@ -109,42 +105,59 @@
             <section class="view-comment-container" id="commentContainer"></section>
         </section>
     </section>
-    <div class="container mx-auto">
-        <section class="pictures">
-            <br>
-            <h2 class="text-white">Add picture</h2>
-            <br>
-            <div>
-                <form id="pictureForm"
+    <section class="picture-section">
+        <section class="add-picture-section">
+            <h2>Добави Снимка</h2>
+            <form
+                    class="add-picture-form"
+                    id="pictureForm"
+                    th:action="@{/reports/{reportId}/report-details/pictures/add(reportId=${report.id})}"
+                    th:method="POST"
+                    enctype="multipart/form-data">
 
-                      th:action="@{/reports/{reportId}/report-details/pictures/add(reportId=${report.id})}"
-                      th:method="POST"
+                <input class="picture-title-input" type="text" name="title" placeholder="Заглавие ( Не е задължително )"/>
+                <input class="select-picture-input" name="picture" type="file" value="Избери файл">
+                <input class="btn btn-outline-info text-white postPicture" type="submit" value="Добави Снимка"/>
 
-
-                      enctype="multipart/form-data">
-                    <div id="picTitle">
-                        <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>
-                    </div>
-                    <br/>
-                    <br/>
-                    <div class="picChooseBtn">
-                        <input name="picture"
-                               type="file"
-                               class="picChooseBtnInput">
-                    </div>
-
-                    <div class="all-classes-container">
-                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture"
-                               value="Post Picture"/>
-                    </div>
-                </form>
-            </div>
-
-            <span class="card-body-cloudinary" id="pictureContainer"></span>
-
-            <span></span>
+            </form>
         </section>
-    </div>
+        <section class="view-picture-section" id="pictureContainer">
+<!--            <span class="card-body-cloudinary" ></span>-->
+        </section>
+    </section>
+    <!--    <div class="container mx-auto">-->
+    <!--        <section class="pictures">-->
+    <!--            <br>-->
+    <!--            <h2 class="text-white">Add picture</h2>-->
+    <!--            <br>-->
+    <!--            <div>-->
+    <!--                <form id="pictureForm"-->
+    <!--                      th:action="@{/reports/{reportId}/report-details/pictures/add(reportId=${report.id})}"-->
+    <!--                      th:method="POST"-->
+    <!--                      enctype="multipart/form-data">-->
+    <!--                    <div id="picTitle">-->
+    <!--                        <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>-->
+    <!--                    </div>-->
+    <!--                    <br/>-->
+    <!--                    <br/>-->
+    <!--                    <div class="picChooseBtn">-->
+    <!--                        <input name="picture"-->
+    <!--                               type="file"-->
+    <!--                               class="picChooseBtnInput">-->
+    <!--                    </div>-->
+
+    <!--                    <div class="all-classes-container">-->
+    <!--                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture"-->
+    <!--                               value="Post Picture"/>-->
+    <!--                    </div>-->
+    <!--                </form>-->
+    <!--            </div>-->
+
+    <!--            <span class="card-body-cloudinary" id="pictureContainer"></span>-->
+
+    <!--            -->
+    <!--        </section>-->
+    <!--    </div>-->
 </div>
 <br>
 
