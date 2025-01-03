@@ -1,4 +1,6 @@
 @import url('report-details.css');
+@import url('reports-add.css');
+
 
 .container-reports{
     display: flex;
@@ -92,7 +94,7 @@
 
 
 @media only screen and (min-width: 1200px) {
-    .container-body-reports {
+    .reports-add-container {
         max-width: 70vw;
     }
 

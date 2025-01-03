@@ -5,15 +5,15 @@ import com.example.mybusinessmanager_final_project.model.entity.enums.ReportType
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 public class ReportAddBindingModel {
 
     private Long id;
-    @NotNull
-    @Size(min = 3, max = 40, message = "Name must be between 3 and 40 characters")
+//    @NotNull
+//    @Size(min = 1, max = 60, message = "Name must be between 3 and 40 characters")
+    @NotBlank(message = "Моля попълнете полето")
     private String name;
-    @NotBlank(message = "Description can not be empty!")
+    @NotBlank(message = "Моля попълнете полето")
     private String description;
     @NotNull
     private ReportTypeEnum reportTypeEnum;

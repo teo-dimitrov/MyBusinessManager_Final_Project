@@ -1,0 +1,140 @@
+.reports-add-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    background-color: #e3e3e3;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    font-size: 1.5rem;
+}
+
+.reports-add-form {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.reports-add-name-input {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-top-right-radius: 20px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    &:focus {
+        outline-color: #5dad3d;
+        border-top-left-radius: 20px;
+    }
+}
+
+.reports-add-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-name-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-status-section {
+    display: flex;
+    flex-direction: column;
+}
+.report-status-select{
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-bottom-right-radius: 20px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    &:focus {
+        outline-color: #5dad3d;
+        border-bottom-left-radius: 20px;
+    }
+}
+.add-type-section{
+    display: flex;
+    flex-direction: column;
+}
+.report-type-select{
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-top-right-radius: 20px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    &:focus {
+        outline-color: #5dad3d;
+        border-top-left-radius: 20px;
+    }
+}
+
+.add-textarea-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.description-textarea {
+    font-weight: bold;
+    border-top-right-radius: 20px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    margin: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
+    color: rgba(16, 16, 16, 0.95);
+    font-size: 1.7rem;
+    border-bottom-left-radius: 10px;
+    /*outline: none;*/
+    /*border: none;*/
+
+    &:hover {
+        background-color: #eeebb7;
+    }
+
+    &:focus {
+        outline-color: #5dad3d;
+        border-top-left-radius: 20px;
+    }
+}
+
+
+.add-report-button {
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 2px solid #000000;
+    padding: 0 5rem 0 5rem;
+    margin: 0 1rem 0 1rem;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #55c57a;
+    transition: 1s;
+
+    &:hover {
+        background-color: #55c57a;
+        border: 2px solid #69bb4a;
+    }
+}
+
+@media only screen and (min-width: 610px) {
+    .reports-add-form {
+        width: 600px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .reports-add-form {
+        width: 90vw;
+    }
+
+}
