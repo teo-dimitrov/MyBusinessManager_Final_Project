@@ -4,43 +4,79 @@
 
 <head th:replace="fragments/commons::head"></head>
 
-<body class="d-flex flex-column" id="body">
-
+<!--<body class="d-flex flex-column" id="body">-->
+<body class="body-container">
 <header th:replace="fragments/commons::nav"></header>
-<section class="container-body">
-<div class="container">
-    <div class="card login">
-        <br>
-        <form th:method="post"
-              th:action="@{/users/login}"
-              class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
-            <div class="form-group">
-                <label for="username" class="login-text">Username</label>
-                <input  type="text"  autocomplete="off"
-                       th:value="${username}"
-                       id="username"
-                       name="username"
-                       class="form-control login-text"
-                       placeholder="Username" rows="1"/>
-            </div>
-            <div class="form-group">
-                <label for="password" class="login-text">Password</label>
-                <input
-                        id="password"
-                        name="password"
-                        type="password" min="2"
-                        max="20" class="form-control login-text"
-                        placeholder="Password"/>
 
-            </div>
-            <p th:if="${bad_credentials}" class="errors alert alert-danger login-text">
-                Invalid username or password.
-            </p>
-            <button class="btn btn-secondary" type="submit">Login</button>
-        </form>
-    </div>
-</div>
+<section class="login-container">
+    <form
+            class="login-form"
+            th:method="post"
+            th:action="@{/users/login}"
+          >
+        <section class="username-section">
+            <label class="username-label" for="username">Потребител:</label>
+            <input
+                    class="username-input"
+                    type="text"
+                    autocomplete="off"
+                    th:value="${username}"
+                    id="username"
+                    name="username"
+                    placeholder="Username" rows="1"/>
+        </section>
+        <section class="password-section">
+            <label class="password-label" for="password">Парола:</label>
+            <input
+                    class="password-input"
+                    id="password"
+                    name="password"
+                    type="password" min="2"
+                    max="20"
+                    placeholder="Password"/>
+
+        </section>
+        <p th:if="${bad_credentials}" class="errors alert alert-danger login-text">
+            Грешен потребител или парола!
+        </p>
+        <button class="btn-login" type="submit">Login</button>
+    </form>
 </section>
+
+<!--<section class="container-body">-->
+<!--<div class="container">-->
+<!--    <div class="card login">-->
+<!--        <br>-->
+<!--        <form th:method="post"-->
+<!--              th:action="@{/users/login}"-->
+<!--              class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">-->
+<!--            <div class="form-group">-->
+<!--                <label for="username" class="login-text">Username</label>-->
+<!--                <input  type="text"  autocomplete="off"-->
+<!--                       th:value="${username}"-->
+<!--                       id="username"-->
+<!--                       name="username"-->
+<!--                       class="form-control login-text"-->
+<!--                       placeholder="Username" rows="1"/>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="password" class="login-text">Password</label>-->
+<!--                <input-->
+<!--                        id="password"-->
+<!--                        name="password"-->
+<!--                        type="password" min="2"-->
+<!--                        max="20" class="form-control login-text"-->
+<!--                        placeholder="Password"/>-->
+
+<!--            </div>-->
+<!--            <p th:if="${bad_credentials}" class="errors alert alert-danger login-text">-->
+<!--                Invalid username or password.-->
+<!--            </p>-->
+<!--            <button class="btn btn-secondary" type="submit">Login</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</section>-->
 
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

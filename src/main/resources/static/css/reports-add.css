@@ -12,6 +12,8 @@
 }
 
 .reports-add-form {
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
     font-size: 2rem;
 }
@@ -29,11 +31,6 @@
         outline-color: #5dad3d;
         border-top-left-radius: 20px;
     }
-}
-
-.reports-add-form {
-    display: flex;
-    flex-direction: column;
 }
 
 .add-name-input {

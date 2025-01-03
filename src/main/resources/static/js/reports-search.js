@@ -9,6 +9,17 @@ fetch("http://192.168.1.22:32777/reports/api").then(response => response.json())
     }
 })
 
+fetch("http://192.168.1.55:32777/reports/api").then(response => response.json()).then(data => {
+    for (let report of data) {
+        allReports.push(report);
+    }
+})
+fetch("http://127.0.0.1:8080/reports/api").then(response => response.json()).then(data => {
+    for (let report of data) {
+        allReports.push(report);
+    }
+})
+
 searchBar.addEventListener('keyup', (e) => {
     const searchingCharacters = searchBar.value.toLowerCase();
     let filteredReports = allReports.filter(report => {

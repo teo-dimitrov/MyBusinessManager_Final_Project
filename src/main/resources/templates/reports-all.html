@@ -2,46 +2,40 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<head th:include="fragments/commons::head">
+<head th:include="fragments/commons::head"></head>
 
-
-</head>
-
-<body class="d-flex flex-column" id="body">
-
+<body class="body-container">
 <header th:replace="fragments/commons::nav"></header>
 <div th:replace="fragments/commons::reports-nav"></div>
-<section class="container-body-reports">
 
 <section class="container-reports">
     <section class="report" th:each="r : ${reports}" th:object="${r}">
 
         <div class="report-body">
-
             <img class="report-img"
                  src="../images/Deks_Logo_BLACK2.jpg">
-
-            <h3 th:text="*{name}">Title</h3>
-
+            <h3 th:text="'Клиент/Обект: ' + *{name}"></h3>
             <div class="wrapper-date">
-                <p class="p-text">Added On: </p>
+                <p class="p-text">Добавен на: </p>
                 <p class="date-time" th:text="*{instantCreatedStr}"></p></div>
-<!--            <div th:if="${isModified}">abcd</div>-->
             <div class="wrapper-date">
-                <p class="p-text">Edited On: </p>
+                <p class="p-text">Редактиран на: </p>
                 <p class="date-time" th:text="*{instantModifiedStr}"></p>
             </div>
             <div class="wrapper-date">
-                <p class="p-text">Added from: </p>
-            <p class="date-time" th:text="*{authorFullName}"></p>
+                <p class="p-text">Добавен от: </p>
+                <p class="date-time" th:text="*{authorFullName}"></p>
             </div>
-
             <p id="status" th:class="${r.reportStatusEnum.name() == 'UNCHECKED'} ? 'text-danger' : 'text-success'"
-               th:text="'Status: Active'"></p>
-
-            <a class="link" th:href="@{/reports/{id}/report-details(id=*{id})}">Go to
-                Details</a>
-
+               th:text="'Статус: Неотчетен'"></p>
+            <p
+                    id="type"
+                    th:text="'Вид: ' + (${r.reportTypeEnum.name() == 'REPORT'} ? 'Отчет' :
+                     (${r.reportTypeEnum.name() == 'OFFER'} ? 'Оферта'))"
+                    th:class="${r.reportTypeEnum.name() == 'REPORT'} ? 'text-info' : 'text-success'"
+            >
+            </p>
+            <a class="link" th:href="@{/reports/{id}/report-details(id=*{id})}">Детайли...</a>
         </div>
     </section>
 </section>
@@ -62,7 +56,6 @@
     </table>
 
 </div>
-</section>
 <footer th:replace="fragments/commons::footer"></footer>
 <script th:src="@{/js/reports-search.js}"></script>
 </body>

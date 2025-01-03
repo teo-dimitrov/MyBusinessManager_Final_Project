@@ -1,5 +1,6 @@
 @import url("style-sub.css");
 @import url("home.css");
+@import url("login.css");
 @import url("footer.css");
 @import url("orders.css");
 @import url("components.css");
@@ -12,42 +13,53 @@
 @import url("overtime-nav.css");
 
 
-
-
-
-body {
-    min-height: 100vh;
+.body-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #687179;
-    /*background-color: #f3b25d;*/
-    /*background-color: #f6d4ab;*/
-    /*background-color: #5bbaea;*/
-    /*background-color: #2196d9;*/
-}
-
-.container-body{
-    /*height: 80vh;*/
-    min-height: 60vh;
-    align-self: center;
-}
-@media only screen and (min-width: 1200px) {
- .container-body{
-     max-width: 60vw;
- }
+    padding: 0;
 
 }
+/*.body-container header{*/
+/*    width: 100vw;*/
+/*}*/
 
-.picChooseBtn{
-    background-color: #343a40;
-    display: flex;
-    border-radius: 15rem;
-    color: white;
-}
-.picChooseBtnInput {
-    border-radius: 15rem;
-}
-#picTitle{
-    display: flex;
-}
+
+/*body {*/
+/*    min-height: 100vh;*/
+/*    background-color: #687179;*/
+/*    !*background-color: #f3b25d;*!*/
+/*    !*background-color: #f6d4ab;*!*/
+/*    !*background-color: #5bbaea;*!*/
+/*    !*background-color: #2196d9;*!*/
+/*}*/
+
+/*.container-body{*/
+/*    !*height: 80vh;*!*/
+/*    min-height: 60vh;*/
+/*    align-self: center;*/
+/*}*/
+/*@media only screen and (min-width: 1200px) {*/
+/* .container-body{*/
+/*     max-width: 60vw;*/
+/* }*/
+
+/*}*/
+
+/*.picChooseBtn{*/
+/*    background-color: #343a40;*/
+/*    display: flex;*/
+/*    border-radius: 15rem;*/
+/*    color: white;*/
+/*}*/
+/*.picChooseBtnInput {*/
+/*    border-radius: 15rem;*/
+/*}*/
+/*#picTitle{*/
+/*    display: flex;*/
+/*}*/
 
 .wrapper {
   display: flex;

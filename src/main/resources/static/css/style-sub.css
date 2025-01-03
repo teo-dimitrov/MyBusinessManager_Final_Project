@@ -1640,12 +1640,12 @@ body {
     filter: blur(3px) brightness(80%)
 }
 
-.footer {
-    background-color: #333;
-    padding: 10rem 0;
-    font-size: 1.4rem;
-    color: #f7f7f7
-}
+/*.footer {*/
+/*    background-color: #333;*/
+/*    padding: 10rem 0;*/
+/*    font-size: 1.4rem;*/
+/*    color: #f7f7f7*/
+/*}*/
 
 @media only screen and (max-width: 56.25em) {
     .footer {
@@ -1653,16 +1653,7 @@ body {
     }
 }
 
-.footer__logo-box {
-    text-align: center;
-    margin-bottom: 8rem
-}
 
-@media only screen and (max-width: 56.25em) {
-    .footer__logo-box {
-        margin-bottom: 6rem
-    }
-}
 
 .footer__logo {
     width: 15rem;

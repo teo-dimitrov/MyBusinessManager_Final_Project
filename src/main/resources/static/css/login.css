@@ -1,0 +1,94 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 5rem 0 5rem 0;
+    padding: 1rem;
+    background-color: #e3e3e3;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    font-size: 1.5rem;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.username-section{
+    display: flex;
+    flex-direction: column;
+}
+.username-label{
+    color: #212121;
+    padding-bottom: 1rem;
+}
+.username-input{
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-top-right-radius: 5px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    &:focus {
+        outline-color: #09cae7;
+        border-top-left-radius: 5px;
+    }
+}
+.password-section{
+    display: flex;
+    flex-direction: column;
+}
+.password-label{
+    color: #212121;
+    padding-bottom: 1rem;
+}
+.password-input{
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-top-right-radius: 5px;
+    color: #000000FF;
+    background-color: #eeebb7;
+
+    &:focus {
+        outline-color: #09cae7;
+        border-top-left-radius: 5px;
+    }
+}
+
+.btn-login{
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 2px solid #000000;
+    padding: 1rem 5rem 1rem 5rem;
+    margin: 2.5rem 5rem 2.5rem 5rem;
+    border-radius: 70px 10px 70px 10px;
+    background-color: #45a1b0;
+
+    transition: 1s;
+
+    &:hover {
+        background-color: #24efef;
+        border: 2px solid #000000;
+    }
+}
+
+@media only screen and (min-width: 610px) {
+    .login-form {
+        width: 400px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .login-form {
+        width: 80vw;
+    }
+
+}
