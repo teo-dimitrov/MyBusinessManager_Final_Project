@@ -1,0 +1,69 @@
+.reports-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.reports-nav section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-button {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0 2rem 0 2rem;
+    /*margin: 0 1rem 0 1rem;*/
+    border: 2px solid #ffffff;
+    background-color: #000000;
+}
+
+.reports-nav a {
+    text-decoration: none;
+}
+
+.navbar-btn-left {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+    transition: 1s;
+
+    &:hover {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-color: #fdfdfd;
+        border: 2px solid #1ba0d9;
+        color: black;
+    }
+}
+
+.navbar-btn-middle {
+    color: white;
+    transition: 1s;
+
+    &:hover {
+        background-color: #fdfdfd;
+        border: 2px solid #1ba0d9;
+        color: black;
+    }
+}
+
+.navbar-btn-right {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: white;
+    transition: 1s;
+
+    &:hover {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #fdfdfd;
+        border: 2px solid #1ba0d9;
+        color: black;
+    }
+}

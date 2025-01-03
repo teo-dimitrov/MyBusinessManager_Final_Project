@@ -8,8 +8,9 @@
 @import url("profile.css");
 @import url("overtime.css");
 @import url("navbar.css");
+@import url("reports-navbar.css");
 @import url("overtime-nav.css");
-@import url("cloudinary-picture.css");
+
 
 
 
@@ -68,7 +69,7 @@ body {
     /*flex-wrap: nowrap;*/
 
 
-    position: center;
+    /*position: center;*/
 
 
     margin-left: 0;

@@ -5,12 +5,11 @@
     flex-direction: row;
 }
 .navbar-nav{
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*!*padding-left: 0;*!*/
-    /*!*margin-bottom: 0;*!*/
-    /*!*list-style: none;*!*/
-    /*align-items: center;*/
-
     align-items: center;
+}
+.logout-btn{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

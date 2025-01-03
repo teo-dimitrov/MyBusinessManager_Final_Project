@@ -10,9 +10,9 @@
 <body class="d-flex flex-column" id="body">
 
 <header th:replace="fragments/commons::nav"></header>
-<section class="container-body-reports">
 <div th:replace="fragments/commons::reports-nav"></div>
-<br>
+<section class="container-body-reports">
+
 <section class="container-reports">
     <section class="report" th:each="r : ${reports}" th:object="${r}">
 

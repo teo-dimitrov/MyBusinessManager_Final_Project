@@ -1,5 +1,6 @@
 package com.example.mybusinessmanager_final_project.service.impl.reports;
 
+import com.example.mybusinessmanager_final_project.model.entity.BaseEntity;
 import com.example.mybusinessmanager_final_project.model.entity.PictureEntity;
 import com.example.mybusinessmanager_final_project.model.service.PictureServiceModel;
 import com.example.mybusinessmanager_final_project.model.view.reports.PictureViewModel;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -78,7 +80,7 @@ public class PictureServiceImpl implements PictureService {
                 .setPublicId(pictureEntity.getPublicId())
                 .setCreated(pictureEntity.getCreated())
                 .setReportId(pictureEntity.getReportEntity().getId())
-                .setAuthor(pictureEntity.getAuthor().getUsername());
+                .setAuthor(pictureEntity.getAuthor().getFirstName() + " " + pictureEntity.getAuthor().getLastName());
 
         return pictureViewModel;
     }
@@ -97,6 +99,7 @@ public class PictureServiceImpl implements PictureService {
                 get().
                 getPictures().
                 stream().
+                sorted(Comparator.comparing(BaseEntity::getCreated).reversed()).
                 map(this::mapAsPicture).
                 collect(Collectors.toList());
     }

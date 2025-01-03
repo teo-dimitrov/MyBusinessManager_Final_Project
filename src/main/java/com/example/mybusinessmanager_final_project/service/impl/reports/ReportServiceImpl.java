@@ -63,7 +63,6 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public List<ReportSummaryView> getAllReports() {
 
-
         return reportRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
                 .map(this::map).collect(Collectors.toList());
     }

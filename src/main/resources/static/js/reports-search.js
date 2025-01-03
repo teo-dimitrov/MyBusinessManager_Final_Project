@@ -3,7 +3,7 @@ const searchBar = document.getElementById('searchInput')
 
 const allReports = [];
 
-fetch("http://localhost:8080/reports/api").then(response => response.json()).then(data => {
+fetch("http://192.168.1.22:32777/reports/api").then(response => response.json()).then(data => {
     for (let report of data) {
         allReports.push(report);
     }

@@ -35,7 +35,7 @@ function viewPicture(p) {
     let pictureHtml = `
 <section class="view-picture-section" id="pictureContainer-${p.picture}">
     <section class="img-section">
-        <h2>${p.author} (${p.created})</h2>
+        <h2>${p.author}<br>(${p.created})</h2>
         <p>${p.title}</p>
         <section class="section-a">
             <a href="${p.url}"><img src="${p.url}" class="img-cloudinary" alt="Responsive image"></a>

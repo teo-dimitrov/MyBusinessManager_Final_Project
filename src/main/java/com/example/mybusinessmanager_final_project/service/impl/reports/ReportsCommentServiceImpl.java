@@ -1,5 +1,6 @@
 package com.example.mybusinessmanager_final_project.service.impl.reports;
 
+import com.example.mybusinessmanager_final_project.model.entity.BaseEntity;
 import com.example.mybusinessmanager_final_project.model.entity.CommentEntity;
 import com.example.mybusinessmanager_final_project.model.service.ReportAddCommentServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.ReportsEditCommentServiceModel;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -89,6 +91,7 @@ public class ReportsCommentServiceImpl implements ReportsCommentService {
                 get().
                 getComments().
                 stream().
+                sorted(Comparator.comparing(BaseEntity::getModified).reversed()).
                 map(this::mapAsComment).
                 collect(Collectors.toList());
     }
@@ -102,7 +105,7 @@ public class ReportsCommentServiceImpl implements ReportsCommentService {
                 setCanDelete(true).
                 setCreated(commentEntity.getCreated()).
                 setMessage(commentEntity.getTextContent()).
-                setUser(commentEntity.getAuthor().getUsername());
+                setUser(commentEntity.getAuthor().getFirstName() + " " + commentEntity.getAuthor().getLastName());
 
         return commentViewModel;
     }

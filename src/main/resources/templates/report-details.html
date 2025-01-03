@@ -10,13 +10,12 @@
 <header th:replace="fragments/commons::nav"></header>
 <br>
 <div th:replace="fragments/commons::reports-nav"></div>
-<br>
+<input type="hidden" name="reportId" id="reportId" th:value="${report.id}">
+<section class="report-details-container">
 
+    <section class="report-details-section-outer">
 
-<div class="container">
-    <section class="report-details-section-container">
-        <input type="hidden" name="reportId" id="reportId" th:value="${report.id}">
-        <section class="report-details-section" th:object="${report}">
+        <section class="report-details-section-inner" th:object="${report}">
             <h3 class="report-details-job_name" th:text="'Обект: '+ *{name}">Job 1</h3>
             <h3 class="report-details-status" th:text="'Статус: ' + *{reportStatusEnum}">Status</h3>
             <h3 class="report-details-type" th:text="'Тип: ' + *{reportTypeEnum}">Type</h3>
@@ -76,6 +75,7 @@
             </table>
         </section>
     </section>
+
     <section class="comments-section">
         <section class="add-comment-section">
             <h2 class="text-white">Добави Коментар</h2>
@@ -105,6 +105,7 @@
             <section class="view-comment-container" id="commentContainer"></section>
         </section>
     </section>
+
     <section class="picture-section">
         <section class="add-picture-section">
             <h2>Добави Снимка</h2>
@@ -125,41 +126,8 @@
 <!--            <span class="card-body-cloudinary" ></span>-->
         </section>
     </section>
-    <!--    <div class="container mx-auto">-->
-    <!--        <section class="pictures">-->
-    <!--            <br>-->
-    <!--            <h2 class="text-white">Add picture</h2>-->
-    <!--            <br>-->
-    <!--            <div>-->
-    <!--                <form id="pictureForm"-->
-    <!--                      th:action="@{/reports/{reportId}/report-details/pictures/add(reportId=${report.id})}"-->
-    <!--                      th:method="POST"-->
-    <!--                      enctype="multipart/form-data">-->
-    <!--                    <div id="picTitle">-->
-    <!--                        <input class="btn btn-outline-white" type="text" name="title" placeholder="Add Title Here..."/>-->
-    <!--                    </div>-->
-    <!--                    <br/>-->
-    <!--                    <br/>-->
-    <!--                    <div class="picChooseBtn">-->
-    <!--                        <input name="picture"-->
-    <!--                               type="file"-->
-    <!--                               class="picChooseBtnInput">-->
-    <!--                    </div>-->
 
-    <!--                    <div class="all-classes-container">-->
-    <!--                        <input type="submit" class="btn btn-outline-info text-white" id="postPicture"-->
-    <!--                               value="Post Picture"/>-->
-    <!--                    </div>-->
-    <!--                </form>-->
-    <!--            </div>-->
-
-    <!--            <span class="card-body-cloudinary" id="pictureContainer"></span>-->
-
-    <!--            -->
-    <!--        </section>-->
-    <!--    </div>-->
-</div>
-<br>
+</section>
 
 <script th:src="@{/js/comments.js}"></script>
 <script th:src="@{/js/pictures.js}"></script>
