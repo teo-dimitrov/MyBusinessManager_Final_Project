@@ -99,16 +99,34 @@
        <a href="/reports/archive"><button class="navbar-button navbar-btn-right">Архив</button></a>
     </section>
 </div>
+<div th:fragment="reports-nav-add" class="reports-nav">
+    <section>
+       <a href="/reports/add"><button class="navbar-button navbar-btn-left navbar-btn-active">Нов</button></a>
+       <a href="/reports/all"><button class="navbar-button navbar-btn-middle">Всички</button></a>
+       <a href="/reports/archive"><button class="navbar-button navbar-btn-right">Архив</button></a>
+    </section>
+</div>
+<div th:fragment="reports-nav-all" class="reports-nav">
+    <section>
+       <a href="/reports/add"><button class="navbar-button navbar-btn-left">Нов</button></a>
+       <a href="/reports/all"><button class="navbar-button navbar-btn-middle navbar-btn-active">Всички</button></a>
+       <a href="/reports/archive"><button class="navbar-button navbar-btn-right">Архив</button></a>
+    </section>
+</div>
+<div th:fragment="reports-nav-archive" class="reports-nav">
+    <section>
+       <a href="/reports/add"><button class="navbar-button navbar-btn-left">Нов</button></a>
+       <a href="/reports/all"><button class="navbar-button navbar-btn-middle">Всички</button></a>
+       <a href="/reports/archive"><button class="navbar-button navbar-btn-right navbar-btn-active">Архив</button></a>
+    </section>
+</div>
 
 <div th:fragment="orders-nav" class="btn-group mx-auto" role="group" aria-label="Button group with nested dropdown">
-
     <a type="button" class="btn btn-dark" href="/orders/add">Add Order</a>
     <a type="button" class="btn btn-dark" href="/orders/all">All Orders</a>
-
 </div>
 
 <div th:fragment="profile" class="overtime-nav">
-
     <a type="button" class="profile-btn btn--white btn-dark" href="/overtime">Add Overtime</a>
     <a type="button" class="profile-btn btn--white btn-dark" href="/my-overtime">My Overtime</a>
     <a type="button" class="profile-btn btn--white btn-dark" href="/overtime-archive">My Archive Overtime</a>
@@ -126,7 +144,7 @@
             <div class="col-1-of-2">
                 <div class="footer__navigation">
                     <ul class="footer__list">
-                        <li class="footer__item"><a href="#" class="footer__link">Api version: v1.3.0</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">Api version: v1.4.7</a></li>
                     </ul>
                 </div>
             </div>

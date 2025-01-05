@@ -29,7 +29,7 @@
     border-top: 2px solid #000000;
 }
 
-.report-details-section h3 {
+.report-details-job_name, .report-details-status, .report-details-type {
     font-size: 1.5rem;
     padding: 0 0 1rem 0;
     margin: 0 1rem 1rem 1rem;
@@ -39,7 +39,7 @@
     border-right: 1px dashed rgba(16, 16, 16, 0.95);
 }
 
-.report-details-section h4 {
+.report-details-description {
     font-size: 1.5rem;
     padding: 0 0 0 1rem;
     margin: 0 1rem 0 1rem;

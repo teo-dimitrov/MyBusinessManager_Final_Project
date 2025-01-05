@@ -1,9 +1,8 @@
 .reports-nav {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
-    padding: 1rem;
-}
+    margin: 1rem 0;
+   }
 
 .reports-nav section {
     display: flex;
@@ -12,58 +11,41 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+
 }
 
 .navbar-button {
     font-weight: bold;
     font-size: 1.5rem;
     padding: 0 2rem 0 2rem;
-    /*margin: 0 1rem 0 1rem;*/
-    border: 2px solid #ffffff;
-    background-color: #000000;
+    border: 1px solid #bbb9b9;
+    box-shadow: #3f3f40 0.2rem 0.3rem;
 }
 
 .reports-nav a {
     text-decoration: none;
+    text-shadow: 50px 30px 150px #19B0D7;
 }
 
 .navbar-btn-left {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    color: white;
-    transition: 1s;
 
-    &:hover {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-color: #fdfdfd;
-        border: 2px solid #1ba0d9;
-        color: black;
-    }
-}
-
-.navbar-btn-middle {
-    color: white;
-    transition: 1s;
-
-    &:hover {
-        background-color: #fdfdfd;
-        border: 2px solid #1ba0d9;
-        color: black;
-    }
 }
 
 .navbar-btn-right {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+}
+
+.navbar-btn-left, .navbar-btn-middle, .navbar-btn-right {
+    background-color: #343a40;
     color: white;
     transition: 1s;
 
     &:hover {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
         background-color: #fdfdfd;
-        border: 2px solid #1ba0d9;
         color: black;
+        border: 2px solid #1ba0d9;
     }
 }

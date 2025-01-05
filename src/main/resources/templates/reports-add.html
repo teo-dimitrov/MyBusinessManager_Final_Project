@@ -7,61 +7,63 @@
 <body class="body-container">
 
 <header th:replace="fragments/commons::nav"></header>
-<section class="reports-add-nav">
-    <div th:replace="fragments/commons::reports-nav"></div>
-</section>
-<section class="reports-add-container">
-    <form class="reports-add-form"
-          th:action="@{/reports/add}"
-          th:method="POST"
-          th:object="${reportAddBindingModel}">
-        <section class="add-form-container-">
-            <section class="add-name-input">
-                <label for="name">Име на Клиент и Обект:</label>
-                <input autocomplete="off"
-                       th:field="*{name}" th:errorclass="is-invalid"
-                       type="text" class="reports-add-name-input"
-                       id="name" placeholder="напиши тук..." name="name"/>
+<section class="report-add-body-container">
+    <section class="reports-add-nav">
+        <div th:replace="fragments/commons::reports-nav-add"></div>
+    </section>
+    <section class="reports-add-container">
+        <form class="reports-add-form"
+              th:action="@{/reports/add}"
+              th:method="POST"
+              th:object="${reportAddBindingModel}">
+            <section class="add-form-container-">
+                <section class="add-name-input">
+                    <label for="name">Име на Клиент и Обект:</label>
+                    <input autocomplete="off"
+                           th:field="*{name}" th:errorclass="is-invalid"
+                           type="text" class="reports-add-name-input"
+                           id="name" placeholder="напиши тук..." name="name"/>
+                </section>
+                <div>
+                    <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
+                           class="form-text bg-danger rounded text-white">error</small>
+                </div>
             </section>
-            <div>
-                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
-                       class="form-text bg-danger rounded text-white">error</small>
-            </div>
-        </section>
-        <section class="add-status-section">
-            <label for="reportStatusEnum">Статус:</label>
-            <select class="report-status-select" id="reportStatusEnum" name="reportStatusEnum">
-                <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum).values()}"
-                        th:value="${r}"
-                        th:text="${r}"
-                        th:selected="${r} == *{reportStatusEnum}">Status
-                </option>
-            </select>
-        </section>
-        <section class="add-type-section">
-            <label for="reportTypeEnum">Вид:</label>
-            <select class="report-type-select" id="reportTypeEnum" name="reportTypeEnum">
-                <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum).values()}"
-                        th:value="${r}"
-                        th:text="${r}"
-                        th:selected="${r} == *{reportTypeEnum}">Type
-                </option>
-            </select>
-        </section>
-        <section class="add-textarea-section">
-            <label for="description">Опис:</label>
-            <textarea
-                    th:field="*{description}"
-                    th:errorclass="is-invalid"
-                    class="description-textarea" id="description" rows="5" placeholder="1. Напиши тук..."></textarea>
+            <section class="add-status-section">
+                <label for="reportStatusEnum">Статус:</label>
+                <select class="report-status-select" id="reportStatusEnum" name="reportStatusEnum">
+                    <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportStatusEnum).values()}"
+                            th:value="${r}"
+                            th:text="${r}"
+                            th:selected="${r} == *{reportStatusEnum}">Status
+                    </option>
+                </select>
+            </section>
+            <section class="add-type-section">
+                <label for="reportTypeEnum">Вид:</label>
+                <select class="report-type-select" id="reportTypeEnum" name="reportTypeEnum">
+                    <option th:each="r : ${T(com.example.mybusinessmanager_final_project.model.entity.enums.ReportTypeEnum).values()}"
+                            th:value="${r}"
+                            th:text="${r}"
+                            th:selected="${r} == *{reportTypeEnum}">Type
+                    </option>
+                </select>
+            </section>
+            <section class="add-textarea-section">
+                <label for="description">Опис:</label>
+                <textarea
+                        th:field="*{description}"
+                        th:errorclass="is-invalid"
+                        class="description-textarea" id="description" rows="5" placeholder="1. Напиши тук..."></textarea>
 
-            <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
-                   class="form-text bg-danger rounded text-white">error</small>
-        </section>
-        <span class="add-report-button-span">
+                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </section>
+            <span class="add-report-button-span">
                 <button type="submit" class="add-report-button">Изпрати</button>
         </span>
-    </form>
+        </form>
+    </section>
 </section>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>

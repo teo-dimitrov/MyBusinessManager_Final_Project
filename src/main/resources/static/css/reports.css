@@ -1,111 +1,151 @@
-@import url('report-details.css');
-@import url('reports-add.css');
-
-
-.container-reports{
+.container-reports {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 960px;
-    background-color: white;
+    background-color: #bbc7c7;
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
     align-self: center;
     margin: 1rem;
+    box-shadow: #030303 0.2rem -0.4rem 2.3rem 0.2rem;
 }
+
 .report {
-    background-color: aliceblue;
+    background-color: rgba(27, 30, 30, 0.93);
     padding: 1rem 1rem;
     margin: 1rem 1rem;
-    border-radius: 4px;
-
+    border-radius: 4px 25px 4px 4px;
     width: 300px;
+    box-shadow: #ffffff 0.2rem 0.3rem;
+}
+
+.report-body-link {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .report-body {
-    background-color: #e7eaea;
     display: flex;
     flex-direction: column;
-    padding: 1.2rem 1.2rem;
-    border-radius: 5px;
-    font-size: 3rem;
-
-
-
+    color: black;
+    background-color: #e7eaea;
+    border: dashed 5px #ffffff;
+    /*!*border: dashed 10px #fad547;*! ---> cool yellow*/
+    padding: 1.2rem 1.2rem 0;
+    border-radius: 5px 50px 0 0;
+    font-size: 1.6rem;
 }
-.reports-nav{
-    padding: 1rem 0.5rem;
+
+.report-name {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #72d2e7;
+    border-radius: 0 75px 15px 0;
+    border: solid 2px black;
+    border-bottom: dashed 1px black;
+    color: black;
+    font-weight: bold;
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+}
+.report-name h3{
+    font-size: 1.2rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.report-name:hover {
+    background-color: #b2eaf6;
+}
+
+.report-added-on, .report-edited-on, .report-added-from {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    color: black;
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    border-bottom: dotted 1px black;
 }
-.reports-nav div{
+
+
+.report-status, .report-type {
     display: flex;
-    align-content: center;
-    padding: 0.5rem 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /*font-size: 1.5rem;*/
+    padding: 0 0.5rem;
+    margin-bottom: 0;
+}
+.report-type{
+    background-color: #bebebe;
+}
+.date-time {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.p-text {
+    font-size: 1.4rem;
+}
+
+p, h3{
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+}
+.report-status H3 {
+    color: #0d8f05;
+}
+
+.report-type H3 {
+    color: #4a7f9f;
+}
+
+.more{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .report-img {
-    width: 200px;
+    width: 100px;
     align-self: center;
-    padding: 0.5rem 0.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.report-body h3{
-    font-size: 1.5rem;
-    padding: 1rem 0.5rem;
-}
-#status, #type{
-    font-size: 1.5rem;
-    padding: 0 0.5rem;
-}
-.link{
+.link {
     text-decoration: none;
     color: #f6be3a;
     font-size: 1.5rem;
     padding: 0.5rem 0.5rem;
-
 }
-.link:hover{
+
+.link:hover {
     text-decoration: none;
     color: #e79a00;
 }
-.wrapper-date{
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.date-time{
-    font-weight: bold;
-    font-size: 1.2rem;
-
-}
-.p-text{
-    font-size: 1.2rem;
-}
-.container-body-reports{
-    /*height: 80vh;*/
-    display: flex;
-    flex-direction: column;
-    min-height: 70vh;
-    align-self: center;
-    align-items: center;
-    padding: 1rem 1rem;
-    margin: 1rem 1rem;
-}
-
-
 
 @media only screen and (min-width: 1200px) {
     .reports-add-container {
         max-width: 70vw;
     }
 
-}@media only screen and (max-width: 600px) {
-    #searchInput{
+}
+
+@media only screen and (max-width: 600px) {
+    #searchInput {
         display: none;
+    }
+    .report{
+        width: 90vw;
     }
 }

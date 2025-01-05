@@ -4,18 +4,13 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:include="fragments/commons::head"></head>
-
-<!--<body class="d-flex flex-column" id="body">-->
 <body class="body-container">
-
 <header th:replace="fragments/commons::nav"></header>
-<br>
 <div th:replace="fragments/commons::reports-nav"></div>
 <input type="hidden" name="reportId" id="reportId" th:value="${report.id}">
+
 <section class="report-details-container">
-
     <section class="report-details-section-outer">
-
         <section class="report-details-section-inner" th:object="${report}">
             <h3 class="report-details-job_name" th:text="'Обект: '+ *{name}">Job 1</h3>
             <h3 class="report-details-status" th:text="'Статус: ' + *{reportStatusEnum}">Status</h3>
@@ -31,13 +26,10 @@
                 <tr>
                     <td>
                         <th:block th:if="*{isOwner}">
-
                             <a class="btn btn--green btn--dark btn-link" th:href="@{/reports/{id}/edit(id=*{id})}">Редактирай</a>
-
                         </th:block>
                     </td>
                     <td>
-
                         <th:block th:if="*{canDelete}">
                             <button type="button" class="btn btn--red btn--dark" data-toggle="modal"
                                     data-target="#deleteReportModal">
@@ -123,11 +115,8 @@
 
             </form>
         </section>
-        <section class="view-picture-section" id="pictureContainer">
-<!--            <span class="card-body-cloudinary" ></span>-->
-        </section>
+        <section class="view-picture-section" id="pictureContainer"></section>
     </section>
-
 </section>
 
 <script th:src="@{/js/comments.js}"></script>

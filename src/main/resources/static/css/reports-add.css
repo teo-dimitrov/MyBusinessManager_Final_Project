@@ -1,3 +1,9 @@
+.report-add-body-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
 .reports-add-container {
     display: flex;
     flex-direction: column;
@@ -9,6 +15,7 @@
     border-left: 2px solid #000000;
     border-right: 2px solid #000000;
     font-size: 1.5rem;
+    box-shadow: #030303 0.2rem -0.4rem 2.3rem 0.2rem;
 }
 
 .reports-add-form {
@@ -91,8 +98,6 @@
     color: rgba(16, 16, 16, 0.95);
     font-size: 1.7rem;
     border-bottom-left-radius: 10px;
-    /*outline: none;*/
-    /*border: none;*/
 
     &:hover {
         background-color: #eeebb7;
