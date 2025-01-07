@@ -30,7 +30,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders/all")
-    public String allReports(Model model) {
+    public String allOrders(Model model) {
         model.addAttribute("orders",
                 orderService.getAllOrders());
         return "orders-all";

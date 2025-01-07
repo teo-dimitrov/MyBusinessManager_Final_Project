@@ -2,70 +2,61 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 
-<head th:include="fragments/commons::head">
-
-</head>
-
-<!--<body class="d-flex flex-column" id="body">-->
+<head th:include="fragments/commons::head"></head>
 <body class="body-container">
-
 <header th:replace="fragments/commons::nav"></header>
-<br>
 <div th:replace="fragments/commons::orders-nav"></div>
-<br>
-<div class="container m-md-auto">
-    <div class="card">
-        <br>
-        <form
-                th:action="@{/orders/add}"
-                th:method="POST"
-                th:object="${orderAddBindingModel}">
-            <div class="form-group col-auto">
-                <label for="name">Name</label>
-                <div>
-                    <input  type="text"  autocomplete="off"  th:field="*{name}" th:errorclass="is-invalid" class="form-control"
-                              id="name" placeholder="Name" name="name"/>
-                </div>
+
+<section class="order-add-body-container">
+    <section class="reports-add-nav">
+<!--        <div th:replace="fragments/commons::orders-nav-add"></div>-->
+    </section>
+    <section class="orders-add-container">
+        <form class="orders-add-form"
+              th:action="@{/orders/add}"
+              th:method="POST"
+              th:object="${orderAddBindingModel}">
+            <section class="add-form-container-">
+                <section class="add-name-input-section">
+                    <label for="name">Поръчка от клиент:</label>
+                    <input autocomplete="off"
+                           th:field="*{name}" th:errorclass="is-invalid"
+                           type="text" class="orders-add-name-input"
+                           id="name" placeholder="напиши тук..." name="name"/>
+                </section>
                 <div>
                     <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" id="nameError"
                            class="form-text bg-danger rounded text-white">error</small>
                 </div>
-            </div>
-            <div class="form-group col-auto">
-                <label for="deadLine">Deadline</label>
+            </section>
+            <section class="add-deadline-section">
+                <label for="deadline">Краен Срок (Не е задължитено)</label>
                 <input th:field="*{deadLine}" th:errorclass="is-invalid" type="datetime-local"
-                       class="form-control" id="deadLine" name="deadline"
+                       class="order-deadline-input" id="deadLine" name="deadline"
                        aria-describedby="deadlineHelpInline">
                 <small th:if="${#fields.hasErrors('deadLine')}" th:errors="*{deadLine}" id="deadLineError"
                        class="form-text bg-danger rounded text-white">
                     error
                 </small>
-            </div>
+            </section>
 
-            <div class="form-group col-auto">
-                <div>
-                    <label for="description">Report Description</label>
-                    <textarea
-                            th:field="*{description}"
-                            th:errorclass="is-invalid"
-                            class="form-control" id="description" rows="5" placeholder="Description"></textarea>
-                </div>
-                <div>
-                    <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
-                           class="form-text bg-danger rounded text-white">error</small>
-                </div>
-            </div>
-            <div class="submitOrder">
-                <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
+            <section class="orders-add-textarea-section">
+                <label for="description">Допълнителна информация</label>
+                <textarea
+                        th:field="*{description}"
+                        th:errorclass="is-invalid"
+                        class="order-description-textarea" id="description" rows="5" placeholder="1. Напиши тук..."></textarea>
+
+                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" id="descriptionError"
+                       class="form-text bg-danger rounded text-white">error</small>
+            </section>
+            <span class="add-order-button-span">
+                <button type="submit" class="add-order-button">Изпрати</button>
+        </span>
         </form>
-        <br>
-    </div>
-    <br>
-</div>
-<br>
-<br>
-<br>
+    </section>
+</section>
+
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

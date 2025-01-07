@@ -6,6 +6,7 @@ import com.example.mybusinessmanager_final_project.model.entity.enums.UserRoleEn
 import com.example.mybusinessmanager_final_project.model.service.OrderAddServiceModel;
 import com.example.mybusinessmanager_final_project.model.service.OrderEditServiceModel;
 import com.example.mybusinessmanager_final_project.model.view.orders.OrderDetailsView;
+import com.example.mybusinessmanager_final_project.model.view.orders.OrderSummaryView;
 import com.example.mybusinessmanager_final_project.model.view.orders.OrderViewModel;
 import com.example.mybusinessmanager_final_project.model.view.reports.ReportSummaryView;
 import com.example.mybusinessmanager_final_project.repository.OrderRepository;
@@ -39,6 +40,8 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAll().stream().sorted(Comparator.comparing(BaseEntity::getModified).reversed())
                 .map(this::map).collect(Collectors.toList());
     }
+
+
 
     @Override
     public OrderDetailsView findById(Long id, String currentUser) {
