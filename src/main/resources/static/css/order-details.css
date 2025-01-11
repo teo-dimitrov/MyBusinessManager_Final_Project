@@ -1,0 +1,94 @@
+.order-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0 1rem 0;
+}
+
+.order-details-section-outer {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    background-color: #eeab5d;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    font-size: 1.5rem;
+}
+
+.order-details-section-inner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+    background-color: #e3e3e3;
+    border-top-right-radius: 10px;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+}
+
+.order-details-job_name, .order-deadline, .order-details-type {
+    font-size: 1.5rem;
+    padding: 0 0 1rem 0;
+    margin: 0 1rem 1rem 1rem;
+    color: #000000;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px dashed rgba(16, 16, 16, 0.95);
+    border-right: 1px dashed rgba(16, 16, 16, 0.95);
+}
+
+.order-details-description {
+    font-size: 1.5rem;
+    padding: 0 0 0 1rem;
+    margin: 0 1rem 0 1rem;
+    color: #000000;
+
+}
+
+.order-details-textarea {
+    margin: 0 1rem 1rem 1rem;
+    padding: 0 1rem 1rem 1rem;
+    color: rgba(16, 16, 16, 0.95);
+    background-color: #f8fbfd;
+    font-size: 1.7rem;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    border: dotted 1px #000000;
+
+    &:hover {
+        background-color: #eeebb7;
+    }
+}
+
+.btn-link:hover {
+    color: white;
+    background-color: #55c57a;
+    text-decoration: none;
+}
+
+
+@media only screen and (min-width: 820px) {
+    .order-details-container{
+        width: 700px;
+        align-self: center;
+    }
+    .order-details-section-outer{
+        width: 700px;
+        align-self: center;
+    }
+
+}
+
+@media only screen and (max-width: 959px) {
+    .order-details-container {
+        width: 90vw;
+        align-self: center;
+    }
+    .order-details-section-outer{
+        width: 90vw;
+        align-self: center;
+    }
+
+}

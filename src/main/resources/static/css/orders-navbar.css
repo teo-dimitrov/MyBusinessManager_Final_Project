@@ -1,10 +1,10 @@
-.reports-nav {
+.orders-nav {
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
-   }
+}
 
-.reports-nav section {
+.orders-nav section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,7 +14,7 @@
 
 }
 
-.reports-navbar-button {
+.orders-navbar-button {
     font-weight: bold;
     font-size: 1.5rem;
     padding: 0 2rem 0 2rem;
@@ -22,23 +22,23 @@
     box-shadow: #3f3f40 0.2rem 0.3rem;
 }
 
-.reports-nav a {
+.orders-nav a {
     text-decoration: none;
-    text-shadow: 50px 30px 150px #19B0D7;
+    text-shadow: 50px 30px 150px #eeab5d;
 }
 
-.reports-navbar-btn-left {
+.orders-navbar-btn-left {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 
 }
 
-.reports-navbar-btn-right {
+.orders-navbar-btn-right {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
 
-.reports-navbar-btn-left, .reports-navbar-btn-middle, .reports-navbar-btn-right {
+.orders-navbar-btn-left, .orders-navbar-btn-middle, .orders-navbar-btn-right {
     background-color: #343a40;
     color: white;
     transition: 1s;
@@ -46,6 +46,6 @@
     &:hover {
         background-color: #fdfdfd;
         color: black;
-        border: 2px solid #1ba0d9;
+        border: 2px solid #eeab5d;
     }
 }

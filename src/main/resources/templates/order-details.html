@@ -1,80 +1,133 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-
-<head th:include="fragments/commons::head">
-
-</head>
-
-<!--<body class="d-flex flex-column" id="body">-->
+<head th:include="fragments/commons::head"></head>
 <body class="body-container">
-
 <header th:replace="fragments/commons::nav"></header>
-<br>
 <div th:replace="fragments/commons::orders-nav"></div>
-<br>
 
-<div class="container m-md-auto">
-    <div class="card">
-        <input type="hidden" name="reportId" id="reportId" th:value="${order.id}">
-        <div class="card-body" th:object="${order}">
-            <h5 class="card-title" th:text="'Name: '+ *{name}">Job 1</h5>
-            <h6 class="card-subtitle mb-2 text-muted" th:text="'Added on: ' + *{created}">Added on</h6>
-            <h6 class="card-subtitle mb-2 text-muted" th:text="'Deadline: ' + *{deadLine}">Deadline</h6>
-            <h6 class="card-subtitle mb-2 text-muted" th:text="'Description: '"></h6>
-
-            <textarea class="form-control m-md-auto"
-                      rows="5"
-                      style="background-color: white;" th:text="*{description}" readonly>Lorem...</textarea>
-
-            <br>
+<section class="order-details-container">
+    <section class="order-details-section-outer">
+        <section class="order-details-section-inner" th:object="${order}">
+            <h3 class="order-details-job_name" th:text="'Поръчка от: '+ *{name}">Job 1</h3>
+            <h3 class="order-deadline" th:text="'Краен срок: ' + *{deadLine}">Status</h3>
+            <h4 class="order-details-description" th:text="'Описание: '"></h4>
+            <textarea class="order-details-textarea"
+                      rows="12"
+                      th:text="*{description}"
+                      readonly
+            >Lorem...</textarea>
             <table class="justify-content-end">
                 <tbody>
                 <tr>
                     <td>
                         <th:block th:if="*{isOwner}">
-
-                                <form>
-                                    <a class="profile-btn btn--green btn-dark" th:href="@{/orders/{id}/edit(id=*{id})}">Edit</a>
-                                </form>
-
+                            <a class="btn btn--green btn--dark btn-link" th:href="@{/orders/{id}/edit(id=*{id})}">Редактирай</a>
                         </th:block>
                     </td>
                     <td>
-
-
-                    <td >
-
-<!--                    <button id="myBtn" class="btn btn-danger">Open Modal</button>-->
-
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h1>Are you sure?</h1>
-                            <th:block th:if="*{canDelete}">
-                                <form th:action="@{/orders/{id}(id=*{id})}" th:method="delete">
-                                    <button type="submit" class="btn btn--red btn-dark">Yes!</button>
-
-                                </form>
-
-                            </th:block>
-                        </div>
-
-                    </div>
                         <th:block th:if="*{canDelete}">
-                            <button id="myBtn" class="profile-btn btn--red btn--dark" th:text="Delete"></button>
+                            <button type="button" class="btn btn--red btn--dark" data-toggle="modal"
+                                    data-target="#deleteReportModal">
+                                Изтрий
+                            </button>
                         </th:block>
+                        <!-- Modal -->
+                        <div class="modal fade" id="deleteReportModal" tabindex="-1" role="dialog"
+                             aria-labelledby="deleteReportModal" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteReportModalLabel">Опитвате се да изтрите
+                                            отчета!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Сигурни ли сте?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Затвори
+                                        </button>
+                                        <th:block th:if="*{canDelete}">
+                                            <form th:action="@{/orders/{id}(id=*{id})}" th:method="delete">
+                                                <button type="submit" class="btn btn--red btn-dark">Да!</button>
+                                            </form>
+                                        </th:block>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
-<br>
+        </section>
+    </section>
+</section>
+
+
+<!--<div class="container m-md-auto">-->
+<!--    <div class="card">-->
+<!--        <input type="hidden" name="reportId" id="reportId" th:value="${order.id}">-->
+<!--        <div class="card-body" th:object="${order}">-->
+<!--            <h5 class="card-title" th:text="'Name: '+ *{name}">Job 1</h5>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted" th:text="'Added on: ' + *{created}">Added on</h6>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted" th:text="'Deadline: ' + *{deadLine}">Deadline</h6>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted" th:text="'Description: '"></h6>-->
+
+<!--            <textarea class="form-control m-md-auto"-->
+<!--                      rows="5"-->
+<!--                      style="background-color: white;" th:text="*{description}" readonly>Lorem...</textarea>-->
+
+<!--            <br>-->
+<!--            <table class="justify-content-end">-->
+<!--                <tbody>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <th:block th:if="*{isOwner}">-->
+
+<!--                                <form>-->
+<!--                                    <a class="profile-btn btn&#45;&#45;green btn-dark" th:href="@{/orders/{id}/edit(id=*{id})}">Edit</a>-->
+<!--                                </form>-->
+
+<!--                        </th:block>-->
+<!--                    </td>-->
+<!--                    <td>-->
+
+
+<!--                    <td >-->
+
+<!--&lt;!&ndash;                    <button id="myBtn" class="btn btn-danger">Open Modal</button>&ndash;&gt;-->
+
+<!--                    &lt;!&ndash; The Modal &ndash;&gt;-->
+<!--                    <div id="myModal" class="modal">-->
+
+<!--                        &lt;!&ndash; Modal content &ndash;&gt;-->
+<!--                        <div class="modal-content">-->
+<!--                            <span class="close">&times;</span>-->
+<!--                            <h1>Are you sure?</h1>-->
+<!--                            <th:block th:if="*{canDelete}">-->
+<!--                                <form th:action="@{/orders/{id}(id=*{id})}" th:method="delete">-->
+<!--                                    <button type="submit" class="btn btn&#45;&#45;red btn-dark">Yes!</button>-->
+
+<!--                                </form>-->
+
+<!--                            </th:block>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                        <th:block th:if="*{canDelete}">-->
+<!--                            <button id="myBtn" class="profile-btn btn&#45;&#45;red btn&#45;&#45;dark" th:text="Delete"></button>-->
+<!--                        </th:block>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<br>-->
 <script th:src="@{/js/modal.js}"></script>
 
 <footer th:replace="fragments/commons::footer"></footer>

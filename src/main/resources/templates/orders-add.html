@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-
 <head th:include="fragments/commons::head"></head>
 <body class="body-container">
-<header th:replace="fragments/commons::nav"></header>
-<div th:replace="fragments/commons::orders-nav"></div>
+<div th:replace="fragments/commons::orders-nav-add"></div>
 
 <section class="order-add-body-container">
-    <section class="reports-add-nav">
-<!--        <div th:replace="fragments/commons::orders-nav-add"></div>-->
-    </section>
     <section class="orders-add-container">
         <form class="orders-add-form"
               th:action="@{/orders/add}"

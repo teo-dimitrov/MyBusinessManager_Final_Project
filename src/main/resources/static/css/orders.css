@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #72d2e7;
+    background-color: #eeab5d;
     border-radius: 0 75px 15px 0;
     border: solid 2px black;
     border-bottom: dashed 1px black;
@@ -104,7 +104,7 @@ p, h3{
 }
 
 
-.more{
+.order-more-section{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

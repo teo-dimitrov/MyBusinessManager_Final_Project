@@ -10,6 +10,7 @@
     align-self: center;
     margin: 1rem 1rem 1rem 1rem;
     padding: 1rem;
+    color: black;
     background-color: #e3e3e3;
     border-top-right-radius: 10px;
     border-left: 2px solid #000000;
@@ -37,7 +38,7 @@
     padding: 0.5rem;
     border-top-right-radius: 20px;
     color: #000000FF;
-    background-color: #afe2f5;
+    background-color: #eeab5d;
 
     &:focus {
         outline-color: #023f60;
@@ -58,7 +59,7 @@
     padding: 0.5rem;
     border-bottom-right-radius: 20px;
     color: #000000FF;
-    background-color: #afe2f5;
+    background-color: #eeab5d;
 
     &:focus {
         outline-color: #023f60;
@@ -94,7 +95,8 @@
 .order-description-textarea {
     border-top-right-radius: 20px;
     color: #000000FF;
-    background-color: #afe2f5;
+    /*background-color: #afe2f5;*/
+    background-color: #eeab5d;
 
     margin: 0 1rem 1rem 1rem;
     padding: 0 1rem 1rem 1rem;

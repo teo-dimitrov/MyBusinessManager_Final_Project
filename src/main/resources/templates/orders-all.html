@@ -5,7 +5,7 @@
 <head th:include="fragments/commons::head"></head>
 <body class="body-container">
 <header th:replace="fragments/commons::nav"></header>
-<div th:replace="fragments/commons::orders-nav"></div>
+<div th:replace="fragments/commons::orders-nav-all"></div>
 
 <section class="container-orders">
     <section class="order" th:each="o : ${orders}" th:object="${o}">
@@ -13,7 +13,7 @@
         <a class="order-body-link" th:href="@{/orders/{id}/order-details(id=*{id})}" th:alt="response">
             <section class="order-body">
                 <section class="order-name">
-                    <h3>Поръчка:</h3>
+                    <h3>Поръчка от:</h3>
                     <p th:text="*{name}"></p>
                 </section>
 
@@ -22,15 +22,15 @@
                     <p class="date-time" th:text="*{instantStr}"></p>
                 </section>
 
-                <section class="report-edited-on">
-                    <p class="p-text">Редактиран на: </p>
-                    <p class="date-time" ></p>
-                </section>
+<!--                <section class="report-edited-on">-->
+<!--                    <p class="p-text">Редактиран на: </p>-->
+<!--                    <p class="date-time" ></p>-->
+<!--                </section>-->
 
-                <section class="report-added-from">
-                    <p class="p-text">Добавен от: </p>
-                    <p class="date-time"></p>
-                </section>
+<!--                <section class="report-added-from">-->
+<!--                    <p class="p-text">Добавен от: </p>-->
+<!--                    <p class="date-time"></p>-->
+<!--                </section>-->
 
                 <section class="order-deadline">
                     <h3>Краен Срок:</h3>
@@ -50,48 +50,6 @@
         </a>
     </section>
 </section>
-
-
-<!--<div class="container">-->
-
-<!--    <table class="table table-striped table-dark rounded" id="reportsList">-->
-
-<!--    </table>-->
-
-
-<!--    <table class="table table-striped table-dark rounded table-header">-->
-<!--        <thead class="text-muted thead">-->
-
-<!--        <th class="tr-header">-->
-
-<!--            <p>Orders</p>-->
-
-<!--        </th>-->
-
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="o : ${orders}" th:object="${o}">-->
-
-<!--            <td>-->
-<!--                <div class="wrapper">-->
-<!--                <a class="btn text-warning all&#45;&#45;view&#45;&#45;Name"-->
-<!--                          th:text="*{name}"-->
-<!--                          th:href="@{/orders/{id}/order-details(id=*{id})}"-->
-<!--                          th:alt="response"></a>-->
-<!--                </div>-->
-<!--                Added On: <p th:text="*{instantStr}"></p>-->
-<!--                Deadline: <p class="text-danger" th:text="*{deadLine}"></p>-->
-
-
-<!--            </td>-->
-<!--        </tr>-->
-
-<!--        </tbody>-->
-<!--    </table>-->
-
-<!--</div>-->
-<!--<br>-->
-<!--<br>-->
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>
