@@ -29,7 +29,7 @@
     border-top: 2px solid #000000;
 }
 
-.order-details-job_name, .order-deadline, .order-details-type {
+.order-details-job_name, .order-details-deadline, .order-details-type {
     font-size: 1.5rem;
     padding: 0 0 1rem 0;
     margin: 0 1rem 1rem 1rem;

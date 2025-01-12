@@ -10,7 +10,7 @@
     <section class="order-details-section-outer">
         <section class="order-details-section-inner" th:object="${order}">
             <h3 class="order-details-job_name" th:text="'Поръчка от: '+ *{name}">Job 1</h3>
-            <h3 class="order-deadline" th:text="'Краен срок: ' + *{deadLine}">Status</h3>
+            <h3 class="order-details-deadline" th:text="'Краен срок: ' + *{deadLine}">Status</h3>
             <h4 class="order-details-description" th:text="'Описание: '"></h4>
             <textarea class="order-details-textarea"
                       rows="12"
