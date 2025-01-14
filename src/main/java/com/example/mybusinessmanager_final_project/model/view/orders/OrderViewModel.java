@@ -1,8 +1,6 @@
 package com.example.mybusinessmanager_final_project.model.view.orders;
 
 
-import lombok.Getter;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,8 +10,21 @@ public class OrderViewModel {
     private Long id;
     private String name;
     private Instant created;
-    @Getter
     private LocalDateTime deadLine;
+
+    public LocalDateTime getDeadLine() {
+        return deadLine;
+    }
+
+    public String getDeadlineStr() {
+        return deadlineStr;
+    }
+
+    public OrderViewModel setDeadlineStr(String deadlineStr) {
+        this.deadlineStr = deadlineStr;
+        return this;
+    }
+
     private String instantStr;
     final static DateTimeFormatter CUSTOM_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     private String deadlineStr;

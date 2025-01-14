@@ -1,36 +1,102 @@
-.btn-overtime-nav{
-    font-size: 1.4rem;
-    padding: 0.3rem 0.7rem;
-    margin: 0.5rem 0.3rem;
-    background-color: #687179;
-    font-weight: bold;
-    color: #e7eaea;
-    border: solid 0.1rem;
-    border-bottom-right-radius: 30px 10px;
-    border-bottom-left-radius: 30px 30px;
 
-}
-.btn-overtime-nav:hover{
-    text-decoration: none;
-    background-color: #888888;
-    color: #ffffff;
+.overtime-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
 }
 
-.btn-overtime-nav-active{
-    background-color: #888888;
-    color: #f38700;
-}
-
-.overtime-header-nav{
+.overtime-nav section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
-}
-.overtime-nav{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
     justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
 }
+
+.overtime-navbar-button {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0 2rem 0 2rem;
+    border: 1px solid #bbb9b9;
+    box-shadow: #3f3f40 0.2rem 0.3rem;
+}
+
+.overtime-nav a {
+    text-decoration: none;
+    text-shadow: 50px 30px 150px #6bef39;
+}
+
+/*.orders-navbar-btn-left {*/
+/*    border-top-left-radius: 20px;*/
+/*    border-bottom-left-radius: 20px;*/
+
+/*}*/
+
+/*.orders-navbar-btn-right {*/
+/*    border-top-right-radius: 20px;*/
+/*    border-bottom-right-radius: 20px;*/
+/*}*/
+
+.overtime-navbar-button{
+    background-color: #343a40;
+    color: white;
+    transition: 1s;
+
+    &:hover {
+        background-color: #fdfdfd;
+        color: black;
+        border: 1px solid #6bef39;
+    }
+    &:focus{
+        outline: none;
+
+    }
+    &:active{
+        outline: none;
+
+    }
+
+}
+
+
+
+
+
+/*.btn-overtime-nav{*/
+/*    font-size: 1.4rem;*/
+/*    padding: 0.3rem 0.7rem;*/
+/*    margin: 0.5rem 0.3rem;*/
+/*    background-color: #687179;*/
+/*    font-weight: bold;*/
+/*    color: #e7eaea;*/
+/*    border: solid 0.1rem;*/
+/*    border-bottom-right-radius: 30px 10px;*/
+/*    border-bottom-left-radius: 30px 30px;*/
+
+/*}*/
+/*.btn-overtime-nav:hover{*/
+/*    text-decoration: none;*/
+/*    background-color: #888888;*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*.btn-overtime-nav-active{*/
+/*    background-color: #888888;*/
+/*    color: #f38700;*/
+/*}*/
+
+/*.overtime-header-nav{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    align-content: flex-start;*/
+/*}*/
+/*.overtime-nav{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    align-content: center;*/
+/*    justify-content: center;*/
+/*}*/

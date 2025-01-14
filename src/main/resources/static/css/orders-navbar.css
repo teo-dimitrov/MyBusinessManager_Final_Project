@@ -46,6 +46,12 @@
     &:hover {
         background-color: #fdfdfd;
         color: black;
-        border: 2px solid #eeab5d;
+        border: 1px solid #eeab5d;
+    }
+    &:focus{
+        outline: none;
+    }
+    &:active{
+        outline: none;
     }
 }

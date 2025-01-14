@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
-
 <head th:include="fragments/commons::head"></head>
-
-<!--<body class="d-flex flex-column" id="body">-->
 <body class="body-container">
-
 <header th:replace="fragments/commons::nav"></header>
-<div th:replace="fragments/commons::profile"></div>
+
 <section class="container-profile">
 
-
     <section class="section-main">
-
         <section class="overtime-header-nav">
-            <h4><span class="h4-currentPage">My Profile</span></h4>
-<!--            <section class="overtime-nav">-->
-<!--                    <a type="button" class="btn-overtime-nav" href="/overtime">Add Overtime</a>-->
-<!--                    <a type="button" class="btn-overtime-nav" href="/overtimes">All Overtime</a>-->
-<!--            </section>-->
-
-
+            <h4><span class="h4-currentPage">Моят Профил</span></h4>
         </section>
-
-
-
-
     </section>
+
     <aside class="aside" th:object="${user}">
-
-        <div class="user-data-field" th:text="'username: '+ *{username}">username: Test</div>
-        <div class="user-data-field" th:text="'First Name: ' + *{firstName}">First Name: Test</div>
-        <div class="user-data-field" th:text="'Last Name: ' + *{lastName}">Last Name: Test</div>
+        <div class="user-data-field" th:text="'Потребителско име: '+ *{username}"></div>
+        <div class="user-data-field" th:text="'Име: ' + *{firstName}">First Name: Test</div>
+        <div class="user-data-field" th:text="'Фамилия: ' + *{lastName}">Last Name: Test</div>
         <div class="user-data-field" th:text="'Email: ' + *{email}">Email: Test</div>
-        <a href="/users/profile/changePassword" class="btn-user-data-field">Change Password</a>
-        <a href="/users/profile/user-settings" class="btn-user-data-field">Settings</a>
-
+        <a href="/users/profile/changePassword" class="btn-user-data-field">Смени Парола</a>
+        <a href="/users/profile/user-settings" class="btn-user-data-field">Промени Данните</a>
     </aside>
-
-
 </section>
 
-<script th:src="@{/js/overtimes.js}"></script>
 <footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

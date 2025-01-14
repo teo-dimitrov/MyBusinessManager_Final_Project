@@ -16,7 +16,21 @@
 @import url("navbar.css");
 @import url("overtime-nav.css");
 @import url("overtime.css");
+@import url("overtime-add.css");
 
+/*@font-face {*/
+/*    font-family: "linea-basic-10";*/
+/*    src: url("fonts/linea-basic-10.eot");*/
+/*    src: url("fonts/linea-basic-10.eot?#iefix") format("embedded-opentype"), url("fonts/linea-basic-10.woff") format("woff"), url("fonts/linea-basic-10.ttf") format("truetype"), url("fonts/linea-basic-10.svg#linea-basic-10") format("svg");*/
+/*    font-weight: normal;*/
+/*    font-style: normal*/
+/*}*/
+body {
+    font-family: "Lato", sans-serif;
+     /*font-weight: 400;*/
+    line-height: 1.7;
+    color: #777
+}
 
 .body-container{
     height: 100vh;
@@ -27,7 +41,7 @@
     padding: 0;
 
 }
-
+/* reports and orders btn active */
 .navbar-btn-active{
     background-color: white;
     color: black;

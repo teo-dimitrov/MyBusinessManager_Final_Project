@@ -35,13 +35,6 @@ dependencies {
     implementation 'org.springframework.security:spring-security-crypto:5.5.2'
     implementation 'org.modelmapper:modelmapper:2.4.4'
 
-//lombok
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
 
 }
 
